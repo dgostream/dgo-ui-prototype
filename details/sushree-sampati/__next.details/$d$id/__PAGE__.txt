@@ -1,0 +1,8 @@
+1:"$Sreact.fragment"
+2:"$Sreact.suspense"
+3:I[301805,["/dgo-ui-prototype/_next/static/chunks/0fb81166e39c4537.js","/dgo-ui-prototype/_next/static/chunks/bacac56a4e113c49.js","/dgo-ui-prototype/_next/static/chunks/076760d9dcacc64e.js","/dgo-ui-prototype/_next/static/chunks/cff397bd74fecc50.js","/dgo-ui-prototype/_next/static/chunks/dd54e23c91211ef2.js"],"default"]
+6:I[897367,["/dgo-ui-prototype/_next/static/chunks/d96012bcfc98706a.js","/dgo-ui-prototype/_next/static/chunks/963c71eec1d89c3f.js"],"OutletBoundary"]
+0:{"buildId":"41glf2oMNK_Y4ERCe0YYN","rsc":["$","$1","c",{"children":[["$","$2",null,{"fallback":["$","div",null,{"className":"min-h-screen bg-black"}],"children":["$","$L3",null,{"params":"$@4","searchParams":"$@5"}]}],[["$","script","script-0",{"src":"/dgo-ui-prototype/_next/static/chunks/cff397bd74fecc50.js","async":true}],["$","script","script-1",{"src":"/dgo-ui-prototype/_next/static/chunks/dd54e23c91211ef2.js","async":true}]],["$","$L6",null,{"children":["$","$2",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"loading":null,"isPartial":false}
+4:{"id":"sushree-sampati"}
+5:{}
+7:null
