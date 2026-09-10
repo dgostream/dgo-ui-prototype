@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/utils/cn";
+import { publicUrl } from "@/utils/asset";
 
 const DEFAULT_SPONSOR_NAME = "Khalti IME";
 const DEFAULT_SPONSOR_LOGO = "/khalti-ime-full.png";
@@ -35,7 +36,7 @@ export default function SponsorSpot({
   bannerAlt = "",
 }: SponsorSpotProps) {
   const [heroLogoFailed, setHeroLogoFailed] = useState(false);
-  const heroLogoUrl = heroLogoSrc ?? DEFAULT_SPONSOR_LOGO;
+  const heroLogoUrl = publicUrl(heroLogoSrc ?? DEFAULT_SPONSOR_LOGO);
 
   if (bannerImageSrc) {
     return (

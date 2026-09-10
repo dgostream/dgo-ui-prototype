@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { cn } from "@/utils/cn";
+import { publicUrl } from "@/utils/asset";
 import {
   DEV_REGION_EVENT,
   SESSION_PVOD,
@@ -328,7 +329,7 @@ function PaymentMethodIcon({
       )}
     >
       <img
-        src={src}
+        src={publicUrl(src)}
         alt=""
         className="h-full w-full object-contain p-1"
         onError={() => setFailed(true)}
@@ -493,7 +494,7 @@ function JoinPageInner() {
                   ? "Add time or upgrade"
                   : "Choose a plan"}
           </span>
-          <img src="/dgo-logo-new.png" alt="DGO" className="h-7 md:h-9 w-auto object-contain opacity-70 shrink-0" />
+          <img src={publicUrl("/dgo-logo-new.png")} alt="DGO" className="h-7 md:h-9 w-auto object-contain opacity-70 shrink-0" />
         </div>
 
         {kind && step < maxStep ? (
@@ -1108,7 +1109,7 @@ function BrandMark({
 }) {
   return (
     <img
-      src={src}
+      src={publicUrl(src)}
       alt={alt}
       className={cn("h-5 w-auto max-w-none shrink-0 overflow-visible object-contain", invert && "brightness-0 invert", className)}
     />
@@ -1141,7 +1142,7 @@ function LinkPayLogo({ className = "h-7" }: { className?: string }) {
 function WooMark({ src, alt, className }: { src: string; alt: string; className?: string }) {
   return (
     <img
-      src={src}
+      src={publicUrl(src)}
       alt={alt}
       className={cn("h-8 w-auto shrink-0 object-contain drop-shadow-sm", className)}
     />

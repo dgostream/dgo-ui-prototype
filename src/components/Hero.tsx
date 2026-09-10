@@ -5,6 +5,7 @@ import { Play, Info, Volume2, VolumeX, ChevronLeft, ChevronRight, Crown } from "
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/utils/cn";
+import { publicUrl } from "@/utils/asset";
 import { getHeroContent, ContentItem, isFifaLabeled } from "@/utils/content";
 import { useTranslated } from "@/components/Translate";
 import { isPartnerTab, PARTNER_BRANDS } from "@/utils/partnerBrands";
@@ -127,7 +128,7 @@ export default function Hero({ tab, items, headerAd }: HeroProps) {
                 />
               ) : (
                 <div className="w-full h-full bg-brand-secondary flex items-center justify-center">
-                  <img src="/ios-icon.png" alt="DGO" className="w-[12%] h-auto object-contain opacity-[0.06]" />
+                  <img src={publicUrl("/ios-icon.png")} alt="DGO" className="w-[12%] h-auto object-contain opacity-[0.06]" />
                 </div>
               )}
             </motion.div>

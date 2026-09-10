@@ -607,6 +607,22 @@ export const DEMO_FALLBACK_VIDEO = "/DGO Splash v4.mp4";
 /** Stable demo trailer slug for /watch */
 export const DEMO_TRAILER_CONTENT_ID = "dgo-demo-trailer";
 
+export function getStaticContentIds(): string[] {
+  const ids = new Set<string>([DEMO_TRAILER_CONTENT_ID]);
+  for (const sections of Object.values(HARDCODED_SECTIONS)) {
+    for (const section of sections) {
+      for (const item of section.items || []) {
+        const id = String(item.title || "")
+          .toLowerCase()
+          .replace(/\s+/g, "-")
+          .replace(/[^a-z0-9-]/g, "");
+        if (id) ids.add(id);
+      }
+    }
+  }
+  return [...ids];
+}
+
 const partnerAccentForSection = (sectionTitle: string) => {
   const key = sectionTitle.toLowerCase();
   if (key.includes("osr")) return "#E10600";

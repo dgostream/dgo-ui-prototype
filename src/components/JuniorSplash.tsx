@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Smile, Star, Heart, Cloud, Rocket } from "lucide-react";
+import { publicUrl } from "@/utils/asset";
 
 const RocketSVG = () => (
   <motion.svg
@@ -169,7 +170,7 @@ export default function JuniorSplash({ onComplete }: { onComplete: () => void })
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ type: "spring", delay: 0.5 }}
-            src="/dgo-logo-new.png" 
+            src={publicUrl("/dgo-logo-new.png")} 
             alt="DGO" 
             className="h-16 md:h-20 w-auto object-contain brightness-0 invert" 
           />

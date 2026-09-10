@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Play, Plus, Share2, Info, Star, Clock, Flame, Users, TrendingUp, Zap } from "lucide-react";
 import { cn } from "@/utils/cn";
+import { publicUrl } from "@/utils/asset";
 
 import { useRouter } from "next/navigation";
 import { getContentById } from "@/utils/content";
@@ -86,7 +87,7 @@ export default function DetailModal({ isOpen, onClose, fromTab, content: initial
               />
             ) : (
               <div className="absolute inset-0 flex items-center justify-center">
-                <img src="/ios-icon.png" alt="DGO" className="w-1/3 h-auto object-contain opacity-[0.07]" />
+                <img src={publicUrl("/ios-icon.png")} alt="DGO" className="w-1/3 h-auto object-contain opacity-[0.07]" />
               </div>
             )}
             <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent md:bg-linear-to-r md:from-black md:via-transparent md:to-transparent" />
@@ -133,7 +134,7 @@ export default function DetailModal({ isOpen, onClose, fromTab, content: initial
                 </div>
               ) : (
                 <div className="flex aspect-2/3 w-18 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 sm:w-20">
-                  <img src="/ios-icon.png" alt="" className="h-8 w-8 opacity-20" />
+                  <img src={publicUrl("/ios-icon.png")} alt="" className="h-8 w-8 opacity-20" />
                 </div>
               )}
               <div className="min-w-0 flex-1 pr-9 pt-0.5">

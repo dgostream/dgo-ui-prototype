@@ -48,3 +48,4 @@ coverage
 *.log
 .turbo
 public/Flags.svg.zip
+.gh-pages-park

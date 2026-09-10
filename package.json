@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:pages": "node scripts/build-gh-pages.mjs"
   },
   "dependencies": {
     "@sanity/image-url": "^2.0.3",

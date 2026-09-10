@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, Bell, X, User } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 import { cn } from "@/utils/cn";
+import { publicUrl } from "@/utils/asset";
 import { clearPaywallUnlocks } from "@/utils/paywall";
 import { tabs, DEFAULT_HOME_TAB } from "./navTabs";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -104,7 +105,7 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
             whileTap={{ scale: 0.97 }}
             className="cursor-pointer shrink-0"
           >
-            <img src="/dgo-logo-new.png" alt="DGO" className="h-9 w-auto object-contain" />
+            <img src={publicUrl("/dgo-logo-new.png")} alt="DGO" className="h-9 w-auto object-contain" />
           </motion.div>
           <div className="flex items-center gap-2 shrink-0">
             <LanguageSwitcher />
@@ -132,7 +133,7 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
                 whileHover={{ scale: 1.05 }}
                 className="cursor-pointer"
               >
-                <img src="/dgo-logo-new.png" alt="DGO" className="h-10 lg:h-14 w-auto object-contain" />
+                <img src={publicUrl("/dgo-logo-new.png")} alt="DGO" className="h-10 lg:h-14 w-auto object-contain" />
               </motion.div>
 
               <div className="flex items-center gap-1">

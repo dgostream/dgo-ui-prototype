@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { publicUrl } from "@/utils/asset";
 import { useEffect, useState, useRef } from "react";
 
 const SPLASH_LANDSCAPE = "/DGO Splash v4.mp4";
@@ -11,7 +12,7 @@ export default function Splash({ onComplete }: { onComplete: () => void }) {
   const [isPortrait, setIsPortrait] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const activeSrc = isPortrait ? SPLASH_PORTRAIT : SPLASH_LANDSCAPE;
+  const activeSrc = publicUrl(isPortrait ? SPLASH_PORTRAIT : SPLASH_LANDSCAPE);
 
   useEffect(() => {
     const mq = window.matchMedia("(orientation: portrait)");
