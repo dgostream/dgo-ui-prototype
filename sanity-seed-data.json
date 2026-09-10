@@ -1,0 +1,3357 @@
+[
+  {
+    "_type": "movie",
+    "title": "After Math",
+    "slug": {
+      "_type": "slug",
+      "current": "after-math"
+    },
+    "subtitle": "A great Hindi Dubbed movie",
+    "desc": "This is a placeholder description for the movie \"After Math\". It belongs to the Hindi Dubbed category.",
+    "tag": "Hindi Dubbed",
+    "year": "2016",
+    "rating": "5.3",
+    "duration": "147 min",
+    "targetTab": "entertainment",
+    "rowName": "Hindi Dubbed",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "24 Hours To Live",
+    "slug": {
+      "_type": "slug",
+      "current": "24-hours-to-live"
+    },
+    "subtitle": "A great Hindi Dubbed movie",
+    "desc": "This is a placeholder description for the movie \"24 Hours To Live\". It belongs to the Hindi Dubbed category.",
+    "tag": "Hindi Dubbed",
+    "year": "2022",
+    "rating": "7",
+    "duration": "110 min",
+    "targetTab": "entertainment",
+    "rowName": "Hindi Dubbed",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Imitation Game",
+    "slug": {
+      "_type": "slug",
+      "current": "imitation-game"
+    },
+    "subtitle": "A great Hindi Dubbed movie",
+    "desc": "This is a placeholder description for the movie \"Imitation Game\". It belongs to the Hindi Dubbed category.",
+    "tag": "Hindi Dubbed",
+    "year": "2023",
+    "rating": "7.2",
+    "duration": "99 min",
+    "targetTab": "entertainment",
+    "rowName": "Hindi Dubbed",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Killing Them Softly",
+    "slug": {
+      "_type": "slug",
+      "current": "killing-them-softly"
+    },
+    "subtitle": "A great Hindi Dubbed movie",
+    "desc": "This is a placeholder description for the movie \"Killing Them Softly\". It belongs to the Hindi Dubbed category.",
+    "tag": "Hindi Dubbed",
+    "year": "2016",
+    "rating": "5.4",
+    "duration": "88 min",
+    "targetTab": "entertainment",
+    "rowName": "Hindi Dubbed",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "47 Meters Down",
+    "slug": {
+      "_type": "slug",
+      "current": "47-meters-down"
+    },
+    "subtitle": "A great Hindi Dubbed movie",
+    "desc": "This is a placeholder description for the movie \"47 Meters Down\". It belongs to the Hindi Dubbed category.",
+    "tag": "Hindi Dubbed",
+    "year": "2021",
+    "rating": "7.5",
+    "duration": "104 min",
+    "targetTab": "entertainment",
+    "rowName": "Hindi Dubbed",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true
+  },
+  {
+    "_type": "movie",
+    "title": "Cold Pursuit",
+    "slug": {
+      "_type": "slug",
+      "current": "cold-pursuit"
+    },
+    "subtitle": "A great Hindi Dubbed movie",
+    "desc": "This is a placeholder description for the movie \"Cold Pursuit\". It belongs to the Hindi Dubbed category.",
+    "tag": "Hindi Dubbed",
+    "year": "2019",
+    "rating": "7",
+    "duration": "141 min",
+    "targetTab": "entertainment",
+    "rowName": "Hindi Dubbed",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Adrift",
+    "slug": {
+      "_type": "slug",
+      "current": "adrift"
+    },
+    "subtitle": "A great Hindi Dubbed movie",
+    "desc": "This is a placeholder description for the movie \"Adrift\". It belongs to the Hindi Dubbed category.",
+    "tag": "Hindi Dubbed",
+    "year": "2022",
+    "rating": "8.4",
+    "duration": "121 min",
+    "targetTab": "entertainment",
+    "rowName": "Hindi Dubbed",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "The Lost City of Z",
+    "slug": {
+      "_type": "slug",
+      "current": "the-lost-city-of-z"
+    },
+    "subtitle": "A great Hindi Dubbed movie",
+    "desc": "This is a placeholder description for the movie \"The Lost City of Z\". It belongs to the Hindi Dubbed category.",
+    "tag": "Hindi Dubbed",
+    "year": "2015",
+    "rating": "6.7",
+    "duration": "82 min",
+    "targetTab": "entertainment",
+    "rowName": "Hindi Dubbed",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Kalo Barsa",
+    "slug": {
+      "_type": "slug",
+      "current": "kalo-barsa"
+    },
+    "subtitle": "A great Nepali Movies movie",
+    "desc": "This is a placeholder description for the movie \"Kalo Barsa\". It belongs to the Nepali Movies category.",
+    "tag": "Nepali Movies",
+    "year": "2019",
+    "rating": "7.2",
+    "duration": "140 min",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Mann Manai Manparaye",
+    "slug": {
+      "_type": "slug",
+      "current": "mann-manai-manparaye"
+    },
+    "subtitle": "A great Nepali Movies movie",
+    "desc": "This is a placeholder description for the movie \"Mann Manai Manparaye\". It belongs to the Nepali Movies category.",
+    "tag": "Nepali Movies",
+    "year": "2020",
+    "rating": "9.4",
+    "duration": "143 min",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Bhagya Aa Afno",
+    "slug": {
+      "_type": "slug",
+      "current": "bhagya-aa-afno"
+    },
+    "subtitle": "A great Nepali Movies movie",
+    "desc": "This is a placeholder description for the movie \"Bhagya Aa Afno\". It belongs to the Nepali Movies category.",
+    "tag": "Nepali Movies",
+    "year": "2017",
+    "rating": "7.4",
+    "duration": "113 min",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Hasideu Ek Fera",
+    "slug": {
+      "_type": "slug",
+      "current": "hasideu-ek-fera"
+    },
+    "subtitle": "A great Nepali Movies movie",
+    "desc": "This is a placeholder description for the movie \"Hasideu Ek Fera\". It belongs to the Nepali Movies category.",
+    "tag": "Nepali Movies",
+    "year": "2017",
+    "rating": "5",
+    "duration": "84 min",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Teen Ghumti",
+    "slug": {
+      "_type": "slug",
+      "current": "teen-ghumti"
+    },
+    "subtitle": "A great Nepali Movies movie",
+    "desc": "This is a placeholder description for the movie \"Teen Ghumti\". It belongs to the Nepali Movies category.",
+    "tag": "Nepali Movies",
+    "year": "2024",
+    "rating": "9.1",
+    "duration": "103 min",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Dhamakaa",
+    "slug": {
+      "_type": "slug",
+      "current": "dhamakaa"
+    },
+    "subtitle": "A great Nepali Movies movie",
+    "desc": "This is a placeholder description for the movie \"Dhamakaa\". It belongs to the Nepali Movies category.",
+    "tag": "Nepali Movies",
+    "year": "2016",
+    "rating": "6.5",
+    "duration": "93 min",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Accident",
+    "slug": {
+      "_type": "slug",
+      "current": "accident"
+    },
+    "subtitle": "A great Nepali Movies movie",
+    "desc": "This is a placeholder description for the movie \"Accident\". It belongs to the Nepali Movies category.",
+    "tag": "Nepali Movies",
+    "year": "2024",
+    "rating": "9.4",
+    "duration": "130 min",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true
+  },
+  {
+    "_type": "movie",
+    "title": "Eklavya",
+    "slug": {
+      "_type": "slug",
+      "current": "eklavya"
+    },
+    "subtitle": "A great Nepali Movies movie",
+    "desc": "This is a placeholder description for the movie \"Eklavya\". It belongs to the Nepali Movies category.",
+    "tag": "Nepali Movies",
+    "year": "2020",
+    "rating": "6.3",
+    "duration": "118 min",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Sir Billi",
+    "slug": {
+      "_type": "slug",
+      "current": "sir-billi"
+    },
+    "subtitle": "A great Kids movie",
+    "desc": "This is a placeholder description for the movie \"Sir Billi\". It belongs to the Kids category.",
+    "tag": "Kids",
+    "year": "2017",
+    "rating": "8.3",
+    "duration": "122 min",
+    "targetTab": "junior",
+    "rowName": "Kids",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Atomicron",
+    "slug": {
+      "_type": "slug",
+      "current": "atomicron"
+    },
+    "subtitle": "A great Kids movie",
+    "desc": "This is a placeholder description for the movie \"Atomicron\". It belongs to the Kids category.",
+    "tag": "Kids",
+    "year": "2015",
+    "rating": "6.8",
+    "duration": "147 min",
+    "targetTab": "junior",
+    "rowName": "Kids",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Dinofroz The Origin",
+    "slug": {
+      "_type": "slug",
+      "current": "dinofroz-the-origin"
+    },
+    "subtitle": "A great Kids movie",
+    "desc": "This is a placeholder description for the movie \"Dinofroz The Origin\". It belongs to the Kids category.",
+    "tag": "Kids",
+    "year": "2024",
+    "rating": "6.1",
+    "duration": "126 min",
+    "targetTab": "junior",
+    "rowName": "Kids",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Boonie Bears Homeward Journey",
+    "slug": {
+      "_type": "slug",
+      "current": "boonie-bears-homeward-journey"
+    },
+    "subtitle": "A great Kids movie",
+    "desc": "This is a placeholder description for the movie \"Boonie Bears Homeward Journey\". It belongs to the Kids category.",
+    "tag": "Kids",
+    "year": "2017",
+    "rating": "7.8",
+    "duration": "126 min",
+    "targetTab": "junior",
+    "rowName": "Kids",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Felix All Around The World",
+    "slug": {
+      "_type": "slug",
+      "current": "felix-all-around-the-world"
+    },
+    "subtitle": "A great Kids movie",
+    "desc": "This is a placeholder description for the movie \"Felix All Around The World\". It belongs to the Kids category.",
+    "tag": "Kids",
+    "year": "2024",
+    "rating": "5.7",
+    "duration": "146 min",
+    "targetTab": "junior",
+    "rowName": "Kids",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Gormiti All For One",
+    "slug": {
+      "_type": "slug",
+      "current": "gormiti-all-for-one"
+    },
+    "subtitle": "A great Kids movie",
+    "desc": "This is a placeholder description for the movie \"Gormiti All For One\". It belongs to the Kids category.",
+    "tag": "Kids",
+    "year": "2021",
+    "rating": "5.3",
+    "duration": "87 min",
+    "targetTab": "junior",
+    "rowName": "Kids",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Angel's Friends",
+    "slug": {
+      "_type": "slug",
+      "current": "angels-friends"
+    },
+    "subtitle": "A great Kids movie",
+    "desc": "This is a placeholder description for the movie \"Angel's Friends\". It belongs to the Kids category.",
+    "tag": "Kids",
+    "year": "2023",
+    "rating": "8.6",
+    "duration": "125 min",
+    "targetTab": "junior",
+    "rowName": "Kids",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Cinderella",
+    "slug": {
+      "_type": "slug",
+      "current": "cinderella"
+    },
+    "subtitle": "A great Kids movie",
+    "desc": "This is a placeholder description for the movie \"Cinderella\". It belongs to the Kids category.",
+    "tag": "Kids",
+    "year": "2017",
+    "rating": "6.2",
+    "duration": "109 min",
+    "targetTab": "junior",
+    "rowName": "Kids",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Kalo Dhan- Part 1",
+    "slug": {
+      "_type": "slug",
+      "current": "kalo-dhan-part-1"
+    },
+    "subtitle": "A great Short Movies movie",
+    "desc": "This is a placeholder description for the movie \"Kalo Dhan- Part 1\". It belongs to the Short Movies category.",
+    "tag": "Short Movies",
+    "year": "2015",
+    "rating": "5.1",
+    "duration": "136 min",
+    "targetTab": "entertainment",
+    "rowName": "Short Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Kalo Dhan- Part 2",
+    "slug": {
+      "_type": "slug",
+      "current": "kalo-dhan-part-2"
+    },
+    "subtitle": "A great Short Movies movie",
+    "desc": "This is a placeholder description for the movie \"Kalo Dhan- Part 2\". It belongs to the Short Movies category.",
+    "tag": "Short Movies",
+    "year": "2023",
+    "rating": "5.4",
+    "duration": "130 min",
+    "targetTab": "entertainment",
+    "rowName": "Short Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Makai ko Khoslo",
+    "slug": {
+      "_type": "slug",
+      "current": "makai-ko-khoslo"
+    },
+    "subtitle": "A great Short Movies movie",
+    "desc": "This is a placeholder description for the movie \"Makai ko Khoslo\". It belongs to the Short Movies category.",
+    "tag": "Short Movies",
+    "year": "2017",
+    "rating": "8.3",
+    "duration": "139 min",
+    "targetTab": "entertainment",
+    "rowName": "Short Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Sanjaal",
+    "slug": {
+      "_type": "slug",
+      "current": "sanjaal"
+    },
+    "subtitle": "A great Short Movies movie",
+    "desc": "This is a placeholder description for the movie \"Sanjaal\". It belongs to the Short Movies category.",
+    "tag": "Short Movies",
+    "year": "2015",
+    "rating": "8.6",
+    "duration": "134 min",
+    "targetTab": "entertainment",
+    "rowName": "Short Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "A Slap",
+    "slug": {
+      "_type": "slug",
+      "current": "a-slap"
+    },
+    "subtitle": "A great Short Movies movie",
+    "desc": "This is a placeholder description for the movie \"A Slap\". It belongs to the Short Movies category.",
+    "tag": "Short Movies",
+    "year": "2017",
+    "rating": "8.1",
+    "duration": "125 min",
+    "targetTab": "entertainment",
+    "rowName": "Short Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Aasha",
+    "slug": {
+      "_type": "slug",
+      "current": "aasha"
+    },
+    "subtitle": "A great Short Movies movie",
+    "desc": "This is a placeholder description for the movie \"Aasha\". It belongs to the Short Movies category.",
+    "tag": "Short Movies",
+    "year": "2024",
+    "rating": "7.9",
+    "duration": "141 min",
+    "targetTab": "entertainment",
+    "rowName": "Short Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Antaheen",
+    "slug": {
+      "_type": "slug",
+      "current": "antaheen"
+    },
+    "subtitle": "A great Short Movies movie",
+    "desc": "This is a placeholder description for the movie \"Antaheen\". It belongs to the Short Movies category.",
+    "tag": "Short Movies",
+    "year": "2019",
+    "rating": "6.9",
+    "duration": "118 min",
+    "targetTab": "entertainment",
+    "rowName": "Short Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Unpolished",
+    "slug": {
+      "_type": "slug",
+      "current": "unpolished"
+    },
+    "subtitle": "A great Short Movies movie",
+    "desc": "This is a placeholder description for the movie \"Unpolished\". It belongs to the Short Movies category.",
+    "tag": "Short Movies",
+    "year": "2023",
+    "rating": "6.6",
+    "duration": "147 min",
+    "targetTab": "entertainment",
+    "rowName": "Short Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Stealing  Las Vegas",
+    "slug": {
+      "_type": "slug",
+      "current": "stealing-las-vegas"
+    },
+    "subtitle": "A great English Movies movie",
+    "desc": "This is a placeholder description for the movie \"Stealing  Las Vegas\". It belongs to the English Movies category.",
+    "tag": "English Movies",
+    "year": "2023",
+    "rating": "6.3",
+    "duration": "85 min",
+    "targetTab": "entertainment",
+    "rowName": "English Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true
+  },
+  {
+    "_type": "movie",
+    "title": "Love Finds You In Valentine",
+    "slug": {
+      "_type": "slug",
+      "current": "love-finds-you-in-valentine"
+    },
+    "subtitle": "A great English Movies movie",
+    "desc": "This is a placeholder description for the movie \"Love Finds You In Valentine\". It belongs to the English Movies category.",
+    "tag": "English Movies",
+    "year": "2016",
+    "rating": "6.3",
+    "duration": "128 min",
+    "targetTab": "entertainment",
+    "rowName": "English Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Diamond Cartel",
+    "slug": {
+      "_type": "slug",
+      "current": "diamond-cartel"
+    },
+    "subtitle": "A great English Movies movie",
+    "desc": "This is a placeholder description for the movie \"Diamond Cartel\". It belongs to the English Movies category.",
+    "tag": "English Movies",
+    "year": "2020",
+    "rating": "7.5",
+    "duration": "124 min",
+    "targetTab": "entertainment",
+    "rowName": "English Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Born 2 Race",
+    "slug": {
+      "_type": "slug",
+      "current": "born-2-race"
+    },
+    "subtitle": "A great English Movies movie",
+    "desc": "This is a placeholder description for the movie \"Born 2 Race\". It belongs to the English Movies category.",
+    "tag": "English Movies",
+    "year": "2017",
+    "rating": "8.7",
+    "duration": "119 min",
+    "targetTab": "entertainment",
+    "rowName": "English Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Battle for Skyark",
+    "slug": {
+      "_type": "slug",
+      "current": "battle-for-skyark"
+    },
+    "subtitle": "A great English Movies movie",
+    "desc": "This is a placeholder description for the movie \"Battle for Skyark\". It belongs to the English Movies category.",
+    "tag": "English Movies",
+    "year": "2020",
+    "rating": "5.8",
+    "duration": "124 min",
+    "targetTab": "entertainment",
+    "rowName": "English Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Iron Fan",
+    "slug": {
+      "_type": "slug",
+      "current": "iron-fan"
+    },
+    "subtitle": "A great English Movies movie",
+    "desc": "This is a placeholder description for the movie \"Iron Fan\". It belongs to the English Movies category.",
+    "tag": "English Movies",
+    "year": "2023",
+    "rating": "8.1",
+    "duration": "115 min",
+    "targetTab": "entertainment",
+    "rowName": "English Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Trust No 1",
+    "slug": {
+      "_type": "slug",
+      "current": "trust-no-1"
+    },
+    "subtitle": "A great English Movies movie",
+    "desc": "This is a placeholder description for the movie \"Trust No 1\". It belongs to the English Movies category.",
+    "tag": "English Movies",
+    "year": "2020",
+    "rating": "5.3",
+    "duration": "108 min",
+    "targetTab": "entertainment",
+    "rowName": "English Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Anti Matter",
+    "slug": {
+      "_type": "slug",
+      "current": "anti-matter"
+    },
+    "subtitle": "A great English Movies movie",
+    "desc": "This is a placeholder description for the movie \"Anti Matter\". It belongs to the English Movies category.",
+    "tag": "English Movies",
+    "year": "2020",
+    "rating": "5.1",
+    "duration": "84 min",
+    "targetTab": "entertainment",
+    "rowName": "English Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Arpachai",
+    "slug": {
+      "_type": "slug",
+      "current": "arpachai"
+    },
+    "subtitle": "A great Iranian Originals movie",
+    "desc": "This is a placeholder description for the movie \"Arpachai\". It belongs to the Iranian Originals category.",
+    "tag": "Iranian Originals",
+    "year": "2023",
+    "rating": "7.2",
+    "duration": "133 min",
+    "targetTab": "entertainment",
+    "rowName": "Iranian Originals",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true
+  },
+  {
+    "_type": "movie",
+    "title": "Big North",
+    "slug": {
+      "_type": "slug",
+      "current": "big-north"
+    },
+    "subtitle": "A great Iranian Originals movie",
+    "desc": "This is a placeholder description for the movie \"Big North\". It belongs to the Iranian Originals category.",
+    "tag": "Iranian Originals",
+    "year": "2016",
+    "rating": "7.9",
+    "duration": "85 min",
+    "targetTab": "entertainment",
+    "rowName": "Iranian Originals",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Heart for an eyes",
+    "slug": {
+      "_type": "slug",
+      "current": "heart-for-an-eyes"
+    },
+    "subtitle": "A great Iranian Originals movie",
+    "desc": "This is a placeholder description for the movie \"Heart for an eyes\". It belongs to the Iranian Originals category.",
+    "tag": "Iranian Originals",
+    "year": "2019",
+    "rating": "6",
+    "duration": "89 min",
+    "targetTab": "entertainment",
+    "rowName": "Iranian Originals",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true
+  },
+  {
+    "_type": "movie",
+    "title": "Ivana the terrible",
+    "slug": {
+      "_type": "slug",
+      "current": "ivana-the-terrible"
+    },
+    "subtitle": "A great Iranian Originals movie",
+    "desc": "This is a placeholder description for the movie \"Ivana the terrible\". It belongs to the Iranian Originals category.",
+    "tag": "Iranian Originals",
+    "year": "2024",
+    "rating": "9.1",
+    "duration": "91 min",
+    "targetTab": "entertainment",
+    "rowName": "Iranian Originals",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Just 6.5",
+    "slug": {
+      "_type": "slug",
+      "current": "just-65"
+    },
+    "subtitle": "A great Iranian Originals movie",
+    "desc": "This is a placeholder description for the movie \"Just 6.5\". It belongs to the Iranian Originals category.",
+    "tag": "Iranian Originals",
+    "year": "2015",
+    "rating": "5.2",
+    "duration": "135 min",
+    "targetTab": "entertainment",
+    "rowName": "Iranian Originals",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "My Father the Spy",
+    "slug": {
+      "_type": "slug",
+      "current": "my-father-the-spy"
+    },
+    "subtitle": "A great Iranian Originals movie",
+    "desc": "This is a placeholder description for the movie \"My Father the Spy\". It belongs to the Iranian Originals category.",
+    "tag": "Iranian Originals",
+    "year": "2020",
+    "rating": "5.7",
+    "duration": "132 min",
+    "targetTab": "entertainment",
+    "rowName": "Iranian Originals",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Represent",
+    "slug": {
+      "_type": "slug",
+      "current": "represent"
+    },
+    "subtitle": "A great Iranian Originals movie",
+    "desc": "This is a placeholder description for the movie \"Represent\". It belongs to the Iranian Originals category.",
+    "tag": "Iranian Originals",
+    "year": "2017",
+    "rating": "7.2",
+    "duration": "133 min",
+    "targetTab": "entertainment",
+    "rowName": "Iranian Originals",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Show Dancer",
+    "slug": {
+      "_type": "slug",
+      "current": "show-dancer"
+    },
+    "subtitle": "A great Iranian Originals movie",
+    "desc": "This is a placeholder description for the movie \"Show Dancer\". It belongs to the Iranian Originals category.",
+    "tag": "Iranian Originals",
+    "year": "2016",
+    "rating": "5.5",
+    "duration": "89 min",
+    "targetTab": "entertainment",
+    "rowName": "Iranian Originals",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Dil Sajana Ke",
+    "slug": {
+      "_type": "slug",
+      "current": "dil-sajana-ke"
+    },
+    "subtitle": "A great Bhojpuri Movies movie",
+    "desc": "This is a placeholder description for the movie \"Dil Sajana Ke\". It belongs to the Bhojpuri Movies category.",
+    "tag": "Bhojpuri Movies",
+    "year": "2022",
+    "rating": "9.3",
+    "duration": "109 min",
+    "targetTab": "entertainment",
+    "rowName": "Bhojpuri Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true
+  },
+  {
+    "_type": "movie",
+    "title": "Ganga Putra",
+    "slug": {
+      "_type": "slug",
+      "current": "ganga-putra"
+    },
+    "subtitle": "A great Bhojpuri Movies movie",
+    "desc": "This is a placeholder description for the movie \"Ganga Putra\". It belongs to the Bhojpuri Movies category.",
+    "tag": "Bhojpuri Movies",
+    "year": "2016",
+    "rating": "6.9",
+    "duration": "102 min",
+    "targetTab": "entertainment",
+    "rowName": "Bhojpuri Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true
+  },
+  {
+    "_type": "movie",
+    "title": "Ghayal Khiladi",
+    "slug": {
+      "_type": "slug",
+      "current": "ghayal-khiladi"
+    },
+    "subtitle": "A great Bhojpuri Movies movie",
+    "desc": "This is a placeholder description for the movie \"Ghayal Khiladi\". It belongs to the Bhojpuri Movies category.",
+    "tag": "Bhojpuri Movies",
+    "year": "2020",
+    "rating": "9.1",
+    "duration": "94 min",
+    "targetTab": "entertainment",
+    "rowName": "Bhojpuri Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Khiladi",
+    "slug": {
+      "_type": "slug",
+      "current": "khiladi"
+    },
+    "subtitle": "A great Bhojpuri Movies movie",
+    "desc": "This is a placeholder description for the movie \"Khiladi\". It belongs to the Bhojpuri Movies category.",
+    "tag": "Bhojpuri Movies",
+    "year": "2023",
+    "rating": "5.3",
+    "duration": "149 min",
+    "targetTab": "entertainment",
+    "rowName": "Bhojpuri Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Bhojpuri Don",
+    "slug": {
+      "_type": "slug",
+      "current": "bhojpuri-don"
+    },
+    "subtitle": "A great Bhojpuri Movies movie",
+    "desc": "This is a placeholder description for the movie \"Bhojpuri Don\". It belongs to the Bhojpuri Movies category.",
+    "tag": "Bhojpuri Movies",
+    "year": "2015",
+    "rating": "8.1",
+    "duration": "133 min",
+    "targetTab": "entertainment",
+    "rowName": "Bhojpuri Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Lagal Sanehiya Ke Dor",
+    "slug": {
+      "_type": "slug",
+      "current": "lagal-sanehiya-ke-dor"
+    },
+    "subtitle": "A great Bhojpuri Movies movie",
+    "desc": "This is a placeholder description for the movie \"Lagal Sanehiya Ke Dor\". It belongs to the Bhojpuri Movies category.",
+    "tag": "Bhojpuri Movies",
+    "year": "2024",
+    "rating": "6.3",
+    "duration": "147 min",
+    "targetTab": "entertainment",
+    "rowName": "Bhojpuri Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": 6,
+    "slug": {
+      "_type": "slug",
+      "current": "6"
+    },
+    "subtitle": "A great Bhojpuri Movies movie",
+    "desc": "This is a placeholder description for the movie \"6\". It belongs to the Bhojpuri Movies category.",
+    "tag": "Bhojpuri Movies",
+    "year": "2017",
+    "rating": "7.1",
+    "duration": "133 min",
+    "targetTab": "entertainment",
+    "rowName": "Bhojpuri Movies",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Biratnagar Kings vs Janakpur Bolts",
+    "slug": {
+      "_type": "slug",
+      "current": "biratnagar-kings-vs-janakpur-bolts"
+    },
+    "subtitle": "A great NPL Library movie",
+    "desc": "This is a placeholder description for the movie \"Biratnagar Kings vs Janakpur Bolts\". It belongs to the NPL Library category.",
+    "tag": "NPL Library",
+    "year": "2021",
+    "rating": "5.4",
+    "duration": "144 min",
+    "targetTab": "sports",
+    "rowName": "NPL Library",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Kathmandu Gurkhas vs Chitwan Rhinos",
+    "slug": {
+      "_type": "slug",
+      "current": "kathmandu-gurkhas-vs-chitwan-rhinos"
+    },
+    "subtitle": "A great NPL Library movie",
+    "desc": "This is a placeholder description for the movie \"Kathmandu Gurkhas vs Chitwan Rhinos\". It belongs to the NPL Library category.",
+    "tag": "NPL Library",
+    "year": "2020",
+    "rating": "8.2",
+    "duration": "146 min",
+    "targetTab": "sports",
+    "rowName": "NPL Library",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Janakpur Bolts vs Karnali Yaks",
+    "slug": {
+      "_type": "slug",
+      "current": "janakpur-bolts-vs-karnali-yaks"
+    },
+    "subtitle": "A great NPL Library movie",
+    "desc": "This is a placeholder description for the movie \"Janakpur Bolts vs Karnali Yaks\". It belongs to the NPL Library category.",
+    "tag": "NPL Library",
+    "year": "2020",
+    "rating": "7.9",
+    "duration": "137 min",
+    "targetTab": "sports",
+    "rowName": "NPL Library",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Sudur Paschim Royals vs Biratnagar Kings",
+    "slug": {
+      "_type": "slug",
+      "current": "sudur-paschim-royals-vs-biratnagar-kings"
+    },
+    "subtitle": "A great NPL Library movie",
+    "desc": "This is a placeholder description for the movie \"Sudur Paschim Royals vs Biratnagar Kings\". It belongs to the NPL Library category.",
+    "tag": "NPL Library",
+    "year": "2015",
+    "rating": "5",
+    "duration": "94 min",
+    "targetTab": "sports",
+    "rowName": "NPL Library",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Chitwan Rhinos vs Pokhara Avengers",
+    "slug": {
+      "_type": "slug",
+      "current": "chitwan-rhinos-vs-pokhara-avengers"
+    },
+    "subtitle": "A great NPL Library movie",
+    "desc": "This is a placeholder description for the movie \"Chitwan Rhinos vs Pokhara Avengers\". It belongs to the NPL Library category.",
+    "tag": "NPL Library",
+    "year": "2021",
+    "rating": "8.9",
+    "duration": "131 min",
+    "targetTab": "sports",
+    "rowName": "NPL Library",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true
+  },
+  {
+    "_type": "movie",
+    "title": "Karnali Yaks vs Kathmandu Gurkhas",
+    "slug": {
+      "_type": "slug",
+      "current": "karnali-yaks-vs-kathmandu-gurkhas"
+    },
+    "subtitle": "A great NPL Library movie",
+    "desc": "This is a placeholder description for the movie \"Karnali Yaks vs Kathmandu Gurkhas\". It belongs to the NPL Library category.",
+    "tag": "NPL Library",
+    "year": "2018",
+    "rating": "7.6",
+    "duration": "140 min",
+    "targetTab": "sports",
+    "rowName": "NPL Library",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Biratnagar Kings vs Lumbini Lions",
+    "slug": {
+      "_type": "slug",
+      "current": "biratnagar-kings-vs-lumbini-lions"
+    },
+    "subtitle": "A great NPL Library movie",
+    "desc": "This is a placeholder description for the movie \"Biratnagar Kings vs Lumbini Lions\". It belongs to the NPL Library category.",
+    "tag": "NPL Library",
+    "year": "2023",
+    "rating": "8.3",
+    "duration": "132 min",
+    "targetTab": "sports",
+    "rowName": "NPL Library",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Janakpur Bolts Vs Pokhara Avengers",
+    "slug": {
+      "_type": "slug",
+      "current": "janakpur-bolts-vs-pokhara-avengers"
+    },
+    "subtitle": "A great NPL Library movie",
+    "desc": "This is a placeholder description for the movie \"Janakpur Bolts Vs Pokhara Avengers\". It belongs to the NPL Library category.",
+    "tag": "NPL Library",
+    "year": "2024",
+    "rating": "6.3",
+    "duration": "122 min",
+    "targetTab": "sports",
+    "rowName": "NPL Library",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "A Bleak Home",
+    "slug": {
+      "_type": "slug",
+      "current": "a-bleak-home"
+    },
+    "subtitle": "A great Latest Release movie",
+    "desc": "This is a placeholder description for the movie \"A Bleak Home\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2023",
+    "rating": "8",
+    "duration": "133 min",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Hattichhap",
+    "slug": {
+      "_type": "slug",
+      "current": "hattichhap"
+    },
+    "subtitle": "A great Latest Release movie",
+    "desc": "This is a placeholder description for the movie \"Hattichhap\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2022",
+    "rating": "5.5",
+    "duration": "96 min",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Aincho Paincho",
+    "slug": {
+      "_type": "slug",
+      "current": "aincho-paincho"
+    },
+    "subtitle": "A great Latest Release movie",
+    "desc": "This is a placeholder description for the movie \"Aincho Paincho\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2024",
+    "rating": "7",
+    "duration": "103 min",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "12 Gaun",
+    "slug": {
+      "_type": "slug",
+      "current": "12-gaun"
+    },
+    "subtitle": "A great Latest Release movie",
+    "desc": "This is a placeholder description for the movie \"12 Gaun\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2024",
+    "rating": "5.8",
+    "duration": "126 min",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Deshan",
+    "slug": {
+      "_type": "slug",
+      "current": "deshan"
+    },
+    "subtitle": "A great Latest Release movie",
+    "desc": "This is a placeholder description for the movie \"Deshan\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2019",
+    "rating": "5.6",
+    "duration": "119 min",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Senti Virus",
+    "slug": {
+      "_type": "slug",
+      "current": "senti-virus"
+    },
+    "subtitle": "A great Latest Release movie",
+    "desc": "This is a placeholder description for the movie \"Senti Virus\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2021",
+    "rating": "9.3",
+    "duration": "108 min",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Dui Char Din",
+    "slug": {
+      "_type": "slug",
+      "current": "dui-char-din"
+    },
+    "subtitle": "A great Latest Release movie",
+    "desc": "This is a placeholder description for the movie \"Dui Char Din\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2015",
+    "rating": "8.7",
+    "duration": "146 min",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "movie",
+    "title": "Wheels on the bus",
+    "slug": {
+      "_type": "slug",
+      "current": "wheels-on-the-bus"
+    },
+    "subtitle": "A great Latest Release movie",
+    "desc": "This is a placeholder description for the movie \"Wheels on the bus\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2022",
+    "rating": "6.3",
+    "duration": "86 min",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false
+  },
+  {
+    "_type": "series",
+    "title": "Bad Papa",
+    "slug": {
+      "_type": "slug",
+      "current": "bad-papa"
+    },
+    "subtitle": "A great Korean Drama series",
+    "desc": "This is a placeholder description for the series \"Bad Papa\". It belongs to the Korean Drama category.",
+    "tag": "Korean Drama",
+    "year": "2022",
+    "rating": "6.6",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Hospital Ship",
+    "slug": {
+      "_type": "slug",
+      "current": "hospital-ship"
+    },
+    "subtitle": "A great Korean Drama series",
+    "desc": "This is a placeholder description for the series \"Hospital Ship\". It belongs to the Korean Drama category.",
+    "tag": "Korean Drama",
+    "year": "2020",
+    "rating": "5.4",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Kill Me Heal Me",
+    "slug": {
+      "_type": "slug",
+      "current": "kill-me-heal-me"
+    },
+    "subtitle": "A great Korean Drama series",
+    "desc": "This is a placeholder description for the series \"Kill Me Heal Me\". It belongs to the Korean Drama category.",
+    "tag": "Korean Drama",
+    "year": "2017",
+    "rating": "9.2",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Sweet Revenge",
+    "slug": {
+      "_type": "slug",
+      "current": "sweet-revenge"
+    },
+    "subtitle": "A great Korean Drama series",
+    "desc": "This is a placeholder description for the series \"Sweet Revenge\". It belongs to the Korean Drama category.",
+    "tag": "Korean Drama",
+    "year": "2018",
+    "rating": "9",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Two Cops",
+    "slug": {
+      "_type": "slug",
+      "current": "two-cops"
+    },
+    "subtitle": "A great Korean Drama series",
+    "desc": "This is a placeholder description for the series \"Two Cops\". It belongs to the Korean Drama category.",
+    "tag": "Korean Drama",
+    "year": "2023",
+    "rating": "6.4",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "SF8",
+    "slug": {
+      "_type": "slug",
+      "current": "sf8"
+    },
+    "subtitle": "A great Korean Drama series",
+    "desc": "This is a placeholder description for the series \"SF8\". It belongs to the Korean Drama category.",
+    "tag": "Korean Drama",
+    "year": "2020",
+    "rating": "6.1",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Hidden Identity",
+    "slug": {
+      "_type": "slug",
+      "current": "hidden-identity"
+    },
+    "subtitle": "A great Korean Drama series",
+    "desc": "This is a placeholder description for the series \"Hidden Identity\". It belongs to the Korean Drama category.",
+    "tag": "Korean Drama",
+    "year": "2016",
+    "rating": "7.4",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "I Am Not A Robot",
+    "slug": {
+      "_type": "slug",
+      "current": "i-am-not-a-robot"
+    },
+    "subtitle": "A great Korean Drama series",
+    "desc": "This is a placeholder description for the series \"I Am Not A Robot\". It belongs to the Korean Drama category.",
+    "tag": "Korean Drama",
+    "year": "2022",
+    "rating": "6.5",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Adda",
+    "slug": {
+      "_type": "slug",
+      "current": "adda"
+    },
+    "subtitle": "A great Nepali Shows series",
+    "desc": "This is a placeholder description for the series \"Adda\". It belongs to the Nepali Shows category.",
+    "tag": "Nepali Shows",
+    "year": "2024",
+    "rating": "6.1",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Hiphop Dance Battle",
+    "slug": {
+      "_type": "slug",
+      "current": "hiphop-dance-battle"
+    },
+    "subtitle": "A great Nepali Shows series",
+    "desc": "This is a placeholder description for the series \"Hiphop Dance Battle\". It belongs to the Nepali Shows category.",
+    "tag": "Nepali Shows",
+    "year": "2018",
+    "rating": "8",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Madal Ko Khari",
+    "slug": {
+      "_type": "slug",
+      "current": "madal-ko-khari"
+    },
+    "subtitle": "A great Nepali Shows series",
+    "desc": "This is a placeholder description for the series \"Madal Ko Khari\". It belongs to the Nepali Shows category.",
+    "tag": "Nepali Shows",
+    "year": "2020",
+    "rating": "7.6",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Jiban Ka Pana Haru",
+    "slug": {
+      "_type": "slug",
+      "current": "jiban-ka-pana-haru"
+    },
+    "subtitle": "A great Nepali Shows series",
+    "desc": "This is a placeholder description for the series \"Jiban Ka Pana Haru\". It belongs to the Nepali Shows category.",
+    "tag": "Nepali Shows",
+    "year": "2020",
+    "rating": "8.2",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Bessari Hasau",
+    "slug": {
+      "_type": "slug",
+      "current": "bessari-hasau"
+    },
+    "subtitle": "A great Nepali Shows series",
+    "desc": "This is a placeholder description for the series \"Bessari Hasau\". It belongs to the Nepali Shows category.",
+    "tag": "Nepali Shows",
+    "year": "2018",
+    "rating": "9.1",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Kala Ko Mela",
+    "slug": {
+      "_type": "slug",
+      "current": "kala-ko-mela"
+    },
+    "subtitle": "A great Nepali Shows series",
+    "desc": "This is a placeholder description for the series \"Kala Ko Mela\". It belongs to the Nepali Shows category.",
+    "tag": "Nepali Shows",
+    "year": "2024",
+    "rating": "8.7",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Chaku Maku",
+    "slug": {
+      "_type": "slug",
+      "current": "chaku-maku"
+    },
+    "subtitle": "A great Nepali Shows series",
+    "desc": "This is a placeholder description for the series \"Chaku Maku\". It belongs to the Nepali Shows category.",
+    "tag": "Nepali Shows",
+    "year": "2019",
+    "rating": "5.5",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Aan Khim Aan Yang",
+    "slug": {
+      "_type": "slug",
+      "current": "aan-khim-aan-yang"
+    },
+    "subtitle": "A great Nepali Shows series",
+    "desc": "This is a placeholder description for the series \"Aan Khim Aan Yang\". It belongs to the Nepali Shows category.",
+    "tag": "Nepali Shows",
+    "year": "2016",
+    "rating": "8.7",
+    "targetTab": "entertainment",
+    "rowName": "Nepali Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "1% of Something",
+    "slug": {
+      "_type": "slug",
+      "current": "1-of-something"
+    },
+    "subtitle": "A great Korean Drama in Hindi series",
+    "desc": "This is a placeholder description for the series \"1% of Something\". It belongs to the Korean Drama in Hindi category.",
+    "tag": "Korean Drama in Hindi",
+    "year": "2016",
+    "rating": "6.9",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama in Hindi",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Melting Heart",
+    "slug": {
+      "_type": "slug",
+      "current": "melting-heart"
+    },
+    "subtitle": "A great Korean Drama in Hindi series",
+    "desc": "This is a placeholder description for the series \"Melting Heart\". It belongs to the Korean Drama in Hindi category.",
+    "tag": "Korean Drama in Hindi",
+    "year": "2021",
+    "rating": "8.9",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama in Hindi",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "My little Baby",
+    "slug": {
+      "_type": "slug",
+      "current": "my-little-baby"
+    },
+    "subtitle": "A great Korean Drama in Hindi series",
+    "desc": "This is a placeholder description for the series \"My little Baby\". It belongs to the Korean Drama in Hindi category.",
+    "tag": "Korean Drama in Hindi",
+    "year": "2024",
+    "rating": "5.5",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama in Hindi",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "My Contracted Husband",
+    "slug": {
+      "_type": "slug",
+      "current": "my-contracted-husband"
+    },
+    "subtitle": "A great Korean Drama in Hindi series",
+    "desc": "This is a placeholder description for the series \"My Contracted Husband\". It belongs to the Korean Drama in Hindi category.",
+    "tag": "Korean Drama in Hindi",
+    "year": "2024",
+    "rating": "5.7",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama in Hindi",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Secret Affairs Team TEN",
+    "slug": {
+      "_type": "slug",
+      "current": "secret-affairs-team-ten"
+    },
+    "subtitle": "A great Korean Drama in Hindi series",
+    "desc": "This is a placeholder description for the series \"Secret Affairs Team TEN\". It belongs to the Korean Drama in Hindi category.",
+    "tag": "Korean Drama in Hindi",
+    "year": "2022",
+    "rating": "6.6",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama in Hindi",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Under The Black Moon Light",
+    "slug": {
+      "_type": "slug",
+      "current": "under-the-black-moon-light"
+    },
+    "subtitle": "A great Korean Drama in Hindi series",
+    "desc": "This is a placeholder description for the series \"Under The Black Moon Light\". It belongs to the Korean Drama in Hindi category.",
+    "tag": "Korean Drama in Hindi",
+    "year": "2015",
+    "rating": "8.3",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama in Hindi",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Please Don't Date Him",
+    "slug": {
+      "_type": "slug",
+      "current": "please-dont-date-him"
+    },
+    "subtitle": "A great Korean Drama in Hindi series",
+    "desc": "This is a placeholder description for the series \"Please Don't Date Him\". It belongs to the Korean Drama in Hindi category.",
+    "tag": "Korean Drama in Hindi",
+    "year": "2021",
+    "rating": "9",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama in Hindi",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Save Me",
+    "slug": {
+      "_type": "slug",
+      "current": "save-me"
+    },
+    "subtitle": "A great Korean Drama in Hindi series",
+    "desc": "This is a placeholder description for the series \"Save Me\". It belongs to the Korean Drama in Hindi category.",
+    "tag": "Korean Drama in Hindi",
+    "year": "2023",
+    "rating": "5.7",
+    "targetTab": "entertainment",
+    "rowName": "Korean Drama in Hindi",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Aitraaf",
+    "slug": {
+      "_type": "slug",
+      "current": "aitraaf"
+    },
+    "subtitle": "A great Pakistani Drama series",
+    "desc": "This is a placeholder description for the series \"Aitraaf\". It belongs to the Pakistani Drama category.",
+    "tag": "Pakistani Drama",
+    "year": "2022",
+    "rating": "6.4",
+    "targetTab": "entertainment",
+    "rowName": "Pakistani Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Darmiyaan",
+    "slug": {
+      "_type": "slug",
+      "current": "darmiyaan"
+    },
+    "subtitle": "A great Pakistani Drama series",
+    "desc": "This is a placeholder description for the series \"Darmiyaan\". It belongs to the Pakistani Drama category.",
+    "tag": "Pakistani Drama",
+    "year": "2018",
+    "rating": "6.2",
+    "targetTab": "entertainment",
+    "rowName": "Pakistani Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Kuch Khawab They Meray",
+    "slug": {
+      "_type": "slug",
+      "current": "kuch-khawab-they-meray"
+    },
+    "subtitle": "A great Pakistani Drama series",
+    "desc": "This is a placeholder description for the series \"Kuch Khawab They Meray\". It belongs to the Pakistani Drama category.",
+    "tag": "Pakistani Drama",
+    "year": "2024",
+    "rating": "5.2",
+    "targetTab": "entertainment",
+    "rowName": "Pakistani Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Meri Behan Meri Dewrani",
+    "slug": {
+      "_type": "slug",
+      "current": "meri-behan-meri-dewrani"
+    },
+    "subtitle": "A great Pakistani Drama series",
+    "desc": "This is a placeholder description for the series \"Meri Behan Meri Dewrani\". It belongs to the Pakistani Drama category.",
+    "tag": "Pakistani Drama",
+    "year": "2018",
+    "rating": "6.8",
+    "targetTab": "entertainment",
+    "rowName": "Pakistani Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Rani Beti Raaj Kare",
+    "slug": {
+      "_type": "slug",
+      "current": "rani-beti-raaj-kare"
+    },
+    "subtitle": "A great Pakistani Drama series",
+    "desc": "This is a placeholder description for the series \"Rani Beti Raaj Kare\". It belongs to the Pakistani Drama category.",
+    "tag": "Pakistani Drama",
+    "year": "2017",
+    "rating": "7.6",
+    "targetTab": "entertainment",
+    "rowName": "Pakistani Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Ishq e Mazloom",
+    "slug": {
+      "_type": "slug",
+      "current": "ishq-e-mazloom"
+    },
+    "subtitle": "A great Pakistani Drama series",
+    "desc": "This is a placeholder description for the series \"Ishq e Mazloom\". It belongs to the Pakistani Drama category.",
+    "tag": "Pakistani Drama",
+    "year": "2018",
+    "rating": "8.2",
+    "targetTab": "entertainment",
+    "rowName": "Pakistani Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": 6,
+    "slug": {
+      "_type": "slug",
+      "current": "6"
+    },
+    "subtitle": "A great Pakistani Drama series",
+    "desc": "This is a placeholder description for the series \"6\". It belongs to the Pakistani Drama category.",
+    "tag": "Pakistani Drama",
+    "year": "2017",
+    "rating": "7.5",
+    "targetTab": "entertainment",
+    "rowName": "Pakistani Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Dream",
+    "slug": {
+      "_type": "slug",
+      "current": "dream"
+    },
+    "subtitle": "A great Turkish Drama series",
+    "desc": "This is a placeholder description for the series \"Dream\". It belongs to the Turkish Drama category.",
+    "tag": "Turkish Drama",
+    "year": "2020",
+    "rating": "9",
+    "targetTab": "entertainment",
+    "rowName": "Turkish Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Etarnal",
+    "slug": {
+      "_type": "slug",
+      "current": "etarnal"
+    },
+    "subtitle": "A great Turkish Drama series",
+    "desc": "This is a placeholder description for the series \"Etarnal\". It belongs to the Turkish Drama category.",
+    "tag": "Turkish Drama",
+    "year": "2015",
+    "rating": "9",
+    "targetTab": "entertainment",
+    "rowName": "Turkish Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "My Dangerous Wife",
+    "slug": {
+      "_type": "slug",
+      "current": "my-dangerous-wife"
+    },
+    "subtitle": "A great Turkish Drama series",
+    "desc": "This is a placeholder description for the series \"My Dangerous Wife\". It belongs to the Turkish Drama category.",
+    "tag": "Turkish Drama",
+    "year": "2018",
+    "rating": "5.6",
+    "targetTab": "entertainment",
+    "rowName": "Turkish Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": 3,
+    "slug": {
+      "_type": "slug",
+      "current": "3"
+    },
+    "subtitle": "A great Turkish Drama series",
+    "desc": "This is a placeholder description for the series \"3\". It belongs to the Turkish Drama category.",
+    "tag": "Turkish Drama",
+    "year": "2021",
+    "rating": "7.1",
+    "targetTab": "entertainment",
+    "rowName": "Turkish Drama",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Anna Karenina",
+    "slug": {
+      "_type": "slug",
+      "current": "anna-karenina"
+    },
+    "subtitle": "A great Russian Series series",
+    "desc": "This is a placeholder description for the series \"Anna Karenina\". It belongs to the Russian Series category.",
+    "tag": "Russian Series",
+    "year": "2022",
+    "rating": "6.6",
+    "targetTab": "entertainment",
+    "rowName": "Russian Series",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Ekaterina",
+    "slug": {
+      "_type": "slug",
+      "current": "ekaterina"
+    },
+    "subtitle": "A great Russian Series series",
+    "desc": "This is a placeholder description for the series \"Ekaterina\". It belongs to the Russian Series category.",
+    "tag": "Russian Series",
+    "year": "2024",
+    "rating": "6.3",
+    "targetTab": "entertainment",
+    "rowName": "Russian Series",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "El Caso",
+    "slug": {
+      "_type": "slug",
+      "current": "el-caso"
+    },
+    "subtitle": "A great Russian Series series",
+    "desc": "This is a placeholder description for the series \"El Caso\". It belongs to the Russian Series category.",
+    "tag": "Russian Series",
+    "year": "2015",
+    "rating": "8.8",
+    "targetTab": "entertainment",
+    "rowName": "Russian Series",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "The Optimists",
+    "slug": {
+      "_type": "slug",
+      "current": "the-optimists"
+    },
+    "subtitle": "A great Russian Series series",
+    "desc": "This is a placeholder description for the series \"The Optimists\". It belongs to the Russian Series category.",
+    "tag": "Russian Series",
+    "year": "2022",
+    "rating": "5.2",
+    "targetTab": "entertainment",
+    "rowName": "Russian Series",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": 4,
+    "slug": {
+      "_type": "slug",
+      "current": "4"
+    },
+    "subtitle": "A great Russian Series series",
+    "desc": "This is a placeholder description for the series \"4\". It belongs to the Russian Series category.",
+    "tag": "Russian Series",
+    "year": "2019",
+    "rating": "6.7",
+    "targetTab": "entertainment",
+    "rowName": "Russian Series",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Simba The Lion King",
+    "slug": {
+      "_type": "slug",
+      "current": "simba-the-lion-king"
+    },
+    "subtitle": "A great KIDS Choice series",
+    "desc": "This is a placeholder description for the series \"Simba The Lion King\". It belongs to the KIDS Choice category.",
+    "tag": "KIDS Choice",
+    "year": "2023",
+    "rating": "5.1",
+    "targetTab": "junior",
+    "rowName": "KIDS Choice",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Comedy Café",
+    "slug": {
+      "_type": "slug",
+      "current": "comedy-caf"
+    },
+    "subtitle": "A great KIDS Choice series",
+    "desc": "This is a placeholder description for the series \"Comedy Café\". It belongs to the KIDS Choice category.",
+    "tag": "KIDS Choice",
+    "year": "2022",
+    "rating": "5.6",
+    "targetTab": "junior",
+    "rowName": "KIDS Choice",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": true,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Nori The Roller Coster Boy",
+    "slug": {
+      "_type": "slug",
+      "current": "nori-the-roller-coster-boy"
+    },
+    "subtitle": "A great KIDS Choice series",
+    "desc": "This is a placeholder description for the series \"Nori The Roller Coster Boy\". It belongs to the KIDS Choice category.",
+    "tag": "KIDS Choice",
+    "year": "2024",
+    "rating": "9.2",
+    "targetTab": "junior",
+    "rowName": "KIDS Choice",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Go Go Bus",
+    "slug": {
+      "_type": "slug",
+      "current": "go-go-bus"
+    },
+    "subtitle": "A great KIDS Choice series",
+    "desc": "This is a placeholder description for the series \"Go Go Bus\". It belongs to the KIDS Choice category.",
+    "tag": "KIDS Choice",
+    "year": "2020",
+    "rating": "5.5",
+    "targetTab": "junior",
+    "rowName": "KIDS Choice",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Boonie Bears- Forest Frenzy",
+    "slug": {
+      "_type": "slug",
+      "current": "boonie-bears-forest-frenzy"
+    },
+    "subtitle": "A great KIDS Choice series",
+    "desc": "This is a placeholder description for the series \"Boonie Bears- Forest Frenzy\". It belongs to the KIDS Choice category.",
+    "tag": "KIDS Choice",
+    "year": "2016",
+    "rating": "8.1",
+    "targetTab": "junior",
+    "rowName": "KIDS Choice",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Boonie Cubs",
+    "slug": {
+      "_type": "slug",
+      "current": "boonie-cubs"
+    },
+    "subtitle": "A great KIDS Choice series",
+    "desc": "This is a placeholder description for the series \"Boonie Cubs\". It belongs to the KIDS Choice category.",
+    "tag": "KIDS Choice",
+    "year": "2024",
+    "rating": "8.1",
+    "targetTab": "junior",
+    "rowName": "KIDS Choice",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Nepali Rhymes",
+    "slug": {
+      "_type": "slug",
+      "current": "nepali-rhymes"
+    },
+    "subtitle": "A great KIDS Choice series",
+    "desc": "This is a placeholder description for the series \"Nepali Rhymes\". It belongs to the KIDS Choice category.",
+    "tag": "KIDS Choice",
+    "year": "2019",
+    "rating": "8",
+    "targetTab": "junior",
+    "rowName": "KIDS Choice",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Nepali Stories",
+    "slug": {
+      "_type": "slug",
+      "current": "nepali-stories"
+    },
+    "subtitle": "A great KIDS Choice series",
+    "desc": "This is a placeholder description for the series \"Nepali Stories\". It belongs to the KIDS Choice category.",
+    "tag": "KIDS Choice",
+    "year": "2016",
+    "rating": "5.2",
+    "targetTab": "junior",
+    "rowName": "KIDS Choice",
+    "monetization": "package",
+    "isJunior": true,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Traicion",
+    "slug": {
+      "_type": "slug",
+      "current": "traicion"
+    },
+    "subtitle": "A great Spanish Series series",
+    "desc": "This is a placeholder description for the series \"Traicion\". It belongs to the Spanish Series category.",
+    "tag": "Spanish Series",
+    "year": "2017",
+    "rating": "7.6",
+    "targetTab": "entertainment",
+    "rowName": "Spanish Series",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Neboa",
+    "slug": {
+      "_type": "slug",
+      "current": "neboa"
+    },
+    "subtitle": "A great Spanish Series series",
+    "desc": "This is a placeholder description for the series \"Neboa\". It belongs to the Spanish Series category.",
+    "tag": "Spanish Series",
+    "year": "2024",
+    "rating": "9.2",
+    "targetTab": "entertainment",
+    "rowName": "Spanish Series",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": 2,
+    "slug": {
+      "_type": "slug",
+      "current": "2"
+    },
+    "subtitle": "A great Spanish Series series",
+    "desc": "This is a placeholder description for the series \"2\". It belongs to the Spanish Series category.",
+    "tag": "Spanish Series",
+    "year": "2024",
+    "rating": "9.3",
+    "targetTab": "entertainment",
+    "rowName": "Spanish Series",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "The Great Indian Global Kitchen",
+    "slug": {
+      "_type": "slug",
+      "current": "the-great-indian-global-kitchen"
+    },
+    "subtitle": "A great Cooking Shows series",
+    "desc": "This is a placeholder description for the series \"The Great Indian Global Kitchen\". It belongs to the Cooking Shows category.",
+    "tag": "Cooking Shows",
+    "year": "2021",
+    "rating": "8.3",
+    "targetTab": "entertainment",
+    "rowName": "Cooking Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Short Cooking Recepies",
+    "slug": {
+      "_type": "slug",
+      "current": "short-cooking-recepies"
+    },
+    "subtitle": "A great Cooking Shows series",
+    "desc": "This is a placeholder description for the series \"Short Cooking Recepies\". It belongs to the Cooking Shows category.",
+    "tag": "Cooking Shows",
+    "year": "2015",
+    "rating": "8.5",
+    "targetTab": "entertainment",
+    "rowName": "Cooking Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": 2,
+    "slug": {
+      "_type": "slug",
+      "current": "2"
+    },
+    "subtitle": "A great Cooking Shows series",
+    "desc": "This is a placeholder description for the series \"2\". It belongs to the Cooking Shows category.",
+    "tag": "Cooking Shows",
+    "year": "2018",
+    "rating": "7.2",
+    "targetTab": "entertainment",
+    "rowName": "Cooking Shows",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Baikuntha Yatra",
+    "slug": {
+      "_type": "slug",
+      "current": "baikuntha-yatra"
+    },
+    "subtitle": "A great Latest Release series",
+    "desc": "This is a placeholder description for the series \"Baikuntha Yatra\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2017",
+    "rating": "6.1",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "I am not a robot",
+    "slug": {
+      "_type": "slug",
+      "current": "i-am-not-a-robot"
+    },
+    "subtitle": "A great Latest Release series",
+    "desc": "This is a placeholder description for the series \"I am not a robot\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2018",
+    "rating": "5.8",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Bride of the century",
+    "slug": {
+      "_type": "slug",
+      "current": "bride-of-the-century"
+    },
+    "subtitle": "A great Latest Release series",
+    "desc": "This is a placeholder description for the series \"Bride of the century\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2021",
+    "rating": "8.1",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": "Ghar Ek Sapana",
+    "slug": {
+      "_type": "slug",
+      "current": "ghar-ek-sapana"
+    },
+    "subtitle": "A great Latest Release series",
+    "desc": "This is a placeholder description for the series \"Ghar Ek Sapana\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2023",
+    "rating": "9.1",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": false,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  },
+  {
+    "_type": "series",
+    "title": 4,
+    "slug": {
+      "_type": "slug",
+      "current": "4"
+    },
+    "subtitle": "A great Latest Release series",
+    "desc": "This is a placeholder description for the series \"4\". It belongs to the Latest Release category.",
+    "tag": "Latest Release",
+    "year": "2017",
+    "rating": "5.1",
+    "targetTab": "entertainment",
+    "rowName": "Latest Release",
+    "monetization": "package",
+    "isJunior": false,
+    "isHero": true,
+    "episodes": [
+      {
+        "_key": "ep1",
+        "id": 1,
+        "title": "Pilot",
+        "duration": "45 min",
+        "desc": "The beginning of the story."
+      },
+      {
+        "_key": "ep2",
+        "id": 2,
+        "title": "The Conflict",
+        "duration": "42 min",
+        "desc": "Things get complicated."
+      }
+    ]
+  }
+]

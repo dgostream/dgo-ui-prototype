@@ -1,0 +1,37 @@
+{
+  "name": "dhgo-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/image-url": "^2.0.3",
+    "@sanity/vision": "^5.6.0",
+    "@tailwindcss/postcss": "^4.1.18",
+    "clsx": "latest",
+    "framer-motion": "^12.29.2",
+    "html-to-image": "^1.11.13",
+    "lucide-react": "latest",
+    "next": "latest",
+    "next-sanity": "^12.0.14",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-qr-code": "^2.0.18",
+    "sanity": "^5.6.0",
+    "styled-components": "^6.3.8",
+    "tailwind-merge": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}
