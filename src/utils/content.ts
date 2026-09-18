@@ -197,6 +197,45 @@ export async function getHeroContent(tab: string): Promise<ContentItem[]> {
   }
 }
 
+/** Web = landscape hero; Mobile = 2:3 poster. Filenames follow the art the user dropped in. */
+const HOTSTAR_ART_FILES: Record<string, { mobile: string; web: string }> = {
+  Asur: { mobile: "Asur_Mobile.png", web: "Asur_Web.png" },
+  "Asur 2": { mobile: "Asur 2_Mobile.png", web: "Asur 2_Web.png" },
+  Bajao: { mobile: "Bajao_Mobile.jpg", web: "Bajao_Web.jpg" },
+  Empire: { mobile: "Empire_Mobile.png", web: "Empire_Web.png" },
+  "Ghar Waapsi": { mobile: "Ghar Waapsi_Mobile.png", web: "Ghar Waapsi_Web.png" },
+  "Honeymoon Photographer": { mobile: "Honeymoon Photography_Mobile.png", web: "Honeymoon Photographer_Web.png" },
+  "Illegal 2": { mobile: "Illegal 2_Mobile.png", web: "Illegal 2_Web.png" },
+  "Inspector Avinash": { mobile: "Inspector Avinash_Mobile.png", web: "Inspector Avinash_Web.png" },
+  "Khalbali Records": { mobile: "Khalbali Records_Mobile.png", web: "Khalbali Records_Web.png" },
+  "London Files": { mobile: "London Files_Mobile.png", web: "London FIles_Web.png" },
+  "Special Ops": { mobile: "Special Ops_Mobile.png", web: "Special Ops_Web.png" },
+  "Taaza Khabar": { mobile: "Taaza Khabar_Mobile.png", web: "Taaza Khabar_Web.png" },
+};
+
+function hotstarArt(title: string): { img: string; heroImg: string } | Record<string, never> {
+  const files = HOTSTAR_ART_FILES[title];
+  if (!files) return {};
+  return {
+    img: encodeURI(`/Hotstar_Mobile/${files.mobile}`),
+    heroImg: encodeURI(`/Hotstar_Web/${files.web}`),
+  };
+}
+
+function hotstarShow(
+  title: string,
+  extra: {
+    tag: string;
+    year: string;
+    rating?: string;
+    duration: string;
+    subtitle?: string;
+    desc?: string;
+  }
+) {
+  return { title, ...hotstarArt(title), ...extra };
+}
+
 // Hardcoded data from Excel
 const HARDCODED_SECTIONS: Record<string, any[]> = {
   entertainment: [
@@ -284,12 +323,12 @@ const HARDCODED_SECTIONS: Record<string, any[]> = {
       title: "JioHotstar on DGO",
       icon: "Tv",
       items: [
-        { title: "Special Ops", tag: "Hotstar Specials", year: "2024", rating: "8.6", duration: "Eps", subtitle: "Kay Kay Menon" },
-        { title: "The Night Manager", tag: "Thriller", year: "2023", rating: "8.2", duration: "Eps" },
-        { title: "Aarya", tag: "Crime", year: "2024", rating: "8.3", duration: "Eps" },
-        { title: "The Family Man", tag: "Spy", year: "2021", rating: "8.7", duration: "Eps" },
-        { title: "12th Fail", tag: "Drama", year: "2023", rating: "8.8", duration: "2h 27m" },
-        { title: "Stree 2", tag: "Horror-Comedy", year: "2024", rating: "7.5", duration: "2h 27m" },
+        hotstarShow("Special Ops", { tag: "Hotstar Specials", year: "2020", rating: "8.6", duration: "Eps", subtitle: "Kay Kay Menon" }),
+        hotstarShow("Asur", { tag: "Crime", year: "2020", rating: "8.4", duration: "Eps", subtitle: "Arshad Warsi, Barun Sobti" }),
+        hotstarShow("Asur 2", { tag: "Crime", year: "2023", rating: "8.5", duration: "8 Eps", subtitle: "Arshad Warsi, Barun Sobti" }),
+        hotstarShow("Taaza Khabar", { tag: "Fantasy", year: "2023", rating: "8.1", duration: "Eps", subtitle: "Bhuvan Bam" }),
+        hotstarShow("Inspector Avinash", { tag: "Crime", year: "2023", rating: "7.8", duration: "Eps", subtitle: "Randeep Hooda" }),
+        hotstarShow("Ghar Waapsi", { tag: "Drama", year: "2022", rating: "8.4", duration: "12 Eps" }),
       ]
     },
     {
@@ -298,7 +337,7 @@ const HARDCODED_SECTIONS: Record<string, any[]> = {
       items: [
         { title: "Buhari", tag: "OSR Serial", year: "2026", rating: "8.6", duration: "290+ Eps" },
         { title: "Juthe", tag: "OSR Serial", year: "2026", rating: "8.1", duration: "S2" },
-        { title: "Aarya", tag: "Hotstar Specials", year: "2024", rating: "8.3", duration: "Eps" },
+        hotstarShow("Asur", { tag: "Hotstar Specials", year: "2020", rating: "8.4", duration: "Eps" }),
         { title: "Kill Me Heal Me", tag: "K-Drama", year: "2015", rating: "8.3", duration: "20 Eps" },
         { title: "Hospital Ship", tag: "Medical", year: "2017", rating: "7.5", duration: "40 Eps" },
       ]
@@ -308,9 +347,9 @@ const HARDCODED_SECTIONS: Record<string, any[]> = {
       icon: "Clapperboard",
       items: [
         { title: "Prem Geet", tag: "OSR", year: "2016", rating: "8.4", duration: "2h 17m" },
-        { title: "12th Fail", tag: "JioHotstar", year: "2023", rating: "8.8", duration: "2h 27m" },
+        hotstarShow("Honeymoon Photographer", { tag: "JioHotstar", year: "2024", rating: "7.1", duration: "6 Eps" }),
         { title: "Prasad", tag: "OSR", year: "2018", rating: "8.2", duration: "2h 15m" },
-        { title: "Fighter", tag: "JioHotstar", year: "2024", rating: "7.4", duration: "2h 46m" },
+        hotstarShow("Empire", { tag: "JioHotstar", year: "2021", rating: "7.3", duration: "8 Eps" }),
         { title: "Imitation Game", tag: "Drama", year: "2014", rating: "8.0", duration: "1h 54m" },
         { title: "Captain", tag: "OSR", year: "2019", rating: "7.4", duration: "2h 08m" },
       ]
@@ -322,7 +361,7 @@ const HARDCODED_SECTIONS: Record<string, any[]> = {
         { title: "Gobar Ganesh", tag: "OSR · Coming", year: "2026", duration: "Trailer" },
         { title: "Prasad 2", tag: "OSR Movies", year: "2026", rating: "8.1", duration: "2h 10m" },
         { title: "Jhingedaau", tag: "Comedy", year: "2026", rating: "7.8", duration: "2h 05m" },
-        { title: "Special Ops", tag: "Hotstar Specials", year: "2024", rating: "8.6", duration: "Eps" },
+        hotstarShow("Special Ops", { tag: "Hotstar Specials", year: "2020", rating: "8.6", duration: "Eps" }),
         { title: "Comedy Night Live", tag: "Special", year: "2024", rating: "8.5", duration: "1h 30m" },
       ]
     }
@@ -332,49 +371,131 @@ const HARDCODED_SECTIONS: Record<string, any[]> = {
       title: "Hotstar Specials",
       icon: "Star",
       items: [
-        { title: "Special Ops", tag: "Thriller", year: "2020", rating: "8.6", duration: "Eps", subtitle: "Kay Kay Menon", desc: "A wounded agency, a vanishing asset, and the flagship Hotstar Specials thriller — now on DGO." },
-        { title: "The Night Manager", tag: "Spy", year: "2023", rating: "8.2", duration: "Eps", subtitle: "Anil Kapoor, Aditya Roy Kapur" },
-        { title: "Aarya", tag: "Crime", year: "2020", rating: "8.3", duration: "Eps", subtitle: "Sushmita Sen" },
-        { title: "Human", tag: "Drama", year: "2022", rating: "8.0", duration: "Eps", subtitle: "Shefali Shah" },
-        { title: "Criminal Justice", tag: "Courtroom", year: "2019", rating: "8.1", duration: "Eps", subtitle: "Vikrant Massey" },
-        { title: "Hostages", tag: "Thriller", year: "2019", rating: "7.4", duration: "Eps" },
-        { title: "The Freelancer", tag: "Action", year: "2023", rating: "7.2", duration: "Eps", subtitle: "Mohammed Zeeshan Ayyub" },
+        hotstarShow("Special Ops", {
+          tag: "Thriller",
+          year: "2020",
+          rating: "8.6",
+          duration: "Eps",
+          subtitle: "Kay Kay Menon · Neeraj Pandey",
+          desc: "Himmat Singh and his team run the longest manhunt in Indian intelligence — a wounded agency, a vanishing asset, the flagship Hotstar Specials thriller.",
+        }),
+        hotstarShow("Asur", {
+          tag: "Crime",
+          year: "2020",
+          rating: "8.4",
+          duration: "Eps",
+          subtitle: "Arshad Warsi, Barun Sobti",
+          desc: "A forensic expert and a myth-soaked serial killer play cat-and-mouse across modern India.",
+        }),
+        hotstarShow("Asur 2", {
+          tag: "Crime",
+          year: "2023",
+          rating: "8.5",
+          duration: "8 Eps",
+          subtitle: "Arshad Warsi, Barun Sobti, Anupriya Goenka",
+          desc: "Nikhil Nair is pulled back into a darker, more personal hunt — eight episodes, no wasted motion.",
+        }),
+        hotstarShow("Taaza Khabar", {
+          tag: "Fantasy",
+          year: "2023",
+          rating: "8.1",
+          duration: "Eps",
+          subtitle: "Bhuvan Bam, Shriya Pilgaonkar",
+          desc: "A slum dweller who can see tomorrow — and the bill that comes with knowing too much.",
+        }),
+        hotstarShow("Inspector Avinash", {
+          tag: "Crime",
+          year: "2023",
+          rating: "7.8",
+          duration: "Eps",
+          subtitle: "Randeep Hooda",
+          desc: "A no-rules UP cop, inspired by true events, going after the people who think they own the system.",
+        }),
+        hotstarShow("Illegal 2", {
+          tag: "Courtroom",
+          year: "2021",
+          rating: "7.6",
+          duration: "Eps",
+          subtitle: "Neha Sharma, Piyush Mishra, Akshay Oberoi",
+          desc: "A mentee lawyer vs the mentor who taught her the game — and now wants her out of it.",
+        }),
       ]
     },
     {
       title: "Binge now",
       icon: "Flame",
       items: [
-        { title: "The Family Man", tag: "Spy", year: "2021", rating: "8.7", duration: "Eps", subtitle: "Manoj Bajpayee" },
-        { title: "Scam 1992", tag: "Drama", year: "2020", rating: "9.3", duration: "Eps", subtitle: "Pratik Gandhi" },
-        { title: "Aarya", tag: "Crime", year: "2024", rating: "8.3", duration: "S3" },
-        { title: "Special OPS 1.5", tag: "Thriller", year: "2021", rating: "8.4", duration: "Eps" },
-        { title: "Out of Love", tag: "Drama", year: "2019", rating: "7.6", duration: "Eps" },
-        { title: "Hundred", tag: "Crime", year: "2020", rating: "7.3", duration: "Eps" },
+        hotstarShow("Asur 2", { tag: "Crime", year: "2023", rating: "8.5", duration: "8 Eps", subtitle: "Arshad Warsi, Barun Sobti" }),
+        hotstarShow("Special Ops", { tag: "Thriller", year: "2020", rating: "8.6", duration: "Eps", subtitle: "Kay Kay Menon" }),
+        hotstarShow("Taaza Khabar", { tag: "Fantasy", year: "2023", rating: "8.1", duration: "Eps", subtitle: "Bhuvan Bam" }),
+        hotstarShow("Ghar Waapsi", {
+          tag: "Drama",
+          year: "2022",
+          rating: "8.4",
+          duration: "12 Eps",
+          subtitle: "Vineet Kumar",
+          desc: "Shekhar loses the job that took him away — and comes home to the family he left behind.",
+        }),
+        hotstarShow("London Files", {
+          tag: "Thriller",
+          year: "2022",
+          rating: "6.9",
+          duration: "6 Eps",
+          subtitle: "Arjun Rampal, Purab Kohli",
+          desc: "Detective Om Singh hunts a media mogul's missing daughter through London's underbelly.",
+        }),
+        hotstarShow("Honeymoon Photographer", {
+          tag: "Thriller",
+          year: "2024",
+          rating: "7.1",
+          duration: "6 Eps",
+          subtitle: "Asha Negi, Rajeev Siddhartha",
+          desc: "A Maldives honeymoon ends with a body on the beach — and everyone in the wedding party is a suspect.",
+        }),
       ]
     },
     {
-      title: "Movies on JioHotstar",
+      title: "Hotstar crime desk",
       icon: "Film",
       items: [
-        { title: "12th Fail", tag: "Drama", year: "2023", rating: "8.8", duration: "2h 27m", subtitle: "Vidhu Vinod Chopra" },
-        { title: "Fighter", tag: "Action", year: "2024", rating: "7.4", duration: "2h 46m", subtitle: "Hrithik Roshan, Deepika Padukone" },
-        { title: "Stree 2", tag: "Horror-Comedy", year: "2024", rating: "7.5", duration: "2h 27m" },
-        { title: "Jawan", tag: "Action", year: "2023", rating: "7.1", duration: "2h 49m" },
-        { title: "Pathaan", tag: "Action", year: "2023", rating: "6.9", duration: "2h 26m" },
-        { title: "Animal", tag: "Action", year: "2023", rating: "6.8", duration: "3h 21m" },
-        { title: "Super 30", tag: "Drama", year: "2019", rating: "7.9", duration: "2h 34m" },
+        hotstarShow("Asur", { tag: "Crime", year: "2020", rating: "8.4", duration: "Eps", subtitle: "Arshad Warsi, Barun Sobti" }),
+        hotstarShow("Asur 2", { tag: "Crime", year: "2023", rating: "8.5", duration: "8 Eps" }),
+        hotstarShow("Inspector Avinash", { tag: "Crime", year: "2023", rating: "7.8", duration: "Eps", subtitle: "Randeep Hooda" }),
+        hotstarShow("London Files", { tag: "Thriller", year: "2022", rating: "6.9", duration: "6 Eps", subtitle: "Arjun Rampal" }),
+        hotstarShow("Illegal 2", { tag: "Courtroom", year: "2021", rating: "7.6", duration: "Eps", subtitle: "Neha Sharma, Piyush Mishra" }),
+        hotstarShow("Honeymoon Photographer", { tag: "Thriller", year: "2024", rating: "7.1", duration: "6 Eps", subtitle: "Asha Negi" }),
       ]
     },
     {
-      title: "Star originals",
+      title: "From the JioHotstar vault",
       icon: "Sparkles",
       items: [
-        { title: "Rookies", tag: "Coming of age", year: "2024", rating: "7.8", duration: "Eps" },
-        { title: "Tamasha", tag: "Romance", year: "2015", rating: "7.3", duration: "2h 19m" },
-        { title: "Dil Dhadakne Do", tag: "Family", year: "2015", rating: "6.7", duration: "2h 50m" },
-        { title: "Yeh Jawaani Hai Deewani", tag: "Romance", year: "2013", rating: "7.2", duration: "2h 40m" },
-        { title: "Zindagi Na Milegi Dobara", tag: "Drama", year: "2011", rating: "8.2", duration: "2h 35m" },
+        hotstarShow("Bajao", {
+          tag: "Comedy",
+          year: "2023",
+          rating: "7.5",
+          duration: "8 Eps",
+          subtitle: "Raftaar, Tanuj Virwani, Sahil Khattar",
+          desc: "Three music-video kids, a missing bag of cash, and the chaos of Punjabi pop.",
+        }),
+        hotstarShow("Khalbali Records", {
+          tag: "Music",
+          year: "2024",
+          rating: "7.4",
+          duration: "8 Eps",
+          subtitle: "Ram Kapoor, Skand Thakur",
+          desc: "A son walks out of his father's profit-first label and starts an imprint for the artists.",
+        }),
+        hotstarShow("Empire", {
+          tag: "Historical",
+          year: "2021",
+          rating: "7.3",
+          duration: "8 Eps",
+          subtitle: "Kunal Kapoor, Shabana Azmi, Drashti Dhami",
+          desc: "Babur's rise — Nikkhil Advani's Hotstar Specials epic, eight episodes.",
+        }),
+        hotstarShow("Ghar Waapsi", { tag: "Drama", year: "2022", rating: "8.4", duration: "12 Eps", subtitle: "Vineet Kumar" }),
+        hotstarShow("Taaza Khabar", { tag: "Fantasy", year: "2023", rating: "8.1", duration: "Eps", subtitle: "Bhuvan Bam" }),
       ]
     }
   ],
@@ -455,7 +576,6 @@ const HARDCODED_SECTIONS: Record<string, any[]> = {
 };
 
 const HERO_HOME = "/Backgrounds/dgo-home-hero.jpg";
-const HERO_HOTSTAR = "/Backgrounds/hotstar-hero.jpg";
 const HERO_OSR = "/Backgrounds/osr-hero.jpg";
 
 const HERO_SLIDES: Record<string, any[]> = {
@@ -478,7 +598,7 @@ const HERO_SLIDES: Record<string, any[]> = {
       year: "2020",
       rating: "8.6",
       duration: "Eps",
-      img: HERO_HOTSTAR,
+      ...hotstarArt("Special Ops"),
     },
     {
       title: "Buhari",
@@ -500,27 +620,37 @@ const HERO_SLIDES: Record<string, any[]> = {
       year: "2020",
       rating: "8.6",
       duration: "Eps",
-      img: HERO_HOTSTAR,
+      ...hotstarArt("Special Ops"),
     },
     {
-      title: "The Family Man",
-      tag: "Binge now",
-      subtitle: "Manoj Bajpayee",
-      desc: "Middle-class spy, nation-sized stakes. The show people finish in a weekend — on JioHotstar via DGO.",
-      year: "2021",
-      rating: "8.7",
+      title: "Asur",
+      tag: "Hotstar Specials",
+      subtitle: "Arshad Warsi · Barun Sobti",
+      desc: "Forensic science versus a killer who thinks in myths — the crime series people finish in a weekend.",
+      year: "2020",
+      rating: "8.4",
       duration: "Eps",
-      img: HERO_HOTSTAR,
+      ...hotstarArt("Asur"),
     },
     {
-      title: "12th Fail",
-      tag: "Movies",
-      subtitle: "Vidhu Vinod Chopra",
-      desc: "The crowd-pleaser that travelled the JioHotstar movie hub. Watch in 1080p on Plus.",
+      title: "Taaza Khabar",
+      tag: "Hotstar Specials",
+      subtitle: "Bhuvan Bam",
+      desc: "See tomorrow, pay for it today. Bhuvan Bam's supernatural ride — on JioHotstar via DGO.",
       year: "2023",
-      rating: "8.8",
-      duration: "2h 27m",
-      img: HERO_HOTSTAR,
+      rating: "8.1",
+      duration: "Eps",
+      ...hotstarArt("Taaza Khabar"),
+    },
+    {
+      title: "Inspector Avinash",
+      tag: "Hotstar Specials",
+      subtitle: "Randeep Hooda",
+      desc: "A no-rules UP cop, inspired by true events — the people who think they own the system meet Avinash.",
+      year: "2023",
+      rating: "7.8",
+      duration: "Eps",
+      ...hotstarArt("Inspector Avinash"),
     },
   ],
   osr: [
@@ -560,8 +690,8 @@ const HERO_SLIDES: Record<string, any[]> = {
 const PARTNER_SECTIONS = new Set([
   "Hotstar Specials",
   "Binge now",
-  "Movies on JioHotstar",
-  "Star originals",
+  "Hotstar crime desk",
+  "From the JioHotstar vault",
   "OSR superhits",
   "New on OSR Movies",
   "OSR Movies library",
@@ -641,7 +771,8 @@ const mapHardcodedToContentItem = (data: any, sectionTitle: string): ContentItem
     : sectionTitle === "Live & highlights" ? "#1d4ed8"
     : "#8a3ffc",
   img: typeof data.img === "string" ? data.img : "",
-  heroImg: typeof data.img === "string" ? data.img : undefined,
+  heroImg: typeof data.heroImg === "string" ? data.heroImg : typeof data.img === "string" ? data.img : undefined,
+  detailsHeroImg: typeof data.heroImg === "string" ? data.heroImg : undefined,
   type: /^(live|cricket|football|kabaddi)$/i.test(data.tag || "") ? "sports" : "movie",
   year: data.year,
   rating: data.rating,

@@ -17,7 +17,7 @@ export const PARTNER_BRANDS: Record<
   hotstar: {
     name: "JioHotstar",
     eyebrow: "Partner hub",
-    tagline: "Hotstar Specials, binge series and movies — the Spark catalogue on DGO.",
+    tagline: "Hotstar Specials — Special Ops, Asur, Taaza Khabar and the rest of the Spark catalogue on DGO.",
     from: "#0B5FFF",
     via: "#7B2CBF",
     to: "#FF4D9A",

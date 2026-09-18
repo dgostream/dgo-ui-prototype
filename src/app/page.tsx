@@ -148,7 +148,11 @@ function HomeContent() {
           items={section.items}
           fomo={section.fomo}
           onItemClick={(id, title) => openModal(id, title, currentTab.color, section.title)}
-          inFeedAd={inFeedAd && adSettings?.feedAd?.active ? adSettings.feedAd : undefined}
+          inFeedAd={
+            inFeedAd && visibleTab !== "hotstar" && adSettings?.feedAd?.active
+              ? adSettings.feedAd
+              : undefined
+          }
         />
       </motion.div>
     </div>
@@ -201,7 +205,9 @@ function HomeContent() {
                     tab={visibleTab}
                     items={heroItems}
                     headerAd={
-                      isFifaLabeled(adSettings?.heroCarouselAd?.title) ? undefined : adSettings?.heroCarouselAd
+                      visibleTab === "hotstar" || isFifaLabeled(adSettings?.heroCarouselAd?.title)
+                        ? undefined
+                        : adSettings?.heroCarouselAd
                     }
                   />
                   {isPartnerTab(visibleTab) ? <PartnerRailBanner partner={visibleTab} /> : null}

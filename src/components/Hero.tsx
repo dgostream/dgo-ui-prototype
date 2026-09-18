@@ -118,14 +118,19 @@ export default function Hero({ tab, items, headerAd }: HeroProps) {
                   className="w-full h-full object-cover opacity-80"
                 />
               ) : content.heroImg || content.img ? (
-                <motion.img
-                  initial={{ scale: 1.1 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 10, ease: "linear" }}
-                  src={content.heroImg || content.img}
-                  alt={content.title}
-                  className="w-full h-full object-cover opacity-80"
-                />
+                <picture>
+                  {content.img && content.heroImg && content.img !== content.heroImg ? (
+                    <source media="(max-width: 767px)" srcSet={content.img} />
+                  ) : null}
+                  <motion.img
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 10, ease: "linear" }}
+                    src={content.heroImg || content.img}
+                    alt={content.title}
+                    className="w-full h-full object-cover opacity-80"
+                  />
+                </picture>
               ) : (
                 <div className="w-full h-full bg-brand-secondary flex items-center justify-center">
                   <img src={publicUrl("/ios-icon.png")} alt="DGO" className="w-[12%] h-auto object-contain opacity-[0.06]" />

@@ -2,22 +2,23 @@
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Crown, ChevronRight, Tv2, Clapperboard, Sparkles } from "lucide-react";
+import { Crown, ChevronRight, Clapperboard, Sparkles, type LucideIcon } from "lucide-react";
+import { publicUrl } from "@/utils/asset";
 import { useSubscriptionSession } from "@/hooks/useSubscriptionSession";
 import { DURATION_LABELS, TIER_META } from "@/utils/subscriptionCatalog";
 
 const MARQUEE = [
   "Special Ops",
   "Prem Geet",
-  "The Family Man",
+  "Asur",
   "Buhari",
-  "Aarya",
+  "Taaza Khabar",
   "Prasad 2",
-  "12th Fail",
+  "Asur 2",
   "Jhingedaau",
-  "The Night Manager",
+  "Inspector Avinash",
   "Prem Geet 3",
-  "Stree 2",
+  "Ghar Waapsi",
   "Behuli from Meghauli",
 ];
 
@@ -107,17 +108,28 @@ export function HomeSubscribeDrive() {
             </p>
 
             <div className="flex flex-wrap gap-2 mb-7">
-              {[
-                { icon: Tv2, label: "JioHotstar", color: "#0B5FFF" },
-                { icon: Clapperboard, label: "OSR Digital", color: "#E10600" },
-                { icon: Sparkles, label: "DGO catalogue", color: "#8a3ffc" },
-              ].map(({ icon: Icon, label, color }) => (
+              {(
+                [
+                  { iconSrc: "/hotstar-icon.svg", label: "JioHotstar", color: "#0B5FFF" },
+                  { icon: Clapperboard, label: "OSR Digital", color: "#E10600" },
+                  { icon: Sparkles, label: "DGO catalogue", color: "#8a3ffc" },
+                ] as Array<{
+                  icon?: LucideIcon;
+                  iconSrc?: string;
+                  label: string;
+                  color: string;
+                }>
+              ).map(({ icon: Icon, iconSrc, label, color }) => (
                 <span
                   key={label}
                   className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-bold"
                   style={{ borderColor: `${color}55`, backgroundColor: `${color}14`, color: "#fff" }}
                 >
-                  <Icon className="h-3.5 w-3.5" style={{ color }} />
+                  {iconSrc ? (
+                    <img src={publicUrl(iconSrc)} alt="" className="h-5 w-5 object-contain" />
+                  ) : Icon ? (
+                    <Icon className="h-3.5 w-3.5" style={{ color }} />
+                  ) : null}
                   {label}
                 </span>
               ))}

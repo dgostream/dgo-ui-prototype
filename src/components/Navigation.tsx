@@ -152,7 +152,18 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
                         isActive ? "text-white" : "text-white/60 hover:text-white/90"
                       )}
                     >
-                      <Icon size={16} className={cn("transition-colors", isActive ? "text-white" : "text-white/60")} />
+                      {tab.iconSrc ? (
+                        <img
+                          src={publicUrl(tab.iconSrc)}
+                          alt=""
+                          className={cn(
+                            "h-6 w-6 object-contain transition-opacity",
+                            isActive ? "opacity-100" : "opacity-60 group-hover:opacity-90"
+                          )}
+                        />
+                      ) : (
+                        <Icon size={16} className={cn("transition-colors", isActive ? "text-white" : "text-white/60")} />
+                      )}
                       <NavTabLabel
                         text={tab.label}
                         className={cn(

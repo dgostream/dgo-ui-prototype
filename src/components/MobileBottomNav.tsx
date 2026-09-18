@@ -122,7 +122,7 @@ export default function MobileBottomNav({ activeTab, onTabChange, onHome }: Mobi
               />
             </div>
             <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-3">{tPopular}</p>
-            {["Prem Geet", "Buhari", "Special Ops", "Aarya"].map((s) => (
+            {["Prem Geet", "Buhari", "Special Ops", "Asur"].map((s) => (
               <SearchSuggestionRow key={s} text={s} />
             ))}
           </Sheet>
