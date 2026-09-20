@@ -84,7 +84,7 @@ function DetailsPageInner({ params }: { params: Promise<{ id: string }> }) {
                <div className="absolute inset-0 bg-linear-to-r from-black via-transparent to-transparent z-10" />
                {content.detailsHeroImg || content.heroImg || content.img ? (
                   <img
-                     src={content.detailsHeroImg || content.heroImg || content.img}
+                     src={publicUrl(content.detailsHeroImg || content.heroImg || content.img || "")}
                      alt={content.title}
                      className="w-full h-full object-cover opacity-60"
                   />

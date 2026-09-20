@@ -81,7 +81,7 @@ export default function DetailModal({ isOpen, onClose, fromTab, content: initial
           >
             {content.heroImg || content.img ? (
               <img
-                src={content.heroImg || content.img}
+                src={publicUrl(content.heroImg || content.img)}
                 alt=""
                 className="h-full w-full object-cover object-[center_20%] opacity-90 md:absolute md:inset-0 md:opacity-60"
               />
@@ -127,7 +127,7 @@ export default function DetailModal({ isOpen, onClose, fromTab, content: initial
               {content.img ? (
                 <div className="relative aspect-2/3 w-18 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-brand-secondary shadow-inner sm:w-20">
                   <img
-                    src={content.img}
+                    src={publicUrl(content.img)}
                     alt=""
                     className="h-full w-full object-cover object-[center_20%]"
                   />

@@ -120,13 +120,13 @@ export default function Hero({ tab, items, headerAd }: HeroProps) {
               ) : content.heroImg || content.img ? (
                 <picture>
                   {content.img && content.heroImg && content.img !== content.heroImg ? (
-                    <source media="(max-width: 767px)" srcSet={content.img} />
+                    <source media="(max-width: 767px)" srcSet={publicUrl(content.img)} />
                   ) : null}
                   <motion.img
                     initial={{ scale: 1.1 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 10, ease: "linear" }}
-                    src={content.heroImg || content.img}
+                    src={publicUrl(content.heroImg || content.img)}
                     alt={content.title}
                     className="w-full h-full object-cover opacity-80"
                   />

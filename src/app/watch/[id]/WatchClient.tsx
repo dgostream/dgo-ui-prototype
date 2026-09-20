@@ -291,8 +291,8 @@ function WatchPageInner({ params }: { params: Promise<{ id: string }> }) {
       >
         <video
           ref={videoRef}
-          src={content.video || DEMO_FALLBACK_VIDEO}
-          poster={content.img}
+          src={publicUrl(content.video || DEMO_FALLBACK_VIDEO)}
+          poster={content.img ? publicUrl(content.img) : undefined}
           className={cn(
             "max-h-full max-w-full shrink-0",
             portrait ? "h-auto w-full max-h-full object-contain" : "h-full w-full object-cover"

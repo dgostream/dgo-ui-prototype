@@ -17,6 +17,7 @@ import { HomeSubscribeDrive } from "@/components/HomeSubscribeDrive";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, Suspense, useRef } from "react";
 import { getLandingPageSections, getHeroContent, getAdSettings, ContentItem, isFifaLabeled } from "@/utils/content";
+import { publicUrl } from "@/utils/asset";
 import { useTranslated } from "@/components/Translate";
 
 // Map string icon names to Lucide components
@@ -565,7 +566,7 @@ function ContentRow({
                 style={{ width: cardWidth || undefined }}
               >
               {item.img ? (
-                <img src={item.img} alt={item.title} className="absolute inset-0 z-0 h-full w-full object-cover" />
+                <img src={publicUrl(item.img)} alt={item.title} className="absolute inset-0 z-0 h-full w-full object-cover" />
               ) : (
                 <div
                   className="absolute inset-0 z-0"

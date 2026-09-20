@@ -1,6 +1,7 @@
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { isSanityConfigured } from "@/sanity/env";
+import { publicUrl } from "@/utils/asset";
 
 export interface ContentItem {
   id: string;
@@ -775,9 +776,13 @@ const mapHardcodedToContentItem = (data: any, sectionTitle: string): ContentItem
     ? partnerAccentForSection(sectionTitle)
     : sectionTitle === "Live & highlights" ? "#1d4ed8"
     : "#8a3ffc",
-  img: typeof data.img === "string" ? data.img : "",
-  heroImg: typeof data.heroImg === "string" ? data.heroImg : typeof data.img === "string" ? data.img : undefined,
-  detailsHeroImg: typeof data.heroImg === "string" ? data.heroImg : undefined,
+  img: typeof data.img === "string" ? publicUrl(data.img) : "",
+  heroImg: typeof data.heroImg === "string"
+    ? publicUrl(data.heroImg)
+    : typeof data.img === "string"
+      ? publicUrl(data.img)
+      : undefined,
+  detailsHeroImg: typeof data.heroImg === "string" ? publicUrl(data.heroImg) : undefined,
   type: /^(live|cricket|football|kabaddi)$/i.test(data.tag || "") ? "sports" : "movie",
   year: data.year,
   rating: data.rating,
@@ -795,11 +800,11 @@ function resolveHardcodedContentById(id: string): ContentItem | null {
       desc: "Featured trailer on DGO.",
       tag: "Featured",
       accent: "#8a3ffc",
-      img: "/dgo-logo-new.png",
+      img: publicUrl("/dgo-logo-new.png"),
       type: "movie",
       year: "2026",
       duration: "2 min",
-      video: DEMO_FALLBACK_VIDEO,
+      video: publicUrl(DEMO_FALLBACK_VIDEO),
       isPPV: false,
     };
   }
@@ -811,7 +816,7 @@ function resolveHardcodedContentById(id: string): ContentItem | null {
         if (mapped.id === id) {
           return {
             ...mapped,
-            video: DEMO_FALLBACK_VIDEO,
+            video: publicUrl(DEMO_FALLBACK_VIDEO),
           };
         }
       }
