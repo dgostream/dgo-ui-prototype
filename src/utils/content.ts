@@ -1,5 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
+import { isSanityConfigured } from "@/sanity/env";
 
 export interface ContentItem {
   id: string;
@@ -85,6 +86,7 @@ const mapSanityToContentItem = (data: any): ContentItem => {
 };
 
 export async function getAdSettings() {
+  if (!isSanityConfigured) return null;
   try {
     const query = `*[_type == "adSettings"][0]{
       prerollVideo,
@@ -122,6 +124,7 @@ export async function getAdSettings() {
 }
 
 export async function getContentById(id: string): Promise<ContentItem | null> {
+  if (!isSanityConfigured) return resolveHardcodedContentById(id);
   try {
     const query = `*[_type in ["movie", "series", "sports", "special", "content"] && (slug.current == $id || _id == $id)][0] {
       ...,
@@ -161,6 +164,8 @@ export async function getHeroContent(tab: string): Promise<ContentItem[]> {
     const local = fromHardcoded();
     if (local.length > 0) return local;
   }
+
+  if (!isSanityConfigured) return fromHardcoded();
 
   try {
     const heroTab = tab === "home" ? undefined : tab;
@@ -831,6 +836,8 @@ export async function getLandingPageSections(tab: string): Promise<any[]> {
     const local = fromHardcoded();
     if (local.length > 0) return local;
   }
+
+  if (!isSanityConfigured) return fromHardcoded();
 
   try {
     let sanitySections: any[] = [];

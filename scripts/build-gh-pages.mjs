@@ -36,6 +36,9 @@ const result = spawnSync("npx", ["next", "build"], {
     ...process.env,
     GITHUB_PAGES: "1",
     NEXT_PUBLIC_BASE_PATH: "/dgo-ui-prototype",
+    // Actions has no .env.local. next-sanity throws without a projectId.
+    NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "placeholder",
+    NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   },
 });
 restore();
