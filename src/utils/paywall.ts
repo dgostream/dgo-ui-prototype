@@ -7,6 +7,9 @@ export const DEV_REGION_EVENT = "dgo-region-change";
 export const SUBSCRIPTION_EVENT = "dgo-subscription-change";
 export const SESSION_SUBSCRIPTION = "dgo_unlock_subscription";
 export const SESSION_PVOD = "dgo_unlock_pvod";
+export const SESSION_PASSES = "dgo_event_passes";
+export const DEV_EXCLUSIVE_KEY = "dgo_dev_exclusive";
+export const DEV_EXCLUSIVE_EVENT = "dgo-exclusive-change";
 
 export type SubscriptionSession = {
   skuId: string;
@@ -46,7 +49,10 @@ function recurringIntervalMonths(duration: PlanDuration): number {
 export function getDevRegion(): PriceRegion {
   if (typeof window === "undefined") return "nepal";
   try {
-    return window.localStorage.getItem(DEV_REGION_KEY) === "row" ? "row" : "nepal";
+    const stored = window.localStorage.getItem(DEV_REGION_KEY);
+    if (stored === "za" || stored === "zb" || stored === "zc" || stored === "nepal") return stored;
+    if (stored === "row") return "za";
+    return "nepal";
   } catch {
     return "nepal";
   }
@@ -175,12 +181,67 @@ export function inferPaywallTabFromContent(content: ContentItem | null): string 
   return "entertainment";
 }
 
-/** Call on sign-out (or demo reset) so the subscription / PVOD paywall shows again. */
+/** Prototype switch for the Exclusive / event-pass tab. On by default, same as Android. */
+export function getExclusiveEnabled(): boolean {
+  if (typeof window === "undefined") return true;
+  try {
+    return window.localStorage.getItem(DEV_EXCLUSIVE_KEY) !== "0";
+  } catch {
+    return true;
+  }
+}
+
+export function setExclusiveEnabled(on: boolean): void {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(DEV_EXCLUSIVE_KEY, on ? "1" : "0");
+  } catch {
+    /* ignore */
+  }
+  window.dispatchEvent(new Event(DEV_EXCLUSIVE_EVENT));
+}
+
+export function getOwnedPasses(): string[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.sessionStorage.getItem(SESSION_PASSES);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as unknown;
+    return Array.isArray(parsed) ? parsed.filter((key) => typeof key === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
+export function addEventPass(key: string): void {
+  if (typeof window === "undefined") return;
+  const next = Array.from(new Set([...getOwnedPasses(), key]));
+  try {
+    window.sessionStorage.setItem(SESSION_PASSES, JSON.stringify(next));
+  } catch {
+    /* ignore */
+  }
+  window.dispatchEvent(new Event(SUBSCRIPTION_EVENT));
+}
+
+export function clearEventPasses(): void {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.removeItem(SESSION_PASSES);
+    window.sessionStorage.removeItem(SESSION_PVOD);
+  } catch {
+    /* ignore */
+  }
+  window.dispatchEvent(new Event(SUBSCRIPTION_EVENT));
+}
+
+/** Call on sign-out (or demo reset) so the subscription / event-pass paywall shows again. */
 export function clearPaywallUnlocks(): void {
   if (typeof window === "undefined") return;
   try {
     window.sessionStorage.removeItem(SESSION_SUBSCRIPTION);
     window.sessionStorage.removeItem(SESSION_PVOD);
+    window.sessionStorage.removeItem(SESSION_PASSES);
   } catch {
     /* ignore */
   }
@@ -193,5 +254,6 @@ export function hasSubscriptionUnlock(): boolean {
 
 export function hasPvodUnlock(): boolean {
   if (typeof window === "undefined") return false;
+  if (getOwnedPasses().length > 0) return true;
   return window.sessionStorage.getItem(SESSION_PVOD) === "1";
 }

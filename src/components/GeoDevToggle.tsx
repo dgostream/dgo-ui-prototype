@@ -2,15 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/utils/cn";
-import type { PriceRegion } from "@/utils/subscriptionCatalog";
+import { PRICE_REGIONS, type PriceRegion } from "@/utils/subscriptionCatalog";
 import { findSku } from "@/utils/subscriptionCatalog";
 import {
+  DEV_EXCLUSIVE_EVENT,
   DEV_REGION_EVENT,
   SUBSCRIPTION_EVENT,
+  clearEventPasses,
   getDevRegion,
+  getExclusiveEnabled,
   getSubscriptionSession,
   sessionFromSku,
   setDevRegion,
+  setExclusiveEnabled,
   setSubscriptionSession,
 } from "@/utils/paywall";
 
@@ -24,18 +28,22 @@ function seedSession(region: PriceRegion) {
 export function GeoDevToggle({ className }: { className?: string }) {
   const [region, setRegion] = useState<PriceRegion>("nepal");
   const [subscribed, setSubscribed] = useState(false);
+  const [exclusive, setExclusive] = useState(true);
 
   useEffect(() => {
     const sync = () => {
       setRegion(getDevRegion());
       setSubscribed(getSubscriptionSession() !== null);
+      setExclusive(getExclusiveEnabled());
     };
     sync();
     window.addEventListener(DEV_REGION_EVENT, sync);
     window.addEventListener(SUBSCRIPTION_EVENT, sync);
+    window.addEventListener(DEV_EXCLUSIVE_EVENT, sync);
     return () => {
       window.removeEventListener(DEV_REGION_EVENT, sync);
       window.removeEventListener(SUBSCRIPTION_EVENT, sync);
+      window.removeEventListener(DEV_EXCLUSIVE_EVENT, sync);
     };
   }, []);
 
@@ -46,13 +54,8 @@ export function GeoDevToggle({ className }: { className?: string }) {
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-lime-400 animate-pulse" />
           <span className="uppercase tracking-wider">DEV · geo / state</span>
         </div>
-        <div className="flex items-center gap-1.5">
-          {(
-            [
-              { id: "nepal" as const, label: "NP" },
-              { id: "row" as const, label: "ROW" },
-            ] as const
-          ).map((opt) => (
+        <div className="flex max-w-[min(100vw-1.5rem,28rem)] flex-wrap items-center gap-1.5">
+          {PRICE_REGIONS.map((opt) => (
             <button
               key={opt.id}
               type="button"
@@ -82,7 +85,10 @@ export function GeoDevToggle({ className }: { className?: string }) {
               type="button"
               onClick={() => {
                 if (opt.on) seedSession(getDevRegion());
-                else setSubscriptionSession(null);
+                else {
+                  setSubscriptionSession(null);
+                  clearEventPasses();
+                }
               }}
               className={cn(
                 "min-w-9 rounded px-2 py-1 uppercase tracking-wider",
@@ -94,6 +100,17 @@ export function GeoDevToggle({ className }: { className?: string }) {
               {opt.label}
             </button>
           ))}
+          <span className="mx-0.5 h-3 w-px bg-lime-400/25" />
+          <button
+            type="button"
+            onClick={() => setExclusiveEnabled(!exclusive)}
+            className={cn(
+              "min-w-9 rounded px-2 py-1 uppercase tracking-wider",
+              exclusive ? "bg-lime-400 text-black" : "bg-white/5 text-lime-200/70 hover:bg-white/10"
+            )}
+          >
+            PPV
+          </button>
         </div>
       </div>
     </div>

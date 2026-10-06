@@ -4,14 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useMemo, useEffect, useCallback, useRef, Suspense, type ReactNode } from "react";
 import {
   Check,
+  ChevronLeft,
   ChevronRight,
   ArrowLeft,
   Tv,
-  Smartphone,
   Lock,
   Play,
   CreditCard,
-  Film,
   Ticket,
   Info,
 } from "lucide-react";
@@ -19,15 +18,25 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { cn } from "@/utils/cn";
 import { publicUrl } from "@/utils/asset";
 import {
+  DEV_EXCLUSIVE_EVENT,
   DEV_REGION_EVENT,
-  SESSION_PVOD,
   SUBSCRIPTION_EVENT,
+  addEventPass,
   getDevRegion,
+  getExclusiveEnabled,
+  getOwnedPasses,
   getSubscriptionSession,
   sessionFromSku,
   setSubscriptionSession,
   type SubscriptionSession,
 } from "@/utils/paywall";
+import {
+  EVENT_PASSES,
+  eventPrice,
+  findEvent,
+  passOwnership,
+  type EventPass,
+} from "@/utils/eventPasses";
 import {
   type PriceRegion,
   type PlanTier,
@@ -35,8 +44,11 @@ import {
   type SubscriptionSku,
   TIER_META,
   DURATION_LABELS,
+  billedInLabel,
+  currencyForRegion,
   findSku,
   formatMoney,
+  isStripeRegion,
   formatMonthlyRate,
   savingsVsMonthly,
   billingCadenceLabel,
@@ -142,9 +154,6 @@ type StripeFormState = {
   country: string;
   zip: string;
 };
-
-const PVOD_NPR = 100;
-const PVOD_USD = 1.99;
 
 const DURATIONS: PlanDuration[] = ["01M", "03M", "12M"];
 const TIERS: PlanTier[] = ["mobile", "plus"];
@@ -339,9 +348,7 @@ function PaymentMethodIcon({
 }
 
 function checkoutPriceForSku(sku: SubscriptionSku): number {
-  return sku.region === "row" && sku.duration === "03M"
-    ? Number((sku.price / durationMonths(sku.duration)).toFixed(2))
-    : sku.price;
+  return sku.price;
 }
 
 function planActionLabel(change: PlanChange | null, currentPlan: boolean): string {
@@ -362,6 +369,10 @@ function JoinPageInner() {
   const returnPath = useMemo(() => safeReturnPath(returnRaw), [returnRaw]);
   const [region, setRegion] = useState<PriceRegion>("nepal");
   const [kind, setKind] = useState<JourneyKind>("subscription");
+  const [exclusiveOn, setExclusiveOn] = useState(true);
+  const [catalogTab, setCatalogTab] = useState<"plans" | "exclusive">("plans");
+  const [eventKey, setEventKey] = useState(EVENT_PASSES[0].key);
+  const [ownedPasses, setOwnedPasses] = useState<string[]>([]);
   const [step, setStep] = useState(0);
   const [tierId, setTierId] = useState<PlanTier>("plus");
   const [duration, setDuration] = useState<PlanDuration>("03M");
@@ -395,19 +406,36 @@ function JoinPageInner() {
         setRegion(getDevRegion());
       }
     };
+    const syncExclusive = () => {
+      const on = getExclusiveEnabled();
+      setExclusiveOn(on);
+      setOwnedPasses(getOwnedPasses());
+      if (!on) {
+        setCatalogTab("plans");
+        setKind("subscription");
+      }
+    };
     sync();
+    syncExclusive();
     window.addEventListener(DEV_REGION_EVENT, sync);
     window.addEventListener(SUBSCRIPTION_EVENT, sync);
+    window.addEventListener(SUBSCRIPTION_EVENT, syncExclusive);
+    window.addEventListener(DEV_EXCLUSIVE_EVENT, syncExclusive);
     return () => {
       window.removeEventListener(DEV_REGION_EVENT, sync);
       window.removeEventListener(SUBSCRIPTION_EVENT, sync);
+      window.removeEventListener(SUBSCRIPTION_EVENT, syncExclusive);
+      window.removeEventListener(DEV_EXCLUSIVE_EVENT, syncExclusive);
     };
   }, [planManagementMode]);
 
   useEffect(() => {
-    setKind("subscription");
     setStep(0);
     setPaymentMethod(null);
+    if (flowParam === "pvod" && getExclusiveEnabled()) {
+      setCatalogTab("exclusive");
+      setKind("pvod");
+    }
   }, [flowParam]);
 
   useEffect(() => {
@@ -426,16 +454,17 @@ function JoinPageInner() {
     [currentSession, planManagementMode, sku]
   );
 
-  const pvodAmount = region === "nepal" ? PVOD_NPR : PVOD_USD;
-  const pvodCurrency = region === "nepal" ? ("NPR" as const) : ("USD" as const);
+  const buyingEvent = exclusiveOn && catalogTab === "exclusive";
+  const selectedEvent = findEvent(eventKey) ?? EVENT_PASSES[0];
+  const eventOwnership = passOwnership(selectedEvent, ownedPasses);
+  const eventCurrency = currencyForRegion(region);
 
-  const amount =
-    kind === "pvod"
-      ? pvodAmount
-      : planChange?.kind === "new" && sku
-        ? checkoutPriceForSku(sku)
-        : planChange?.amount ?? sku?.price ?? 0;
-  const currency = kind === "pvod" ? pvodCurrency : sku?.currency ?? "NPR";
+  const amount = buyingEvent
+    ? eventPrice(selectedEvent, region)
+    : planChange?.kind === "new" && sku
+      ? checkoutPriceForSku(sku)
+      : planChange?.amount ?? sku?.price ?? 0;
+  const currency = buyingEvent ? eventCurrency : sku?.currency ?? "NPR";
   const dueAmount = applyCouponAmount(amount, currency, coupon);
 
   const applyCouponCode = (raw: string): string | null => {
@@ -446,23 +475,22 @@ function JoinPageInner() {
     return null;
   };
 
-  const orderTitle =
-    kind === "pvod"
-      ? "Premium rental (PVOD)"
-      : sku
-        ? `${TIER_META[sku.tier].name} · ${DURATION_LABELS[sku.duration]}`
-        : "DGO plan";
+  const orderTitle = buyingEvent
+    ? `${selectedEvent.title} · ${selectedEvent.subtitle}`
+    : sku
+      ? `${TIER_META[sku.tier].name} · ${DURATION_LABELS[sku.duration]}`
+      : "DGO plan";
 
-  const stepLabels =
-    kind === "subscription"
-      ? ["Choose plan", "Payment", "Confirmed"]
-      : kind === "pvod"
-        ? ["Rental", "Payment", "Confirmed"]
-        : [];
+  const stepLabels = buyingEvent
+    ? ["Exclusive", "Payment", "Confirmed"]
+    : ["Choose plan", "Payment", "Confirmed"];
 
   const maxStep = 2;
 
-  const next = () => setStep((s) => Math.min(s + 1, maxStep));
+  const next = () => {
+    if (step === 0) setKind(buyingEvent ? "pvod" : "subscription");
+    setStep((s) => Math.min(s + 1, maxStep));
+  };
   const back = () => {
     if (step === 0) {
       router.push("/");
@@ -471,7 +499,7 @@ function JoinPageInner() {
     setStep((s) => s - 1);
   };
 
-  const canAdvanceFromPlan = kind === "pvod" ? true : !!sku && (planChange?.allowed ?? true);
+  const canAdvanceFromPlan = buyingEvent ? eventOwnership === null : !!sku && (planChange?.allowed ?? true);
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-brand-purple/30">
@@ -486,8 +514,8 @@ function JoinPageInner() {
             Back
           </button>
           <span className="font-black tracking-wide text-xs md:text-sm text-white/80 truncate">
-            {kind === "pvod"
-              ? "Premium rental"
+            {buyingEvent
+              ? "Exclusive"
               : manageMode
                 ? "Manage plan"
                 : renewalMode
@@ -542,7 +570,7 @@ function JoinPageInner() {
 
       <div
         className={cn(
-          kind === "subscription" && step === 1 && region === "row" ? "pb-4" : "pb-24",
+          kind === "subscription" && step === 1 && isStripeRegion(region) ? "pb-4" : "pb-24",
           kind && step < maxStep
             ? step === 1
               ? "pt-[176px] md:pt-[188px]"
@@ -552,43 +580,53 @@ function JoinPageInner() {
       >
         <div ref={stepContentRef} tabIndex={-1} className="outline-none">
         <AnimatePresence mode="wait">
-          {kind === "subscription" && step === 0 && (
+          {step === 0 && (
             <motion.div
-              key={`sub-plan-${region}`}
+              key={`plan-${region}-${buyingEvent ? "exclusive" : "plans"}`}
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.35 }}
             >
-              <StepChoosePlan
-                region={region}
-                tierId={tierId}
-                setTierId={setTierId}
-                duration={duration}
-                setDuration={setDuration}
-                onNext={next}
-                canContinue={!!canAdvanceFromPlan}
-                renewalMode={planManagementMode}
-                manageMode={manageMode}
-                currentSession={currentSession}
-                selectedChange={planChange}
-              />
-            </motion.div>
-          )}
-
-          {kind === "pvod" && step === 0 && (
-            <motion.div
-              key={`pvod-${region}`}
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.35 }}
-            >
-              <StepPvodOverview
-                amount={pvodAmount}
-                currency={pvodCurrency}
-                onNext={next}
-              />
+              {buyingEvent ? (
+                <ExclusiveCatalog
+                  region={region}
+                  events={EVENT_PASSES}
+                  eventKey={eventKey}
+                  ownedPasses={ownedPasses}
+                  onSelect={setEventKey}
+                  onNext={next}
+                  canContinue={canAdvanceFromPlan}
+                  showTabs
+                  onTab={(tab) => {
+                    setCatalogTab(tab);
+                    setKind(tab === "exclusive" ? "pvod" : "subscription");
+                  }}
+                />
+              ) : (
+                <StepChoosePlan
+                  region={region}
+                  tierId={tierId}
+                  setTierId={setTierId}
+                  duration={duration}
+                  setDuration={setDuration}
+                  onNext={next}
+                  canContinue={!!canAdvanceFromPlan}
+                  renewalMode={planManagementMode}
+                  manageMode={manageMode}
+                  currentSession={currentSession}
+                  selectedChange={planChange}
+                  catalogTab={exclusiveOn ? catalogTab : undefined}
+                  onCatalogTab={
+                    exclusiveOn
+                      ? (tab) => {
+                          setCatalogTab(tab);
+                          setKind(tab === "exclusive" ? "pvod" : "subscription");
+                        }
+                      : undefined
+                  }
+                />
+              )}
             </motion.div>
           )}
 
@@ -606,7 +644,7 @@ function JoinPageInner() {
                 amount={amount}
                 dueAmount={dueAmount}
                 currency={currency}
-                sku={kind === "subscription" ? sku : null}
+                sku={buyingEvent ? null : sku}
                 coupon={coupon}
                 onApplyCoupon={applyCouponCode}
                 onClearCoupon={() => setCoupon(null)}
@@ -636,7 +674,8 @@ function JoinPageInner() {
             >
               <StepConfirmation
                 kind={kind}
-                sku={sku}
+                sku={buyingEvent ? null : sku}
+                eventPass={buyingEvent ? selectedEvent : null}
                 amount={dueAmount}
                 currency={currency}
                 orderRef={orderRef}
@@ -644,7 +683,7 @@ function JoinPageInner() {
                 returnPath={returnPath}
                 currentSession={currentSession}
                 planChangeKind={planChange?.kind ?? "new"}
-                paymentLabel={region === "row" ? "Stripe" : NEPAL_PSPS.find((method) => method.id === paymentMethod)?.name ?? "Payment method"}
+                paymentLabel={isStripeRegion(region) ? "Stripe" : NEPAL_PSPS.find((method) => method.id === paymentMethod)?.name ?? "Payment method"}
               />
             </motion.div>
           )}
@@ -730,6 +769,144 @@ function PlanLifecycleNote({
   );
 }
 
+function CardPager({
+  renderSlides,
+  index,
+  onIndex,
+  ariaLabel,
+}: {
+  renderSlides: () => ReactNode[];
+  index: number;
+  onIndex: (index: number) => void;
+  ariaLabel: string;
+}) {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const fromUserScroll = useRef(false);
+
+  const scrollTo = useCallback((next: number) => {
+    const scroller = scrollerRef.current;
+    const card = cardRefs.current[next];
+    if (!scroller || !card) return;
+    const left = card.offsetLeft - (scroller.clientWidth - card.offsetWidth) / 2;
+    scroller.scrollTo({ left, behavior: "smooth" });
+  }, []);
+
+  const slides = renderSlides();
+  const desktopSlides = renderSlides();
+  useEffect(() => {
+    if (fromUserScroll.current) {
+      fromUserScroll.current = false;
+      return;
+    }
+    scrollTo(index);
+  }, [index, scrollTo, slides.length]);
+  const go = (next: number) => {
+    const clamped = Math.max(0, Math.min(slides.length - 1, next));
+    if (clamped !== index) onIndex(clamped);
+    else scrollTo(clamped);
+  };
+
+  return (
+    <>
+    <div
+      className="relative mt-5 md:hidden"
+      role="region"
+      aria-label={ariaLabel}
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          go(index + 1);
+        }
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          go(index - 1);
+        }
+      }}
+    >
+      <button
+        type="button"
+        aria-label="Previous"
+        disabled={index === 0}
+        onClick={() => go(index - 1)}
+        className="absolute top-1/2 left-1 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/80 text-white shadow-lg backdrop-blur disabled:cursor-not-allowed disabled:opacity-30"
+      >
+        <ChevronLeft className="pointer-events-none h-5 w-5" />
+      </button>
+      <button
+        type="button"
+        aria-label="Next"
+        disabled={index === slides.length - 1}
+        onClick={() => go(index + 1)}
+        className="absolute top-1/2 right-1 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/80 text-white shadow-lg backdrop-blur disabled:cursor-not-allowed disabled:opacity-30"
+      >
+        <ChevronRight className="pointer-events-none h-5 w-5" />
+      </button>
+      <div
+        ref={scrollerRef}
+        className="flex snap-x snap-mandatory overflow-x-auto pb-2 scrollbar-none"
+        onScroll={() => {
+          const scroller = scrollerRef.current;
+          if (!scroller) return;
+          const mid = scroller.scrollLeft + scroller.clientWidth / 2;
+          let best = 0;
+          let bestDist = Number.POSITIVE_INFINITY;
+          cardRefs.current.forEach((card, cardIndex) => {
+            if (!card) return;
+            const center = card.offsetLeft + card.offsetWidth / 2;
+            const dist = Math.abs(center - mid);
+            if (dist < bestDist) {
+              bestDist = dist;
+              best = cardIndex;
+            }
+          });
+          if (best !== index) {
+            fromUserScroll.current = true;
+            onIndex(best);
+          }
+        }}
+      >
+        <div className="w-[7%] shrink-0" aria-hidden />
+        {slides.map((slide, slideIndex) => (
+          <div
+            key={slideIndex}
+            ref={(node) => {
+              cardRefs.current[slideIndex] = node;
+            }}
+            className="w-[86%] shrink-0 snap-center px-1.5"
+          >
+            {slide}
+          </div>
+        ))}
+        <div className="w-[7%] shrink-0" aria-hidden />
+      </div>
+      <div className="mt-3 flex items-center justify-center gap-2">
+        {slides.map((_, dotIndex) => (
+          <button
+            key={dotIndex}
+            type="button"
+            aria-label={`Card ${dotIndex + 1}`}
+            onClick={() => go(dotIndex)}
+            className={cn(
+              "rounded-full transition-all",
+              dotIndex === index ? "h-2 w-2 bg-white" : "h-1.5 w-1.5 bg-white/25"
+            )}
+          />
+        ))}
+      </div>
+    </div>
+    <div className="mx-auto mt-5 hidden w-full grid-cols-2 items-stretch gap-4 md:grid">
+      {desktopSlides.map((slide, slideIndex) => (
+        <div key={slideIndex} className="min-w-0">
+          {slide}
+        </div>
+      ))}
+    </div>
+    </>
+  );
+}
+
 function StepChoosePlan({
   region,
   tierId,
@@ -742,6 +919,8 @@ function StepChoosePlan({
   manageMode,
   currentSession,
   selectedChange,
+  catalogTab,
+  onCatalogTab,
 }: {
   region: PriceRegion;
   tierId: PlanTier;
@@ -754,6 +933,8 @@ function StepChoosePlan({
   manageMode: boolean;
   currentSession: SubscriptionSession | null;
   selectedChange: PlanChange | null;
+  catalogTab?: "plans" | "exclusive";
+  onCatalogTab?: (tab: "plans" | "exclusive") => void;
 }) {
   const selectedRow = findSku(region, tierId, duration) ?? null;
   const selectedCurrentPlan = renewalMode && !!selectedRow && currentSession?.skuId === selectedRow.id;
@@ -762,13 +943,17 @@ function StepChoosePlan({
       ? checkoutPriceForSku(selectedRow)
       : selectedChange?.amount ?? checkoutPriceForSku(selectedRow)
     : 0;
+  const planOrder: PlanTier[] = ["plus", "mobile"];
 
   return (
     <div className="mx-auto max-w-3xl px-5 pb-28 sm:px-6 md:pb-10">
       <header className="mb-6">
         <div className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/4 px-3 py-1 text-[11px] font-semibold text-white/50">
-          {region === "nepal" ? "Billed in NPR" : "Billed in USD"}
+          {billedInLabel(region)}
         </div>
+        {catalogTab && onCatalogTab ? (
+          <CatalogTabs selected={catalogTab} onSelect={onCatalogTab} />
+        ) : null}
         <h1 className="text-4xl font-black tracking-tight text-white md:text-5xl">
           {manageMode ? "Change your plan" : renewalMode ? "Add time or upgrade" : "Choose your plan"}
         </h1>
@@ -830,8 +1015,11 @@ function StepChoosePlan({
         })}
       </div>
 
-      <div className="grid gap-3 md:grid-cols-2 md:gap-4">
-        {TIERS.map((id) => {
+      <CardPager
+        ariaLabel="Plans"
+        index={Math.max(0, planOrder.indexOf(tierId))}
+        onIndex={(next) => setTierId(planOrder[next])}
+        renderSlides={() => planOrder.map((id) => {
           const meta = TIER_META[id];
           const row = findSku(region, id, duration);
           const active = tierId === id;
@@ -842,11 +1030,7 @@ function StepChoosePlan({
               ? savingsVsMonthly(region, id, duration)
               : null;
           const compareAt =
-            save && row
-              ? region === "row"
-                ? findSku(region, id, "01M")?.price ?? 0
-                : (findSku(region, id, "01M")?.price ?? 0) * durationMonths(duration)
-              : 0;
+            save && row ? (findSku(region, id, "01M")?.price ?? 0) * durationMonths(duration) : 0;
           const displayAmount = row
             ? rowChange?.kind === "new"
               ? checkoutPriceForSku(row)
@@ -866,8 +1050,7 @@ function StepChoosePlan({
                 }
               }}
               className={cn(
-                "flex cursor-pointer flex-col rounded-3xl border p-5 text-left transition-all md:p-6",
-                id === "plus" ? "order-1 md:order-2" : "order-2 md:order-1",
+                "flex h-full cursor-pointer flex-col rounded-3xl border p-5 text-left transition-all md:p-6",
                 active
                   ? "shadow-[0_18px_50px_rgba(0,0,0,0.45)]"
                   : "border-white/8 bg-white/3 hover:border-white/18"
@@ -977,7 +1160,7 @@ function StepChoosePlan({
             </div>
           );
         })}
-      </div>
+      />
       {renewalMode && currentSession ? (
         <PlanLifecycleNote currentSession={currentSession} selectedChange={selectedChange} />
       ) : null}
@@ -1007,67 +1190,197 @@ function StepChoosePlan({
   );
 }
 
-function StepPvodOverview({
-  amount,
-  currency,
-  onNext,
+function CatalogTabs({
+  selected,
+  onSelect,
 }: {
-  amount: number;
-  currency: "NPR" | "USD";
-  onNext: () => void;
+  selected: "plans" | "exclusive";
+  onSelect: (tab: "plans" | "exclusive") => void;
 }) {
   return (
-    <div className="mx-auto max-w-3xl px-5 pb-10 sm:px-6">
-      <div className="mb-6">
-        <p className="text-[9px] font-black uppercase tracking-[0.45em] text-brand-pink/85 mb-2">Premium rental</p>
-        <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-3">PVOD checkout</h2>
-        <p className="text-white/45 text-sm md:text-base leading-relaxed">
-          Unlock a single premium title. This path is separate from a DGO subscription.
-        </p>
-      </div>
+    <div className="mb-5 grid grid-cols-2 gap-1 rounded-full border border-white/10 bg-[#121212] p-1">
+      {(
+        [
+          { id: "plans" as const, label: "Plans", icon: Tv },
+          { id: "exclusive" as const, label: "Exclusive", icon: Ticket },
+        ] as const
+      ).map(({ id, label, icon: Icon }) => {
+        const active = selected === id;
+        return (
+          <button
+            key={id}
+            type="button"
+            onClick={() => onSelect(id)}
+            className={cn(
+              "flex items-center justify-center gap-1.5 rounded-full py-2.5 text-[13px] font-black transition-colors",
+              active ? "bg-white text-black" : "text-white/65 hover:text-white"
+            )}
+          >
+            <Icon className="h-3.5 w-3.5" />
+            {label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
 
-      <div className="rounded-3xl border border-brand-pink/25 bg-linear-to-br from-brand-pink/12 to-white/[0.03] p-6 md:p-8 mb-8">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-black/30">
-              <Film className="h-6 w-6 text-brand-pink" />
-            </div>
-            <div>
-              <p className="font-black text-white text-lg">Selected premium title</p>
-              <p className="text-white/40 text-sm mt-1">
-                After payment, the title appears in My Library for the rental window (prototype).
-              </p>
-            </div>
-          </div>
-          <div className="text-center sm:text-right">
-            <p className="text-[9px] font-black uppercase tracking-widest text-white/35 mb-1">Due now</p>
-            <p className="text-4xl font-black text-white">{formatMoney(amount, currency)}</p>
-          </div>
-        </div>
-      </div>
+function ExclusiveCatalog({
+  region,
+  events,
+  eventKey,
+  ownedPasses,
+  onSelect,
+  onNext,
+  canContinue,
+  showTabs,
+  onTab,
+}: {
+  region: PriceRegion;
+  events: EventPass[];
+  eventKey: string;
+  ownedPasses: string[];
+  onSelect: (key: string) => void;
+  onNext: () => void;
+  canContinue: boolean;
+  showTabs: boolean;
+  onTab: (tab: "plans" | "exclusive") => void;
+}) {
+  const currency = currencyForRegion(region);
+  const selected = events.find((event) => event.key === eventKey) ?? events[0];
+  const ownership = passOwnership(selected, ownedPasses);
+  const eventIndex = Math.max(0, events.findIndex((event) => event.key === eventKey));
 
-      <div className="grid sm:grid-cols-2 gap-3 mb-10">
-        {[
-          { icon: Tv, t: "Watch on supported devices", d: "Same playback stack as the main app." },
-          { icon: Smartphone, t: "Instant unlock", d: "Continue on mobile after checkout." },
-        ].map(({ icon: Icon, t, d }) => (
-          <div key={t} className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-            <Icon className="h-5 w-5 text-brand-purple mb-2" />
-            <p className="font-bold text-white text-sm">{t}</p>
-            <p className="text-white/35 text-xs mt-1">{d}</p>
-          </div>
+  return (
+    <div className="mx-auto max-w-3xl px-5 pb-28 sm:px-6 md:pb-10">
+      <div className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/4 px-3 py-1 text-[11px] font-semibold text-white/50">
+        {billedInLabel(region)}
+      </div>
+      {showTabs ? <CatalogTabs selected="exclusive" onSelect={onTab} /> : null}
+      <h1 className="text-4xl font-black tracking-tight text-white">Exclusive events</h1>
+      <p className="mt-2 text-sm text-white/50">One-time passes. No subscription needed.</p>
+
+      <CardPager
+        ariaLabel="Exclusive events"
+        index={eventIndex}
+        onIndex={(next) => {
+          const event = events[next];
+          if (event) onSelect(event.key);
+        }}
+        renderSlides={() => events.map((event) => (
+          <button
+            key={event.key}
+            type="button"
+            onClick={() => onSelect(event.key)}
+            className="block w-full text-left"
+          >
+            <EventPassCard
+              event={event}
+              region={region}
+              ownedPasses={ownedPasses}
+              active={event.key === eventKey}
+            />
+          </button>
         ))}
-      </div>
-
+      />
+      <p className="mt-2 text-center text-[11px] text-white/35">Works with or without a plan</p>
       <button
         type="button"
         onClick={onNext}
-        className="w-full sm:w-auto flex items-center justify-center gap-3 px-10 py-5 bg-brand-gradient text-white font-black uppercase tracking-[0.12em] text-sm rounded-2xl shadow-xl shadow-brand-purple/25 hover:scale-[1.02] active:scale-95 transition-all"
+        disabled={!canContinue}
+        className="mt-6 hidden w-full items-center justify-center rounded-2xl bg-brand-gradient px-4 py-3.5 text-sm font-black text-white disabled:cursor-not-allowed disabled:bg-none disabled:bg-white/8 disabled:text-white/35 md:flex"
       >
-        Continue to payment
-        <ChevronRight className="w-5 h-5" />
+        {ownership === "owned" ? "Owned" : ownership === "included" ? "Included" : "Buy pass"}
       </button>
+
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/90 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur-xl md:hidden">
+        <div className="mx-auto flex max-w-3xl items-center gap-3">
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-xs font-bold text-white">{selected.title}</p>
+            <p className="truncate text-[11px] text-white/40">
+              {selected.subtitle} · {formatMoney(eventPrice(selected, region), currency)}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onNext}
+            disabled={!canContinue}
+            className="shrink-0 rounded-xl bg-brand-gradient px-5 py-3 text-xs font-black text-white disabled:cursor-not-allowed disabled:bg-none disabled:bg-white/8 disabled:text-white/35"
+          >
+            {ownership === "owned" ? "Owned" : ownership === "included" ? "Included" : "Buy pass"}
+          </button>
+        </div>
+      </div>
     </div>
+  );
+}
+
+function EventPassCard({
+  event,
+  region,
+  ownedPasses,
+  active,
+}: {
+  event: EventPass;
+  region: PriceRegion;
+  ownedPasses: string[];
+  active: boolean;
+}) {
+  const currency = currencyForRegion(region);
+  const ownership = passOwnership(event, ownedPasses);
+  return (
+    <article
+      className="overflow-hidden rounded-[28px] border bg-[#09090b]"
+      style={{ borderColor: active ? `${event.accent}88` : "rgba(255,255,255,0.08)" }}
+    >
+      <div
+        className="relative h-[150px]"
+        style={{
+          background: `linear-gradient(135deg, ${event.accent}${active ? "b3" : "59"}, #1a0b2e 55%, #09090b)`,
+        }}
+      >
+        <div className="absolute left-4 top-4 flex gap-1.5">
+          <span className="rounded-full bg-white/15 px-2.5 py-1 text-[10px] font-black tracking-wide text-white">
+            {event.league}
+          </span>
+          <span className="rounded-full bg-black/35 px-2.5 py-1 text-[10px] font-black tracking-wide text-white/85">
+            LIVE EVENT
+          </span>
+        </div>
+        {ownership ? (
+          <span className="absolute right-4 top-4 rounded-full bg-emerald-400/20 px-2.5 py-1 text-[10px] font-black tracking-wide text-emerald-300">
+            {ownership === "owned" ? "Owned" : "Included"}
+          </span>
+        ) : null}
+        <div className="absolute bottom-4 left-4 right-4">
+          <p className="text-3xl font-black tracking-tight text-white">{event.title}</p>
+          <p className="text-[13px] font-bold text-white/80">{event.subtitle}</p>
+        </div>
+      </div>
+      <div className="px-5 py-4">
+        <div className="flex items-end gap-2">
+          <p className="text-[34px] font-black leading-none tracking-tight text-white">
+            {formatMoney(eventPrice(event, region), currency)}
+          </p>
+          <span className="mb-1 rounded-full bg-white/8 px-2.5 py-1 text-[10px] font-black text-white/70">One-time</span>
+        </div>
+        <p className="mt-2 text-[13px] text-white/45">
+          {event.window} · Access until {formatRenewalDate(event.accessUntil)}
+        </p>
+        <ul className="mt-3 space-y-1.5">
+          {event.includes.map((line) => (
+            <li key={line} className="flex items-center gap-2 text-[13px] text-white/70">
+              <Check className="h-3.5 w-3.5 shrink-0" style={{ color: event.accent }} />
+              {line}
+            </li>
+          ))}
+          <li className="flex items-center gap-2 text-[13px] text-white/40">
+            <Check className="h-3.5 w-3.5 shrink-0 opacity-35" style={{ color: event.accent }} />
+            No renewal, no subscription
+          </li>
+        </ul>
+      </div>
+    </article>
   );
 }
 
@@ -1680,8 +1993,8 @@ function StepPayment({
   const listPrice = formatMoney(amount, currency);
 
   return (
-    <div className={cn("mx-auto px-5 pb-10 pt-2 sm:px-6", region === "row" ? "max-w-4xl" : "max-w-lg")}>
-      {region === "row" ? (
+    <div className={cn("mx-auto px-5 pb-10 pt-2 sm:px-6", isStripeRegion(region) ? "max-w-4xl" : "max-w-lg")}>
+      {isStripeRegion(region) ? (
         currentSession &&
         sku &&
         (planChangeKind === "provider-upgrade" || planChangeKind === "provider-downgrade") ? (
@@ -1895,7 +2208,8 @@ function persistPurchase(
   kind: "subscription" | "pvod",
   sku: SubscriptionSku | null,
   currentSession: SubscriptionSession | null,
-  planChangeKind: PlanChangeKind
+  planChangeKind: PlanChangeKind,
+  eventKey: string | null
 ) {
   if (kind === "subscription" && sku) {
     if (currentSession?.billingMode === "recurring" && planChangeKind === "provider-downgrade") {
@@ -1926,14 +2240,13 @@ function persistPurchase(
     }
     setSubscriptionSession(next);
   }
-  if (kind === "pvod" && typeof window !== "undefined") {
-    window.sessionStorage.setItem(SESSION_PVOD, "1");
-  }
+  if (kind === "pvod" && eventKey) addEventPass(eventKey);
 }
 
 function StepConfirmation({
   kind,
   sku,
+  eventPass,
   amount,
   currency,
   orderRef,
@@ -1945,6 +2258,7 @@ function StepConfirmation({
 }: {
   kind: "subscription" | "pvod";
   sku: SubscriptionSku | null;
+  eventPass: EventPass | null;
   amount: number;
   currency: "NPR" | "USD";
   orderRef: string;
@@ -1955,14 +2269,20 @@ function StepConfirmation({
   paymentLabel: string;
 }) {
   const [secondsLeft, setSecondsLeft] = useState(10);
-  const purchaseRef = useRef({ kind, sku, currentSession, planChangeKind });
+  const purchaseRef = useRef({ kind, sku, currentSession, planChangeKind, eventKey: eventPass?.key ?? null });
   const finishAndGo = useCallback(() => {
     router.push("/");
   }, [router]);
 
   useEffect(() => {
     const purchase = purchaseRef.current;
-    persistPurchase(purchase.kind, purchase.sku, purchase.currentSession, purchase.planChangeKind);
+    persistPurchase(
+      purchase.kind,
+      purchase.sku,
+      purchase.currentSession,
+      purchase.planChangeKind,
+      purchase.eventKey
+    );
     const tick = window.setInterval(() => {
       setSecondsLeft((s) => (s <= 1 ? 0 : s - 1));
     }, 1000);
@@ -1973,16 +2293,18 @@ function StepConfirmation({
     };
   }, [finishAndGo]);
 
-  const title =
-    kind === "subscription"
+  const title = eventPass
+    ? "Pass unlocked"
+    : kind === "subscription"
       ? planChangeKind === "provider-downgrade"
         ? "Plan change scheduled"
         : planChangeKind === "provider-upgrade"
           ? "Plan updated"
           : "You're in"
-      : "Rental unlocked";
-  const detail =
-    kind === "subscription" && sku
+      : "Pass unlocked";
+  const detail = eventPass
+    ? `${eventPass.title} · ${eventPass.subtitle}`
+    : kind === "subscription" && sku
       ? `${TIER_META[sku.tier].name} · ${DURATION_LABELS[sku.duration]}`
       : `Unlocked for ${formatMoney(amount, currency)}`;
   const providerChange =
@@ -2052,7 +2374,14 @@ function StepConfirmation({
             <span className="text-white/40">Payment</span>
             <span className="font-bold text-white/80">{paymentLabel}</span>
           </div>
-          {kind === "subscription" && sku ? (
+          {eventPass ? (
+            <div className="flex items-center justify-between gap-4 px-4 py-3 text-xs">
+              <span className="text-white/40">Access</span>
+              <span className="text-right font-bold text-white/80">
+                Until {formatRenewalDate(eventPass.accessUntil)} · no renewal
+              </span>
+            </div>
+          ) : kind === "subscription" && sku ? (
             <div className="flex items-center justify-between gap-4 px-4 py-3 text-xs">
               <span className="text-white/40">{sku.region === "nepal" ? "Access" : "Schedule"}</span>
               <span className="text-right font-bold text-white/80">
