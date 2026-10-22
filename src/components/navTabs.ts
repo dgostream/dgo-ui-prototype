@@ -4,7 +4,8 @@ export type NavTab = {
   id: string;
   label: string;
   icon: LucideIcon;
-  iconSrc?: string;
+  /** Full brand lockup shown instead of the icon + text label */
+  logoSrc?: string;
   color: string;
   secondaryColor: string;
   multi?: boolean;
@@ -17,7 +18,7 @@ export const tabs: NavTab[] = [
     id: "hotstar",
     label: "JioHotstar",
     icon: Tv2,
-    iconSrc: "/hotstar-icon.svg",
+    logoSrc: "/Spark.svg",
     color: "#0B5FFF",
     secondaryColor: "#FF4D9A",
   },

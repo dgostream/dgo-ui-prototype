@@ -152,25 +152,27 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
                         isActive ? "text-white" : "text-white/60 hover:text-white/90"
                       )}
                     >
-                      {tab.iconSrc ? (
+                      {tab.logoSrc ? (
                         <img
-                          src={publicUrl(tab.iconSrc)}
-                          alt=""
+                          src={publicUrl(tab.logoSrc)}
+                          alt={tab.label}
                           className={cn(
-                            "h-6 w-6 object-contain transition-opacity",
-                            isActive ? "opacity-100" : "opacity-60 group-hover:opacity-90"
+                            "h-7 w-auto object-contain relative z-10 transition-opacity",
+                            isActive ? "opacity-100" : "opacity-70 group-hover:opacity-90"
                           )}
                         />
                       ) : (
-                        <Icon size={16} className={cn("transition-colors", isActive ? "text-white" : "text-white/60")} />
+                        <>
+                          <Icon size={16} className={cn("transition-colors", isActive ? "text-white" : "text-white/60")} />
+                          <NavTabLabel
+                            text={tab.label}
+                            className={cn(
+                              "text-sm font-bold tracking-tight relative z-10 uppercase",
+                              tab.id === "junior" ? "font-black tracking-normal" : "font-geist"
+                            )}
+                          />
+                        </>
                       )}
-                      <NavTabLabel
-                        text={tab.label}
-                        className={cn(
-                          "text-sm font-bold tracking-tight relative z-10 uppercase",
-                          tab.id === "junior" ? "font-black tracking-normal" : "font-geist"
-                        )}
-                      />
 
                   {isActive && tab.id !== "junior" && (
                         <motion.div

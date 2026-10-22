@@ -14,6 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { cn } from "@/utils/cn";
+import { publicUrl } from "@/utils/asset";
 import { clearPaywallUnlocks } from "@/utils/paywall";
 import { tabs, DEFAULT_HOME_TAB } from "@/components/navTabs";
 import { AccountMenuPanel } from "@/components/AccountMenuPanel";
@@ -202,7 +203,11 @@ export default function MobileBottomNav({ activeTab, onTabChange, onHome }: Mobi
                             : "bg-white/6 text-white/45 border-white/10 active:scale-95"
                         )}
                       >
-                        <MobileMenuLabel text={tab.label} />
+                        {tab.logoSrc ? (
+                          <img src={publicUrl(tab.logoSrc)} alt={tab.label} className="h-4 w-auto object-contain" />
+                        ) : (
+                          <MobileMenuLabel text={tab.label} />
+                        )}
                       </button>
                     );
                   })}
