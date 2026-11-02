@@ -154,7 +154,7 @@ export function HomeSubscribeDrive() {
             >
               <p className="text-[9px] font-black uppercase tracking-widest text-[#7EB6FF] mb-1">DGO Mobile</p>
               <p className="text-xl font-black text-white">720p · phones & tablets</p>
-              <p className="text-xs text-white/40 mt-1">The library in your pocket. From रू 199 / $3.99</p>
+              <p className="text-xs text-white/40 mt-1">The library in your pocket. From रू 249 / $3.99</p>
             </button>
             <button
               type="button"
@@ -166,7 +166,7 @@ export function HomeSubscribeDrive() {
                 <span className="rounded-full bg-brand-pink/20 px-2 py-0.5 text-[8px] font-black uppercase tracking-widest text-brand-pink">Best for TV</span>
               </div>
               <p className="text-xl font-black text-white">1080p · TV & 3 streams</p>
-              <p className="text-xs text-white/40 mt-1">Casting, profiles, living-room. From रू 299 / $5.99</p>
+              <p className="text-xs text-white/40 mt-1">Casting, profiles, living-room. From रू 399 / $5.99</p>
             </button>
           </div>
         </div>

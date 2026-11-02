@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import Splash from "@/components/Splash";
 import JuniorSplash from "@/components/JuniorSplash";
 import Navigation, { tabs, DEFAULT_HOME_TAB } from "@/components/Navigation";
@@ -108,7 +109,7 @@ function HomeContent() {
 
   const tSponsored = useTranslated("Sponsored");
   const tPrivacy = useTranslated("Privacy Policy");
-  const tTerms = useTranslated("Terms of Service");
+  const tTerms = useTranslated("Terms & Conditions");
   const tHelp = useTranslated("Help Center");
   const tCopyright = useTranslated("Â© 2026 DGO GLOBAL â€¢ THE WORLD IS WATCHING");
 
@@ -253,12 +254,16 @@ function HomeContent() {
                               </div>
                             </motion.div>
                             
+
+                          </div>
+                        )}
+                          <div className="px-6 pb-24 md:px-12 lg:px-24">
                             {/* Premium Minimal Footer */}
-                            <div className="mt-8 md:mt-12 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/5 pt-8 opacity-40 hover:opacity-100 transition-opacity duration-500">
+                            <div className="mt-8 md:mt-12 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/5 pt-8 transition-opacity duration-500">
                               <div className="flex items-center gap-6 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.3em] text-white/60">
                                 <span className="cursor-pointer hover:text-white transition-colors">{tPrivacy}</span>
                                 <span className="w-1 h-1 rounded-full bg-white/20" />
-                                <span className="cursor-pointer hover:text-white transition-colors">{tTerms}</span>
+                                <Link href="/terms/" className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{tTerms}</Link>
                                 <span className="w-1 h-1 rounded-full bg-white/20" />
                                 <span className="cursor-pointer hover:text-white transition-colors">{tHelp}</span>
                               </div>
@@ -267,7 +272,6 @@ function HomeContent() {
                               </div>
                             </div>
                           </div>
-                        )}
                   </div>
                 </div>
 

@@ -32,6 +32,7 @@ export type SubscriptionSku = {
   tier: PlanTier;
   duration: PlanDuration;
   price: number;
+  regularPrice: number;
   currency: "NPR" | "USD";
   entitlement: "EP-MOBILE" | "EP-PLUS";
   liveSports: boolean;
@@ -40,33 +41,33 @@ export type SubscriptionSku = {
 /** Nepal NPR + Rest of World (Zone A — India & Middle East USD) for the region toggle. */
 export const SUBSCRIPTION_SKUS: SubscriptionSku[] = [
   // Nepal
-  { id: "DGO-NP-MOB-01M", region: "nepal", tier: "mobile", duration: "01M", price: 199, currency: "NPR", entitlement: "EP-MOBILE", liveSports: false },
-  { id: "DGO-NP-PLS-01M", region: "nepal", tier: "plus", duration: "01M", price: 299, currency: "NPR", entitlement: "EP-PLUS", liveSports: false },
-  { id: "DGO-NP-MOB-03M", region: "nepal", tier: "mobile", duration: "03M", price: 549, currency: "NPR", entitlement: "EP-MOBILE", liveSports: true },
-  { id: "DGO-NP-PLS-03M", region: "nepal", tier: "plus", duration: "03M", price: 799, currency: "NPR", entitlement: "EP-PLUS", liveSports: true },
-  { id: "DGO-NP-MOB-12M", region: "nepal", tier: "mobile", duration: "12M", price: 1799, currency: "NPR", entitlement: "EP-MOBILE", liveSports: true },
-  { id: "DGO-NP-PLS-12M", region: "nepal", tier: "plus", duration: "12M", price: 2699, currency: "NPR", entitlement: "EP-PLUS", liveSports: true },
+  { id: "DGO-NP-MOB-01M", region: "nepal", tier: "mobile", duration: "01M", price: 249, regularPrice: 349, currency: "NPR", entitlement: "EP-MOBILE", liveSports: false },
+  { id: "DGO-NP-PLS-01M", region: "nepal", tier: "plus", duration: "01M", price: 399, regularPrice: 499, currency: "NPR", entitlement: "EP-PLUS", liveSports: false },
+  { id: "DGO-NP-MOB-03M", region: "nepal", tier: "mobile", duration: "03M", price: 699, regularPrice: 849, currency: "NPR", entitlement: "EP-MOBILE", liveSports: true },
+  { id: "DGO-NP-PLS-03M", region: "nepal", tier: "plus", duration: "03M", price: 899, regularPrice: 1199, currency: "NPR", entitlement: "EP-PLUS", liveSports: true },
+  { id: "DGO-NP-MOB-12M", region: "nepal", tier: "mobile", duration: "12M", price: 2499, regularPrice: 2999, currency: "NPR", entitlement: "EP-MOBILE", liveSports: true },
+  { id: "DGO-NP-PLS-12M", region: "nepal", tier: "plus", duration: "12M", price: 2699, regularPrice: 3999, currency: "NPR", entitlement: "EP-PLUS", liveSports: true },
   // Zone A — India & Middle East
-  { id: "DGO-ZA-MOB-01M", region: "za", tier: "mobile", duration: "01M", price: 3.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: false },
-  { id: "DGO-ZA-PLS-01M", region: "za", tier: "plus", duration: "01M", price: 5.99, currency: "USD", entitlement: "EP-PLUS", liveSports: false },
-  { id: "DGO-ZA-MOB-03M", region: "za", tier: "mobile", duration: "03M", price: 9.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
-  { id: "DGO-ZA-PLS-03M", region: "za", tier: "plus", duration: "03M", price: 14.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
-  { id: "DGO-ZA-MOB-12M", region: "za", tier: "mobile", duration: "12M", price: 35.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
-  { id: "DGO-ZA-PLS-12M", region: "za", tier: "plus", duration: "12M", price: 50.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
+  { id: "DGO-ZA-MOB-01M", region: "za", tier: "mobile", duration: "01M", price: 3.99, regularPrice: 4.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: false },
+  { id: "DGO-ZA-PLS-01M", region: "za", tier: "plus", duration: "01M", price: 5.99, regularPrice: 6.99, currency: "USD", entitlement: "EP-PLUS", liveSports: false },
+  { id: "DGO-ZA-MOB-03M", region: "za", tier: "mobile", duration: "03M", price: 8.99, regularPrice: 10.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
+  { id: "DGO-ZA-PLS-03M", region: "za", tier: "plus", duration: "03M", price: 14.49, regularPrice: 16.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
+  { id: "DGO-ZA-MOB-12M", region: "za", tier: "mobile", duration: "12M", price: 37.99, regularPrice: 44.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
+  { id: "DGO-ZA-PLS-12M", region: "za", tier: "plus", duration: "12M", price: 52.99, regularPrice: 60.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
   // Zone B — USA / Europe / AU / NZ
-  { id: "DGO-ZB-MOB-01M", region: "zb", tier: "mobile", duration: "01M", price: 6.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: false },
-  { id: "DGO-ZB-PLS-01M", region: "zb", tier: "plus", duration: "01M", price: 8.99, currency: "USD", entitlement: "EP-PLUS", liveSports: false },
-  { id: "DGO-ZB-MOB-03M", region: "zb", tier: "mobile", duration: "03M", price: 18.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
-  { id: "DGO-ZB-PLS-03M", region: "zb", tier: "plus", duration: "03M", price: 29.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
-  { id: "DGO-ZB-MOB-12M", region: "zb", tier: "mobile", duration: "12M", price: 64.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
-  { id: "DGO-ZB-PLS-12M", region: "zb", tier: "plus", duration: "12M", price: 99.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
+  { id: "DGO-ZB-MOB-01M", region: "zb", tier: "mobile", duration: "01M", price: 6.99, regularPrice: 7.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: false },
+  { id: "DGO-ZB-PLS-01M", region: "zb", tier: "plus", duration: "01M", price: 9.99, regularPrice: 12.99, currency: "USD", entitlement: "EP-PLUS", liveSports: false },
+  { id: "DGO-ZB-MOB-03M", region: "zb", tier: "mobile", duration: "03M", price: 16.99, regularPrice: 20.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
+  { id: "DGO-ZB-PLS-03M", region: "zb", tier: "plus", duration: "03M", price: 24.49, regularPrice: 29.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
+  { id: "DGO-ZB-MOB-12M", region: "zb", tier: "mobile", duration: "12M", price: 59.99, regularPrice: 65.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
+  { id: "DGO-ZB-PLS-12M", region: "zb", tier: "plus", duration: "12M", price: 85.99, regularPrice: 99.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
   // Zone C — South East Asia
-  { id: "DGO-ZC-MOB-01M", region: "zc", tier: "mobile", duration: "01M", price: 4.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: false },
-  { id: "DGO-ZC-PLS-01M", region: "zc", tier: "plus", duration: "01M", price: 6.99, currency: "USD", entitlement: "EP-PLUS", liveSports: false },
-  { id: "DGO-ZC-MOB-03M", region: "zc", tier: "mobile", duration: "03M", price: 10.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
-  { id: "DGO-ZC-PLS-03M", region: "zc", tier: "plus", duration: "03M", price: 17.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
-  { id: "DGO-ZC-MOB-12M", region: "zc", tier: "mobile", duration: "12M", price: 44.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
-  { id: "DGO-ZC-PLS-12M", region: "zc", tier: "plus", duration: "12M", price: 65.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
+  { id: "DGO-ZC-MOB-01M", region: "zc", tier: "mobile", duration: "01M", price: 4.99, regularPrice: 5.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: false },
+  { id: "DGO-ZC-PLS-01M", region: "zc", tier: "plus", duration: "01M", price: 6.99, regularPrice: 7.99, currency: "USD", entitlement: "EP-PLUS", liveSports: false },
+  { id: "DGO-ZC-MOB-03M", region: "zc", tier: "mobile", duration: "03M", price: 10.99, regularPrice: 14.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
+  { id: "DGO-ZC-PLS-03M", region: "zc", tier: "plus", duration: "03M", price: 16.99, regularPrice: 19.49, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
+  { id: "DGO-ZC-MOB-12M", region: "zc", tier: "mobile", duration: "12M", price: 40.99, regularPrice: 49.99, currency: "USD", entitlement: "EP-MOBILE", liveSports: true },
+  { id: "DGO-ZC-PLS-12M", region: "zc", tier: "plus", duration: "12M", price: 59.99, regularPrice: 70.99, currency: "USD", entitlement: "EP-PLUS", liveSports: true },
 ];
 
 export const TIER_META: Record<
@@ -176,4 +177,11 @@ export function savingsVsMonthly(
   if (amount <= 0) return null;
   const percent = Math.round((amount / (monthly.price * durationMonths(duration))) * 100);
   return { amount, percent, label: formatMoney(amount, picked.currency) };
+}
+
+/** Savings against the published regular price for this exact package. */
+export function savingsVsRegular(sku: SubscriptionSku): { amount: number; percent: number; label: string } | null {
+  const amount = Math.round((sku.regularPrice - sku.price) * 100) / 100;
+  if (amount <= 0) return null;
+  return { amount, percent: Math.round(amount / sku.regularPrice * 100), label: formatMoney(amount, sku.currency) };
 }

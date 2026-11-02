@@ -14,6 +14,7 @@ import {
   Ticket,
   HelpCircle,
   Info,
+  FileText,
   LogOut,
   CalendarClock,
   CreditCard,
@@ -476,6 +477,7 @@ export function AccountMenuPanel({ variant, onDismiss, onSignOut }: AccountMenuP
             <RowButton icon={Ticket} label={supportTickets} onClick={() => onDismiss()} />
             <RowButton icon={HelpCircle} label={help} onClick={() => onDismiss()} />
             <RowButton icon={Info} label={about} onClick={() => onDismiss()} />
+            <RowButton icon={FileText} label="Terms & Conditions" onClick={() => { onDismiss(); router.push("/terms/"); }} />
           </div>
         </MenuGroup>
       </div>

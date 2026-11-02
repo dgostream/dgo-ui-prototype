@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { cn } from "@/utils/cn";
+import { TermsConsent } from "@/components/TermsConsent";
 import { publicUrl } from "@/utils/asset";
 import {
   DEV_EXCLUSIVE_EVENT,
@@ -51,6 +52,7 @@ import {
   isStripeRegion,
   formatMonthlyRate,
   savingsVsMonthly,
+  savingsVsRegular,
   billingCadenceLabel,
   durationMonths,
 } from "@/utils/subscriptionCatalog";
@@ -1027,10 +1029,10 @@ function StepChoosePlan({
           const rowChange = resolvePlanChange(currentSession, row ?? null, renewalMode);
           const save =
             row && rowChange?.kind !== "fixed-tier-upgrade" && rowChange?.kind !== "deferred"
-              ? savingsVsMonthly(region, id, duration)
+              ? savingsVsRegular(row)
               : null;
           const compareAt =
-            save && row ? (findSku(region, id, "01M")?.price ?? 0) * durationMonths(duration) : 0;
+            save && row ? row.regularPrice : 0;
           const displayAmount = row
             ? rowChange?.kind === "new"
               ? checkoutPriceForSku(row)
@@ -1507,6 +1509,7 @@ function EmbeddedStripeForm({
     return window.matchMedia("(min-width: 768px)").matches ? "card" : null;
   });
   const [paymentError, setPaymentError] = useState<string | null>(null);
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const fmtCard = (v: string) => v.replace(/\D/g, "").slice(0, 16).replace(/(.{4})/g, "$1 ").trim();
   const fmtExp = (v: string) => {
     const n = v.replace(/\D/g, "").slice(0, 4);
@@ -1514,7 +1517,7 @@ function EmbeddedStripeForm({
   };
 
   const pay = () => {
-    if (busy) return;
+    if (busy || !termsAccepted) return;
     setBusy(true);
     window.setTimeout(() => {
       setBusy(false);
@@ -1529,6 +1532,10 @@ function EmbeddedStripeForm({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setPaymentError(null);
+    if (!termsAccepted) {
+      setPaymentError("Please read and accept the Terms & Conditions before continuing.");
+      return;
+    }
     if (!method) {
       setPaymentError("Choose a payment method.");
       return;
@@ -1828,9 +1835,11 @@ function EmbeddedStripeForm({
           </p>
         ) : null}
 
+        <TermsConsent international checked={termsAccepted} onChange={setTermsAccepted} />
+
         <button
           type="submit"
-          disabled={busy || !method}
+          disabled={busy || !method || !termsAccepted}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-gradient px-4 py-2.5 text-sm font-black text-white shadow-lg shadow-brand-purple/25 transition-transform hover:scale-[1.01] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
         >
           <Lock className="h-3.5 w-3.5" />
@@ -1858,6 +1867,7 @@ function StripePlanChangeReview({
   onConfirm: () => void;
 }) {
   const downgrade = changeKind === "provider-downgrade";
+  const [termsAccepted, setTermsAccepted] = useState(false);
   return (
     <div className="relative overflow-hidden rounded-2xl border border-white/12 bg-[#08050f] p-5 shadow-[0_16px_48px_rgba(99,91,255,0.12)]">
       <div className="pointer-events-none absolute -left-16 -top-20 h-40 w-40 rounded-full bg-[#635BFF]/25 blur-[80px]" />
@@ -1891,10 +1901,12 @@ function StripePlanChangeReview({
               )}. The new plan starts after that date.`
             : "The upgrade takes effect immediately. Stripe will calculate and show any prorated charge before final confirmation."}
         </p>
+        <div className="mt-5"><TermsConsent international checked={termsAccepted} onChange={setTermsAccepted} /></div>
         <button
           type="button"
-          onClick={onConfirm}
-          className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-brand-gradient px-4 py-3 text-sm font-black text-white"
+          disabled={!termsAccepted}
+          onClick={() => { if (termsAccepted) onConfirm(); }}
+          className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-brand-gradient px-4 py-3 text-sm font-black text-white disabled:cursor-not-allowed disabled:opacity-50"
         >
           Confirm plan change
           <ChevronRight className="h-4 w-4" />
@@ -1958,10 +1970,15 @@ function StepPayment({
     return n.length >= 3 ? `${n.slice(0, 2)}/${n.slice(2)}` : n;
   };
   const [paymentError, setPaymentError] = useState<string | null>(null);
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setPaymentError(null);
+    if (!termsAccepted) {
+      setPaymentError("Please read and accept the Terms & Conditions before continuing.");
+      return;
+    }
     if (!paymentMethod) {
       setPaymentError("Choose a payment method.");
       return;
@@ -2180,9 +2197,11 @@ function StepPayment({
               </p>
             ) : null}
 
+            <TermsConsent checked={termsAccepted} onChange={setTermsAccepted} />
+
             <button
               type="submit"
-              disabled={!paymentMethod}
+              disabled={!paymentMethod || !termsAccepted}
               className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-gradient px-4 py-2.5 text-sm font-black text-white shadow-lg shadow-brand-purple/25 transition-transform hover:scale-[1.01] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
             >
               <Lock className="h-3.5 w-3.5" />
