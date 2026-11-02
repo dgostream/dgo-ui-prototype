@@ -299,6 +299,8 @@ function checkoutPriceForSku(sku: SubscriptionSku): number {
 
 function planActionLabel(change: PlanChange | null, currentPlan: boolean): string {
   if (change?.kind === "current") return "Current plan";
+  if (change?.kind === "provider-upgrade") return "Upgrade";
+  if (change?.kind === "provider-downgrade") return "Schedule downgrade";
   return currentPlan ? "Current plan" : "Continue";
 }
 
