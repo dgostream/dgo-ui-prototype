@@ -20,6 +20,7 @@ import {
   CreditCard,
   RefreshCw,
 } from "lucide-react";
+import { NepalPlanNotice } from "@/components/NepalPlanNotice";
 import { cn } from "@/utils/cn";
 import { ProfileMenuPromoBanner } from "@/components/ProfileMenuPromoBanner";
 import { useTranslated } from "@/components/Translate";
@@ -77,6 +78,7 @@ function RowButton({
 
 function formatAccountDate(value: string | null | undefined): string {
   if (!value) return "—";
+  if (!Number.isFinite(Date.parse(value))) return "date unavailable";
   return new Intl.DateTimeFormat("en", {
     day: "numeric",
     month: "short",
@@ -281,17 +283,20 @@ export function AccountMenuPanel({ variant, onDismiss, onSignOut }: AccountMenuP
                       </div>
 
                       {session.billingMode === "prepaid" ? (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            onDismiss();
-                            router.push("/join?mode=renew");
-                          }}
-                          className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-gradient py-2.5 text-xs font-black text-white"
-                        >
-                          <RefreshCw className="h-3.5 w-3.5" />
-                          Add time or upgrade
-                        </button>
+                        <div className="space-y-3">
+                          <NepalPlanNotice />
+                          <button
+                            type="button"
+                            onClick={() => {
+                              onDismiss();
+                              router.push("/join");
+                            }}
+                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-gradient py-2.5 text-xs font-black text-white"
+                          >
+                            <RefreshCw className="h-3.5 w-3.5" />
+                            Browse plans
+                          </button>
+                        </div>
                       ) : session.status === "canceling" ? (
                         confirmResume ? (
                           <div className="rounded-xl border border-emerald-400/20 bg-emerald-400/6 p-3">

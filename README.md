@@ -277,12 +277,16 @@ npm run lint     # Run ESLint
 1. **Start fresh** — sign out if anything was previously unlocked, or open a new tab.
 2. **Home** — hero, partner rails, subscribe drive.
 3. **`/join`** — pick Mobile or Plus, Nepal wallets or Stripe, confirm.
-4. **Account menu** — active plan, add time (Nepal) or manage/cancel (Stripe).
+4. **Account menu** — active plan, Browse plans and Contact support (Nepal), or manage/cancel (Stripe).
 5. Optionally show the **admin/settings** screen to explain how ad slots are managed.
 
 ---
 
 ## Notes
+
+Nepal subscriptions follow the Kotlin checkout rules: while a plan is active, all packages remain browsable with their offer and regular prices. The owned package shows a disabled **Current plan** action. **Continue** on another package opens an active-subscription notice with **Contact support** and **Keep browsing**, rather than payment. No subscription additions, upgrades, extensions, or price-difference charges are allowed until expiry, including through a direct `/join` visit or an older `mode=renew` link. After expiry a purchase starts a fresh term. Separate exclusive event passes remain available. The Home and Account surfaces use **Browse plans** and show support guidance.
+
+Run `node scripts/test-plan-changes.cjs` to verify the Nepal purchase restrictions, expiry boundaries, storage guards, event-pass availability, and existing Stripe change rules.
 
 - This is a **prototype** — no real authentication, billing, or content licensing is in place.
 - Checkout flows are visual only; all payment fields are decorative.

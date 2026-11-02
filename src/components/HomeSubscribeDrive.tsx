@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Crown, ChevronRight, Clapperboard, Sparkles, type LucideIcon } from "lucide-react";
 import { publicUrl } from "@/utils/asset";
+import { NepalPlanNotice } from "@/components/NepalPlanNotice";
 import { useSubscriptionSession } from "@/hooks/useSubscriptionSession";
 import { DURATION_LABELS, TIER_META } from "@/utils/subscriptionCatalog";
 
@@ -30,7 +31,7 @@ export function HomeSubscribeDrive() {
       session
         ? session.billingMode === "recurring"
           ? "/join?mode=manage"
-          : "/join?mode=renew"
+          : "/join"
         : "/join"
     );
 
@@ -55,13 +56,14 @@ export function HomeSubscribeDrive() {
                     ? "Auto-renewing · live sports included"
                     : "Auto-renewing · no live sports on this term"}
             </p>
+            {session.region === "nepal" ? <div className="mt-3"><NepalPlanNotice /></div> : null}
           </div>
           <button
             type="button"
             onClick={goJoin}
             className="shrink-0 rounded-xl border border-white/12 px-4 py-2 text-xs font-bold text-white/70 hover:bg-white/6"
           >
-            {session.billingMode === "recurring" ? "Manage plan" : "Add time or upgrade"}
+            {session.billingMode === "recurring" ? "Manage plan" : "Browse plans"}
           </button>
         </div>
       </section>

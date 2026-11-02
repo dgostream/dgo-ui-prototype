@@ -30,6 +30,13 @@ export type SubscriptionSession = {
   };
 };
 
+export function hasActiveNepalPlan(session: SubscriptionSession | null, now = Date.now()): boolean {
+  if (!session || session.region !== "nepal") return false;
+  const expires = Date.parse(session.paidThrough);
+  // Match Android's fail-closed handling of malformed expiry dates.
+  return !Number.isFinite(expires) || expires > now;
+}
+
 function addUtcMonths(months: number): string {
   const date = new Date();
   date.setUTCMonth(date.getUTCMonth() + months);
@@ -97,6 +104,7 @@ export function getSubscriptionSession(): SubscriptionSession | null {
     }
     const parsed = JSON.parse(raw) as SubscriptionSession;
     if (!parsed?.skuId || !parsed.tier || !parsed.duration) return null;
+    if (parsed.region === "nepal" && !hasActiveNepalPlan(parsed)) return null;
     const fallbackSku = findSku(parsed.region ?? getDevRegion(), parsed.tier, parsed.duration);
     const fallback = fallbackSku ? sessionFromSku(fallbackSku) : null;
     return {
@@ -123,6 +131,13 @@ export function setSubscriptionSession(session: SubscriptionSession | null): voi
     /* ignore */
   }
   window.dispatchEvent(new Event(SUBSCRIPTION_EVENT));
+}
+
+/** A fresh Nepal term may start only after the previous subscription expires. */
+export function activateNepalSubscription(sku: SubscriptionSku): boolean {
+  if (sku.region !== "nepal" || hasActiveNepalPlan(getSubscriptionSession())) return false;
+  setSubscriptionSession(sessionFromSku(sku));
+  return true;
 }
 
 export function canWatchLiveSports(): boolean {

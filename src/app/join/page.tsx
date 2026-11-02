@@ -17,6 +17,9 @@ import {
 import { useRouter, useSearchParams } from "next/navigation";
 import { cn } from "@/utils/cn";
 import { TermsConsent } from "@/components/TermsConsent";
+import { useSubscriptionSession } from "@/hooks/useSubscriptionSession";
+import { NepalPlanNotice, NepalPlanDialog } from "@/components/NepalPlanNotice";
+import { resolvePlanChange, type PlanChange, type PlanChangeKind } from "@/utils/planChanges";
 import { publicUrl } from "@/utils/asset";
 import {
   DEV_EXCLUSIVE_EVENT,
@@ -27,6 +30,8 @@ import {
   getExclusiveEnabled,
   getOwnedPasses,
   getSubscriptionSession,
+  hasActiveNepalPlan,
+  activateNepalSubscription,
   sessionFromSku,
   setSubscriptionSession,
   type SubscriptionSession,
@@ -54,7 +59,6 @@ import {
   savingsVsMonthly,
   savingsVsRegular,
   billingCadenceLabel,
-  durationMonths,
 } from "@/utils/subscriptionCatalog";
 
 function safeReturnPath(raw: string | null): string | null {
@@ -87,66 +91,6 @@ function applyCouponAmount(amount: number, currency: "NPR" | "USD", coupon: Appl
   return currency === "NPR" ? Math.round(raw) : Math.round(raw * 100) / 100;
 }
 
-type PlanChangeKind =
-  | "new"
-  | "current"
-  | "renewal"
-  | "fixed-tier-upgrade"
-  | "immediate-extension"
-  | "provider-upgrade"
-  | "provider-downgrade"
-  | "deferred";
-
-type PlanChange = {
-  kind: PlanChangeKind;
-  amount: number;
-  allowed: boolean;
-};
-
-function resolvePlanChange(
-  current: SubscriptionSession | null,
-  target: SubscriptionSku | null,
-  renewalMode: boolean
-): PlanChange | null {
-  if (!target) return null;
-  if (!renewalMode || !current || current.region !== target.region) {
-    return { kind: "new", amount: target.price, allowed: true };
-  }
-  if (current.skuId === target.id) {
-    return current.billingMode === "recurring"
-      ? { kind: "current", amount: target.price, allowed: false }
-      : { kind: "renewal", amount: target.price, allowed: true };
-  }
-  if (current.billingMode === "recurring") {
-    const currentMonths = durationMonths(current.duration);
-    const targetMonths = durationMonths(target.duration);
-    const downgrade =
-      (current.tier === "plus" && target.tier === "mobile") || targetMonths < currentMonths;
-    return {
-      kind: downgrade ? "provider-downgrade" : "provider-upgrade",
-      amount: target.price,
-      allowed: true,
-    };
-  }
-
-  const currentMonths = durationMonths(current.duration);
-  const targetMonths = durationMonths(target.duration);
-  if (targetMonths < currentMonths || (current.tier === "plus" && target.tier === "mobile")) {
-    return { kind: "deferred", amount: target.price, allowed: false };
-  }
-  if (current.tier === "mobile" && target.tier === "plus" && current.duration === target.duration) {
-    const currentSku = findSku(current.region, current.tier, current.duration);
-    return {
-      kind: "fixed-tier-upgrade",
-      amount: Math.max(0, target.price - (currentSku?.price ?? 0)),
-      allowed: true,
-    };
-  }
-  if (targetMonths > currentMonths) {
-    return { kind: "immediate-extension", amount: target.price, allowed: true };
-  }
-  return { kind: "deferred", amount: target.price, allowed: false };
-}
 type StripeFormState = {
   email: string;
   name: string;
@@ -355,9 +299,7 @@ function checkoutPriceForSku(sku: SubscriptionSku): number {
 
 function planActionLabel(change: PlanChange | null, currentPlan: boolean): string {
   if (change?.kind === "current") return "Current plan";
-  if (change?.kind === "fixed-tier-upgrade") return "Upgrade";
-  if (change?.kind === "deferred") return "Available after current term";
-  return currentPlan ? "Add time" : "Continue";
+  return currentPlan ? "Current plan" : "Continue";
 }
 
 function JoinPageInner() {
@@ -392,7 +334,10 @@ function JoinPageInner() {
   });
   const [stripeBusy, setStripeBusy] = useState(false);
   const [coupon, setCoupon] = useState<AppliedCoupon | null>(null);
+  const [showNepalNotice, setShowNepalNotice] = useState(false);
   const [currentSession, setCurrentSession] = useState<SubscriptionSession | null>(null);
+  const observedSession = useSubscriptionSession();
+  useEffect(() => setCurrentSession(observedSession), [observedSession]);
   const [orderRef] = useState(() => generateOrderRef("DGO"));
   const stepContentRef = useRef<HTMLDivElement>(null);
 
@@ -490,6 +435,13 @@ function JoinPageInner() {
   const maxStep = 2;
 
   const next = () => {
+    if (!buyingEvent && region === "nepal" && hasActiveNepalPlan(getSubscriptionSession())) {
+      setCurrentSession(getSubscriptionSession());
+      setShowNepalNotice(true);
+      setStep(0);
+      return;
+    }
+    if (step === 0 && !canAdvanceFromPlan) return;
     if (step === 0) setKind(buyingEvent ? "pvod" : "subscription");
     setStep((s) => Math.min(s + 1, maxStep));
   };
@@ -505,6 +457,7 @@ function JoinPageInner() {
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-brand-purple/30">
+      <NepalPlanDialog open={showNepalNotice} onDismiss={() => setShowNepalNotice(false)} />
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/5">
         <div className="flex items-center justify-between gap-3 px-4 sm:px-6 md:px-14 py-3.5">
           <button
@@ -518,11 +471,9 @@ function JoinPageInner() {
           <span className="font-black tracking-wide text-xs md:text-sm text-white/80 truncate">
             {buyingEvent
               ? "Exclusive"
-              : manageMode
-                ? "Manage plan"
-                : renewalMode
-                  ? "Add time or upgrade"
-                  : "Choose a plan"}
+              : hasActiveNepalPlan(currentSession) && region === "nepal"
+                  ? "Explore plans"
+                  : manageMode ? "Manage plan" : "Choose a plan"}
           </span>
           <img src={publicUrl("/dgo-logo-new.png")} alt="DGO" className="h-7 md:h-9 w-auto object-contain opacity-70 shrink-0" />
         </div>
@@ -711,6 +662,7 @@ const PLAN_FACTS: Record<PlanTier, string[]> = {
 
 function formatRenewalDate(value: string | null): string {
   if (!value) return "";
+  if (!Number.isFinite(Date.parse(value))) return "date unavailable";
   return new Intl.DateTimeFormat("en", {
     day: "numeric",
     month: "short",
@@ -729,26 +681,10 @@ function PlanLifecycleNote({
     <div className="mt-6 flex items-start gap-3 rounded-2xl border border-white/10 bg-white/4 px-4 py-3.5">
       <Info className="mt-0.5 h-4 w-4 shrink-0 text-brand-purple" />
       <p className="text-xs leading-relaxed text-white/50">
-        {selectedChange?.kind === "fixed-tier-upgrade" ? (
-          <>
-            Plus benefits activate immediately, and another full term is added after your current access.
-          </>
-        ) : selectedChange?.kind === "immediate-extension" ? (
-          <>
-            The selected benefits activate immediately after payment. The full selected term is added after your
-            current access ends. It will not renew automatically.
-          </>
-        ) : selectedChange?.kind === "deferred" ? (
-          <>
-            Your current benefits stay active until{" "}
-            <span className="font-semibold text-white/75">{formatRenewalDate(currentSession.paidThrough)}</span>. A
-            shorter term or lower tier can be purchased after that date.
-          </>
-        ) : currentSession.billingMode === "prepaid" ? (
+        {currentSession.region === "nepal" ? (
           <>
             Your access is active until{" "}
-            <span className="font-semibold text-white/75">{formatRenewalDate(currentSession.paidThrough)}</span>. Your
-            selection adds more time after that date.
+            <span className="font-semibold text-white/75">{formatRenewalDate(currentSession.paidThrough)}</span>.
           </>
         ) : selectedChange?.kind === "provider-downgrade" ? (
           <>
@@ -939,9 +875,10 @@ function StepChoosePlan({
   onCatalogTab?: (tab: "plans" | "exclusive") => void;
 }) {
   const selectedRow = findSku(region, tierId, duration) ?? null;
-  const selectedCurrentPlan = renewalMode && !!selectedRow && currentSession?.skuId === selectedRow.id;
+  const nepalPlanLocked = region === "nepal" && hasActiveNepalPlan(currentSession);
+  const selectedCurrentPlan = (renewalMode || nepalPlanLocked) && !!selectedRow && currentSession?.skuId === selectedRow.id;
   const selectedAmount = selectedRow
-    ? selectedChange?.kind === "new"
+    ? nepalPlanLocked || selectedChange?.kind === "new"
       ? checkoutPriceForSku(selectedRow)
       : selectedChange?.amount ?? checkoutPriceForSku(selectedRow)
     : 0;
@@ -957,10 +894,10 @@ function StepChoosePlan({
           <CatalogTabs selected={catalogTab} onSelect={onCatalogTab} />
         ) : null}
         <h1 className="text-4xl font-black tracking-tight text-white md:text-5xl">
-          {manageMode ? "Change your plan" : renewalMode ? "Add time or upgrade" : "Choose your plan"}
+          {nepalPlanLocked ? "Explore plans" : region !== "nepal" && manageMode ? "Change your plan" : "Choose your plan"}
         </h1>
         <p className="mt-2 text-sm text-white/50">
-          {renewalMode && currentSession ? (
+          {(renewalMode || nepalPlanLocked) && currentSession ? (
             <>
               Current:{" "}
               <span className="font-bold text-white/85">
@@ -1025,16 +962,16 @@ function StepChoosePlan({
           const meta = TIER_META[id];
           const row = findSku(region, id, duration);
           const active = tierId === id;
-          const currentPlan = renewalMode && !!row && currentSession?.skuId === row.id;
+          const currentPlan = (renewalMode || nepalPlanLocked) && !!row && currentSession?.skuId === row.id;
           const rowChange = resolvePlanChange(currentSession, row ?? null, renewalMode);
           const save =
-            row && rowChange?.kind !== "fixed-tier-upgrade" && rowChange?.kind !== "deferred"
+            row
               ? savingsVsRegular(row)
               : null;
           const compareAt =
             save && row ? row.regularPrice : 0;
           const displayAmount = row
-            ? rowChange?.kind === "new"
+            ? nepalPlanLocked || rowChange?.kind === "new"
               ? checkoutPriceForSku(row)
               : rowChange?.amount ?? checkoutPriceForSku(row)
             : 0;
@@ -1105,16 +1042,8 @@ function StepChoosePlan({
                 ) : null}
               </div>
               <p className="mt-1 text-sm text-white/45">
-                {rowChange?.kind === "fixed-tier-upgrade"
-                  ? "One-time upgrade fee"
-                  : rowChange?.kind === "deferred"
-                    ? "Available after your current term"
-                    : (
-                      <>
-                        {row ? `${formatMonthlyRate(row)} · ` : ""}
-                        {billingCadenceLabel(duration, region)}
-                      </>
-                    )}
+                {row ? `${formatMonthlyRate(row)} · ` : ""}
+                {billingCadenceLabel(duration, region)}
               </p>
 
               <ul className="mt-5 space-y-2 text-sm text-white/70">
@@ -1142,16 +1071,16 @@ function StepChoosePlan({
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
-                      if (canContinue && rowChange?.allowed !== false) onNext();
+                      if (nepalPlanLocked ? !currentPlan : canContinue && rowChange?.allowed !== false) onNext();
                     }}
-                    disabled={!canContinue || rowChange?.allowed === false}
+                    disabled={nepalPlanLocked ? currentPlan : !canContinue || rowChange?.allowed === false}
                     className="flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-gradient px-4 py-3.5 text-sm font-black text-white shadow-lg shadow-brand-purple/25 transition-transform hover:scale-[1.01] active:scale-[0.98] disabled:cursor-default disabled:bg-none disabled:bg-white/8 disabled:text-white/40 disabled:shadow-none"
                   >
                     {planActionLabel(rowChange, currentPlan)}
-                    {row && rowChange?.allowed !== false
+                    {row && !nepalPlanLocked && rowChange?.allowed !== false
                       ? ` · ${formatMoney(displayAmount, row.currency)}`
                       : ""}
-                    {rowChange?.allowed !== false ? <ChevronRight className="h-4 w-4" /> : null}
+                    {!currentPlan && (nepalPlanLocked || rowChange?.allowed !== false) ? <ChevronRight className="h-4 w-4" /> : null}
                   </button>
                 ) : (
                   <div className="rounded-2xl border border-white/10 py-3.5 text-center text-sm font-semibold text-white/35">
@@ -1163,7 +1092,8 @@ function StepChoosePlan({
           );
         })}
       />
-      {renewalMode && currentSession ? (
+      {nepalPlanLocked ? <div className="mt-6 rounded-2xl border border-white/10 bg-white/4 p-4"><NepalPlanNotice /></div> : null}
+      {(renewalMode || nepalPlanLocked) && currentSession ? (
         <PlanLifecycleNote currentSession={currentSession} selectedChange={selectedChange} />
       ) : null}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/90 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur-xl md:hidden">
@@ -1181,7 +1111,7 @@ function StepChoosePlan({
           <button
             type="button"
             onClick={onNext}
-            disabled={!canContinue || selectedChange?.allowed === false}
+            disabled={nepalPlanLocked ? selectedCurrentPlan : !canContinue || selectedChange?.allowed === false}
             className="shrink-0 rounded-xl bg-brand-gradient px-5 py-3 text-xs font-black text-white disabled:cursor-not-allowed disabled:bg-none disabled:bg-white/8 disabled:text-white/35"
           >
             {planActionLabel(selectedChange, selectedCurrentPlan)}
@@ -2217,12 +2147,6 @@ function StepPayment({
   );
 }
 
-function addMonthsToDate(value: string, months: number): string {
-  const date = new Date(value);
-  date.setUTCMonth(date.getUTCMonth() + months);
-  return date.toISOString();
-}
-
 function persistPurchase(
   kind: "subscription" | "pvod",
   sku: SubscriptionSku | null,
@@ -2231,6 +2155,10 @@ function persistPurchase(
   eventKey: string | null
 ) {
   if (kind === "subscription" && sku) {
+    if (sku.region === "nepal") {
+      activateNepalSubscription(sku);
+      return;
+    }
     if (currentSession?.billingMode === "recurring" && planChangeKind === "provider-downgrade") {
       setSubscriptionSession({
         ...currentSession,
@@ -2244,15 +2172,6 @@ function persistPurchase(
       return;
     }
     const next = sessionFromSku(sku);
-    if (currentSession?.billingMode === "prepaid" && planChangeKind === "fixed-tier-upgrade") {
-      next.paidThrough = addMonthsToDate(currentSession.paidThrough, durationMonths(sku.duration));
-    }
-    if (
-      currentSession?.billingMode === "prepaid" &&
-      (planChangeKind === "renewal" || planChangeKind === "immediate-extension")
-    ) {
-      next.paidThrough = addMonthsToDate(currentSession.paidThrough, durationMonths(sku.duration));
-    }
     if (currentSession?.billingMode === "recurring" && planChangeKind === "provider-upgrade") {
       next.paidThrough = currentSession.paidThrough;
       next.nextBillingDate = currentSession.nextBillingDate;
