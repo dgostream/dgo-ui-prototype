@@ -37,19 +37,19 @@ export default function TermsPage() {
         </div>
         <article className="rounded-2xl border border-white/10 bg-white/3 p-5 sm:p-8">
           <h2 className="text-xl font-bold">{document.title}</h2>
-          <p className="mt-3 text-sm text-purple-300">Effective date: November 2026</p>
+          <p className="mt-3 text-sm text-purple-300">{document.effective}</p>
           <p className="mt-2 text-sm leading-relaxed text-white/60">Applies to: {document.scope}</p>
           <p className="mt-8 text-sm leading-7 text-white/80">{document.preamble}</p>
           {document.sections.map((section) => (
             <section key={section.title} className="mt-8 border-t border-white/10 pt-6">
               <h3 className="text-base font-bold leading-relaxed">{section.title}</h3>
               <div className="mt-3 space-y-3 text-sm leading-7 text-white/75">
-                {section.body.split(/\s+(?=\d+\.\d+\s|•\s)/).map((paragraph, i) => <p key={i}>{paragraph}</p>)}
+                {section.body.split(/\s*\n\s*\n\s*|\s+(?=\d+\.\d+\s|•\s)/).filter((p) => p.trim()).map((paragraph, i) => <p key={i} className="whitespace-pre-line">{paragraph}</p>)}
               </div>
             </section>
           ))}
         </article>
-        <p className="py-8 text-sm text-white/60">Questions about your subscription? <a href="mailto:support@watchdgo.com" className="text-purple-300 underline underline-offset-4">Contact DGO Support</a></p>
+        <p className="py-8 text-sm text-white/60">Questions about your subscription? <a href="mailto:support@watchdgo.com" className="text-purple-300 underline underline-offset-4">Contact DGO Support</a> · <a href={terms.privacyUrl} target="_blank" rel="noopener noreferrer" className="text-purple-300 underline underline-offset-4">Privacy Policy</a></p>
       </div>
     </main>
   );
