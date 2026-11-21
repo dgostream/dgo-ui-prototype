@@ -1,0 +1,369 @@
+{
+  "title": "Privacy Policy",
+  "effective": "Effective 20 November 2026",
+  "url": "https://www.watchdgo.com/en/page/privacy-policy",
+  "intro": "Your privacy matters. This policy explains the information DGO collects when you use its websites, mobile apps, television apps and streaming services, why we use it, who receives it, and the controls and rights available to you. It covers free and paid features, including subscriptions purchased in Nepal and internationally.",
+  "sections": [
+    {
+      "title": "1. Scope, responsible entities and contacts",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This Privacy Policy applies to DGO services offered through our websites, apps and supported connected devices, unless a separate privacy notice is displayed for a particular service. The legal entity responsible for determining how and why your personal data is processed (the “controller”) is identified below:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Responsibility",
+            "Details"
+          ],
+          "rows": [
+            [
+              "DGO account, viewing and platform-data controller",
+              "DGO DIGITAL LIMITED, PENTAX HOUSE, SOUTH HILL AVENUE, SOUTH HARROW, HARROW, HA2 0DU"
+            ],
+            [
+              "International subscription seller, if different",
+              "DGO DIGITAL LIMITED, PENTAX HOUSE, SOUTH HILL AVENUE, SOUTH HARROW, HARROW, HA2 0DU"
+            ],
+            [
+              "Nepal subscription seller",
+              "DISHHOME DIGITAL PVT. LTD., CHYASIKOT, LALITPUR, NEPAL"
+            ],
+            [
+              "Privacy requests and complaints",
+              "compliance@dishhome.com.np"
+            ],
+            [
+              "Customer support and billing enquiries",
+              "support@watchdgo.com"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The seller shown on your order confirmation may be different from the entity operating DGO. Where another DGO company independently determines how it uses personal data, we will identify that company and its responsibilities in the relevant purchase or service notice. Payment providers, app store and other third parties may also act as independent controllers under their own privacy notices."
+        },
+        {
+          "type": "p",
+          "text": "This policy is an information notice, not a request to consent to every processing activity. Where a particular activity requires your consent, we will request it separately."
+        }
+      ]
+    },
+    {
+      "title": "2. Personal information we collect and where it comes from",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The information we process depends on how you access DGO, which features you use, your country, the purchase channel, and the permissions you choose."
+        },
+        {
+          "type": "h",
+          "text": "Information you provide"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Account and contact information: name, email address, phone number, account identifiers, password or authentication information, and other details used to register or recover an account.",
+            "Profile and preference information: selected language, profile settings, watchlists, favourites, ratings or feedback where these features are available.",
+            "Support and participation information: messages to support, complaints, survey responses, competition entries and information you give us when participating in an offer."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Information generated when you use DGO"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Viewing and interaction information: titles viewed, viewing progress, search queries, playback events, subscription entitlements, app interactions and use of platform features.",
+            "Device and technical information: device type and model, operating system, app or browser version, device or app identifiers, IP address, network and connection diagnostics, error reports, session events, and security logs.",
+            "Approximate location and rights information: the country or region inferred from network information and other signals used to apply content licensing, pricing, security and access rules. We do not describe this as precise GPS location unless a specific feature requests and uses it.",
+            "Communications and measurement information: whether service messages are delivered or opened and, where enabled and permitted, data produced by analytics, cookies, software development kits (SDKs) or advertising measurements."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Information from others"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Payment providers and app stores may provide payment status, transaction references, subscription identifiers, billing currency, tax details, limited payment-method information, refund outcomes and fraud or payment-failure signals.",
+            "Distribution, telecommunications, promotional or content partners may supply limited account-matching, offer-redemption or entitlement information when you use a partner offer.",
+            "Authentication, technical, analytics or advertising providers may supply information needed to operate their integrations, subject to your choices and applicable law."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Where information is required to create an account, authenticate you, fulfil a purchase or deliver a licensed stream, we will indicate that requirement in the relevant flow. You may choose not to provide optional information, although some features may then be unavailable."
+        }
+      ]
+    },
+    {
+      "title": "3. Why we process information and our lawful bases",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Where UK or European data protection law applies, we rely on the lawful basis identified below for each activity. Other jurisdictions may use different legal concepts or require additional permission. A legal basis for processing personal data does not override separate rules requiring consent for cookies, direct marketing or other technologies."
+        },
+        {
+          "type": "table",
+          "head": [
+            "Activity and purpose",
+            "Typical information and lawful basis"
+          ],
+          "rows": [
+            [
+              "Create and operate your account; authenticate access; deliver streaming and subscriptions",
+              "Account details, identifiers, entitlements and playback data. Contractual necessity."
+            ],
+            [
+              "Accept, verify and reconcile payments; manage renewals, refunds and disputes",
+              "Transaction and billing references. Contractual necessity; legal obligation for tax, accounting and mandatory records."
+            ],
+            [
+              "Protect accounts, investigate fraud, secure the platform and enforce licensed access",
+              "Device, IP, login and security events. Legitimate interests in protecting customers, rights holders and the service; legal obligation where required."
+            ],
+            [
+              "Provide support and resolve technical faults or complaints",
+              "Account, device, playback and correspondence records. Contractual necessity and legitimate interests in resolving issues; legal obligation where required."
+            ],
+            [
+              "Improve stability, performance and service design",
+              "Diagnostic, aggregated and permitted usage data. Legitimate interests in running and improving DGO, or consent where required for a particular technology."
+            ],
+            [
+              "Personalise viewing features and recommendations",
+              "Viewing history, preferences and profile information. Legitimate interests or contractual necessity as applicable; consent where required."
+            ],
+            [
+              "Send service notices, receipts, security alerts and subscription communications",
+              "Account and contact details. Contractual necessity and legal obligation."
+            ],
+            [
+              "Send optional promotions and measure advertising performance",
+              "Contact details, permitted identifiers and campaign interactions. Consent or another applicable marketing basis, with consent for tracking where required."
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Our legitimate interests include securing DGO, preventing misuse, protecting licensed content, maintaining reliable playback, understanding service quality and responding to customer requests. We consider the impact on individuals before relying on those interests. You may object to processing based on legitimate interests as explained in section 9."
+        }
+      ]
+    },
+    {
+      "title": "4. Accounts, authentication, subscriptions and payments",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "We use account identifiers and contact information to register and authenticate users, deliver one-time passwords or other login messages, recover accounts, maintain subscription status and apply device and stream limits. We may retain evidence of purchase, plan changes, cancellation status and customer authorisations when needed for billing accuracy or legal compliance."
+        },
+        {
+          "type": "p",
+          "text": "Depending on the country and purchase channel, payments may be handled by providers including Stripe for eligible direct international purchases and eSewa, Khalti, ConnectIPS, Fonepay or GetPay for eligible Nepal purchases. Purchases billed by Apple, Google or another authorised app store are processed through that store. Available methods depend on the service and checkout presented to you."
+        },
+        {
+          "type": "p",
+          "text": "The relevant payment provider may collect card, wallet or bank details directly under its own privacy terms. DGO may receive transaction identifiers, limited payment-method information, currency, payment status, billing country, refund or chargeback data and information needed for support and financial reconciliation. We do not ask you to send full card numbers, security codes or passwords to customer support."
+        },
+        {
+          "type": "p",
+          "text": "Your subscription contract and cancellation rights are explained separately in the applicable subscription terms and checkout. Cancelling future renewal through DGO’s subscription-management interface does not, by itself, request deletion of your personal information or your account."
+        }
+      ]
+    },
+    {
+      "title": "5. Devices, viewing activity and content availability",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "To enable streaming, DGO processes session, device, playback and entitlement information. This may include stream start and stop times, playback failures, viewing progress, technical quality, device compatibility and concurrent-session activity. We use such information to deliver the requested service, troubleshoot errors, prevent account misuse, and apply relevant content rights and plan restrictions."
+        },
+        {
+          "type": "p",
+          "text": "Content access may be limited by country or region. We may estimate your location using IP addresses and related network signals to decide whether a title can be displayed or played and whether a particular offer is eligible. A location inferred this way may not be exact. Where a particular feature requires more precise location information, we will provide additional information or request permission as required."
+        },
+        {
+          "type": "p",
+          "text": "Viewing history and stated preferences may support features such as Continue Watching, watchlists and recommendations. We may use aggregated or de-identified viewing statistics to assess the performance of content and the platform. We do not treat de-identified data as anonymous unless individuals cannot reasonably be identified from it."
+        },
+        {
+          "type": "p",
+          "text": "Automated technical rules may be used to verify eligibility, detect unusual account activity or manage content rights. If we introduce decisions that require special disclosure or review rights under applicable law, we will provide those details and safeguards."
+        }
+      ]
+    },
+    {
+      "title": "6. Sharing with service providers, partners and others",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "We share personal information only for the purposes described in this policy or another disclosed and lawful purpose. Recipients may include:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Payment providers, app stores and financial service providers that process charges, verify payments, manage refunds or investigate disputes.",
+            "Hosting, cloud, content-delivery network, digital-rights management, streaming and technical support providers that operate or protect DGO infrastructure.",
+            "Authentication, communications, customer support, analytics and performance-measurement providers supporting the relevant DGO service.",
+            "Advertising and promotional partners, but only for permitted and disclosed purposes and subject to choices or consent required by applicable law.",
+            "Telecommunications, distribution or content partners where needed to validate an offer, deliver an entitlement, comply with rights restrictions or administer a promotion.",
+            "Professional advisers, competent public authorities or other parties where disclosure is necessary to meet legal obligations, defend legal claims or respond to lawful requests.",
+            "An acquirer, successor or other organisation involved in a genuine restructuring, merger or asset transfer, subject to applicable confidentiality, notice and privacy requirements."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Some recipients process information on our instructions under contractual safeguards; others, such as payment providers or app stores, may determine certain processing purposes independently and provide their own privacy notices. DGO does not sell customer contact lists to unrelated parties for their independent marketing. Some laws define advertising-related disclosures as “sale” or “sharing” even without a monetary sale; where those laws apply, we will provide the required disclosures and choices."
+        },
+        {
+          "type": "p",
+          "text": "Links to external websites and services are subject to those third parties’ own policies. DGO remains responsible for its own processing and for legal obligations that apply to its use of service providers."
+        }
+      ]
+    },
+    {
+      "title": "7. International access and data transfers",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Because DGO provides services across territories, personal information may be stored, supported or accessed in Nepal, the United Kingdom and other countries where DGO’s approved service providers or associated entities operate. Applicable protections may differ by country."
+        },
+        {
+          "type": "p",
+          "text": "Where a cross-border transfer is subject to specific legal restrictions, we assess and apply a lawful transfer mechanism, which may include a recognised adequacy arrangement, approved contractual safeguards or another permitted legal basis. We also consider appropriate security and access controls. You may request information about the transfer safeguards applicable to your data using the privacy contact in section 1."
+        }
+      ]
+    },
+    {
+      "title": "8. Retention, account closure and deletion",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "We retain personal data for the period needed for the stated purpose, taking account of the active subscription, required financial and legal records, fraud and security risks, the need to resolve disputes and the sensitivity of the information. Our principal retention criteria are:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Data category",
+            "Retention criteria"
+          ],
+          "rows": [
+            [
+              "Account and profile data",
+              "For the life of the account; after closure, limited records may remain where needed for statutory duties, security, disputes or account-recovery obligations."
+            ],
+            [
+              "Transaction, subscription and tax records",
+              "For applicable accounting, tax, consumer-remedy, reconciliation and chargeback periods, even if an account is closed."
+            ],
+            [
+              "Viewing history and preferences",
+              "While needed to provide the associated account feature or justified service analytics; removed or de-identified when no longer required."
+            ],
+            [
+              "Operational, error and security logs",
+              "For a proportionate period based on troubleshooting, service integrity, security investigations and legally required records."
+            ],
+            [
+              "Support requests and complaints",
+              "While the matter is open and for any further lawful period needed to demonstrate resolution or address claims."
+            ],
+            [
+              "Marketing preferences and consent records",
+              "Until the preference changes, together with limited suppression or consent-history records needed to honour and evidence choices."
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "When you request account deletion, we assess the request against applicable legal duties and any active contractual requirements. Account deletion and turning off subscription renewal are separate actions. Data no longer required will be securely deleted or de-identified, subject to reasonable backup deletion cycles and lawful retention exceptions. We can explain the criteria relevant to a specific request."
+        }
+      ]
+    },
+    {
+      "title": "9. Your privacy rights and choices",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Depending on where you live and the applicable privacy laws, you may have the right to request access to personal data we hold about you, correction of inaccurate information, deletion, restriction of processing, portability, and objection to particular processing. You may also have rights relating to certain solely automated decisions."
+        },
+        {
+          "type": "p",
+          "text": "Where processing relies on consent, you can withdraw that consent at any time without affecting the lawfulness of processing already carried out. You may object to direct marketing at any time; we will stop marketing to you as required by law. Where processing relies on legitimate interests, you may object and we will consider the objection under the applicable rules."
+        },
+        {
+          "type": "p",
+          "text": "Some data can be updated directly in your DGO account. For other requests, email compliance@dishhome.com.np with your account identifier and the right you wish to exercise. We may ask for information reasonably necessary to verify your identity or authority to act for someone else."
+        },
+        {
+          "type": "p",
+          "text": "Do not include payment-card credentials or passwords. We respond within the timeframe required by applicable law and explain any lawful refusal, limitation or extension."
+        },
+        {
+          "type": "p",
+          "text": "You may also manage permissions through relevant browser, operating-system or app settings. Those settings may not control all processing, and we will provide additional rights channels where required."
+        }
+      ]
+    },
+    {
+      "title": "10. Children and household viewing",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "DGO paid accounts and subscription purchases are intended to be managed by adults who are legally able to enter into the contract. Children may watch age-appropriate content through a parent- or guardian-managed household account where permitted by the service and subject to appropriate supervision. We do not knowingly invite children to create independent paid accounts."
+        },
+        {
+          "type": "p",
+          "text": "If we become aware that personal information relating to a child has been collected contrary to applicable law or our account rules, we will take appropriate steps, which may include restricting the account, obtaining required parental authorisation or deleting information. A parent or guardian may contact our privacy team with relevant concerns. Features likely to be accessed by children will be assessed against applicable child-privacy and age-appropriate-design obligations."
+        }
+      ]
+    },
+    {
+      "title": "11. Information security and incidents",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "We maintain organisational and technical measures designed to protect personal information from unauthorised access, loss, misuse and alteration. Depending on the system, these measures may include access controls, authentication, secure transmission, logging, monitoring, vendor oversight and security reviews."
+        },
+        {
+          "type": "p",
+          "text": "No service can guarantee absolute security. If an incident involving personal information occurs, we will assess it and notify affected individuals and relevant authorities where required by law. Please report suspected account misuse or security concerns to support@watchdgo.com or the privacy contact in section 1."
+        }
+      ]
+    },
+    {
+      "title": "12. Privacy questions, complaints and regulators",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "For questions about this policy, requests to exercise rights or complaints about personal-information handling, contact compliance@dishhome.com.np. Please describe the issue, provide the account email or user identifier and explain the resolution you seek. We will investigate fairly, keep relevant records and explain the outcome. Where UK data-protection complaint rules apply, we will acknowledge receipt within the legally required period, currently 30 days, and investigate without unjustifiable delay."
+        },
+        {
+          "type": "p",
+          "text": "You may also complain to the data-protection authority competent for your location or the relevant controller, including the UK Information Commissioner’s Office where applicable. Nothing in this policy limits a statutory right to contact a regulator or seek a legal remedy."
+        }
+      ]
+    },
+    {
+      "title": "13. Updates to this policy",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "We may change this policy to reflect new services, technologies, data practices or legal requirements. The revised policy will state its effective date and be available through DGO. If a material change requires additional notice or consent under applicable law, we will give that notice or request consent before the change takes effect. Continued use of DGO does not replace a consent that law requires us to obtain."
+        },
+        {
+          "type": "p",
+          "text": "The version applicable to a particular processing activity is the version in force when that processing occurs, subject to any additional rights or notices required by law."
+        }
+      ]
+    }
+  ],
+  "contacts": [
+    "Privacy contact: compliance@dishhome.com.np",
+    "Customer support: support@watchdgo.com"
+  ]
+}

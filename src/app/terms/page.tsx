@@ -49,7 +49,7 @@ export default function TermsPage() {
             </section>
           ))}
         </article>
-        <p className="py-8 text-sm text-white/60">Questions about your subscription? <a href="mailto:support@watchdgo.com" className="text-purple-300 underline underline-offset-4">Contact DGO Support</a> · <a href={terms.privacyUrl} target="_blank" rel="noopener noreferrer" className="text-purple-300 underline underline-offset-4">Privacy Policy</a></p>
+        <p className="py-8 text-sm text-white/60">Questions about your subscription? <a href="mailto:support@watchdgo.com" className="text-purple-300 underline underline-offset-4">Contact DGO Support</a> · <Link href="/privacy/" className="text-purple-300 underline underline-offset-4">Privacy Policy</Link></p>
       </div>
     </main>
   );

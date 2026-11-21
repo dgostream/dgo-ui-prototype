@@ -20,7 +20,6 @@ import { useEffect, Suspense, useRef } from "react";
 import { getLandingPageSections, getHeroContent, getAdSettings, ContentItem, isFifaLabeled } from "@/utils/content";
 import { publicUrl } from "@/utils/asset";
 import { useTranslated } from "@/components/Translate";
-import terms from "@/data/terms.json";
 
 // Map string icon names to Lucide components
 const IconMap: Record<string, any> = {
@@ -262,7 +261,7 @@ function HomeContent() {
                             {/* Premium Minimal Footer */}
                             <div className="mt-8 md:mt-12 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/5 pt-8 transition-opacity duration-500">
                               <div className="flex items-center gap-6 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.3em] text-white/60">
-                                <a href={terms.privacyUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{tPrivacy}</a>
+                                <Link href="/privacy/" className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{tPrivacy}</Link>
                                 <span className="w-1 h-1 rounded-full bg-white/20" />
                                 <Link href="/terms/" className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{tTerms}</Link>
                                 <span className="w-1 h-1 rounded-full bg-white/20" />

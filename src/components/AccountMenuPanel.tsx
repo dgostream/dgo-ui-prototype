@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 import { NepalPlanNotice } from "@/components/NepalPlanNotice";
 import { cn } from "@/utils/cn";
-import terms from "@/data/terms.json";
 import { ProfileMenuPromoBanner } from "@/components/ProfileMenuPromoBanner";
 import { useTranslated } from "@/components/Translate";
 import { useSubscriptionSession } from "@/hooks/useSubscriptionSession";
@@ -485,7 +484,7 @@ export function AccountMenuPanel({ variant, onDismiss, onSignOut }: AccountMenuP
             <RowButton icon={HelpCircle} label={help} onClick={() => onDismiss()} />
             <RowButton icon={Info} label={about} onClick={() => onDismiss()} />
             <RowButton icon={FileText} label="Terms & Conditions" onClick={() => { onDismiss(); router.push("/terms/"); }} />
-            <RowButton icon={ShieldCheck} label="Privacy Policy" onClick={() => { onDismiss(); window.open(terms.privacyUrl, "_blank", "noopener,noreferrer"); }} />
+            <RowButton icon={ShieldCheck} label="Privacy Policy" onClick={() => { onDismiss(); router.push("/privacy/"); }} />
           </div>
         </MenuGroup>
       </div>

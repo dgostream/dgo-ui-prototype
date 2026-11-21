@@ -19,7 +19,7 @@ export function TermsConsent({ international = false, checked, onChange }: {
         className="ml-7 inline-block text-xs font-semibold text-purple-300 underline underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
         Read {international ? "International" : "Nepal"} Terms & Conditions (opens in a new tab)
       </a>
-      <a href={terms.privacyUrl} target="_blank" rel="noopener noreferrer"
+      <a href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/privacy/`} target="_blank" rel="noopener noreferrer"
         className="ml-7 block text-xs font-semibold text-purple-300 underline underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
         Privacy Policy (opens in a new tab)
       </a>
